@@ -11,9 +11,3 @@ def contacts(request):
         "title": "Контакти компанії | HanBild.com.ua"
     }
     return render(request, "main/index.html", context=context)
-
-def solutions(request):
-    context = {
-        "title": "Готові рішення | HanBild.com.ua"
-    }
-    return render(request, "main/solutions.html", context=context)
