@@ -1,4 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
+
+from main.forms import OnlineApplicationForm
 
 
 def index(request):
@@ -7,8 +9,16 @@ def index(request):
 
 
 def contacts(request):
-    context = {"title": "Контакти компанії | HanBild.com.ua"}
-    return render(request, "main/index.html", context=context)
+
+    if request.method == "POST":
+        form = OnlineApplicationForm(data=request.POST)
+        if form.is_valid():
+            print(form.cleaned_data)
+            return redirect("main:index")
+    else:
+        form = OnlineApplicationForm()
+    context = {"title": "Контакти компанії | HanBild.com.ua", "form": form}
+    return render(request, "main/contact_us.html", context=context)
 
 
 def services(request):
