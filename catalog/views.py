@@ -3,14 +3,14 @@ from django.shortcuts import render
 from catalog.models import Categories
 
 
-def catalog(request):
+def products(request):
     categories = Categories.objects.all()
 
     context = {
-        "title": "Каталог продукції | HanBild.com.ua",
+        "title": "Продукція компанії | HanBild.com.ua",
         "categories": categories,
     }
-    return render(request, "catalog/catalog.html", context=context)
+    return render(request, "catalog/products.html", context=context)
 
 
 def category_products(request, category_slug):
@@ -19,4 +19,4 @@ def category_products(request, category_slug):
         "title": f"{category.name} | HanBild.com.ua",
         "category": category,
     }
-    return render(request, "catalog/category.html", context=context)
+    return render(request, "catalog/category_description.html", context=context)
