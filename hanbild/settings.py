@@ -1,7 +1,8 @@
 from pathlib import Path
 import os
-from django.conf.global_settings import STATIC_ROOT, STATICFILES_DIRS
 from dotenv import load_dotenv
+
+from django.utils.translation import gettext_lazy as _
 
 load_dotenv()
 
@@ -14,6 +15,7 @@ DEBUG = os.getenv("DEBUG")
 ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
+    "modeltranslation",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -28,6 +30,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.locale.LocaleMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
@@ -40,7 +43,7 @@ ROOT_URLCONF = "hanbild.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [os.path.join(BASE_DIR, 'templates')],
+        "DIRS": [os.path.join(BASE_DIR, "templates")],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -83,7 +86,16 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-LANGUAGE_CODE = "uk-ua"
+LANGUAGE_CODE = "uk"
+
+LANGUAGES = [
+    ("uk", _("Ukrainian")),
+    ("en", _("English")),
+]
+
+MODELTRANSLATION_DEFAULT_LANGUAGE = "uk"
+MODELTRANSLATION_PREPOPULATE_LANGUAGE = "en"
+
 
 TIME_ZONE = "UTC"
 
