@@ -1,10 +1,11 @@
 from django.shortcuts import redirect, render
+from django.utils.translation import gettext_lazy as _
 
 from main.forms import OnlineApplicationForm
 
 
 def index(request):
-    context = {"title": "HanBild - виробник самоскидних та бортових кузовів"}
+    context = {"title": _("HanBild - виробник самоскидних та бортових кузовів")}
     return render(request, "main/index.html", context=context)
 
 
@@ -17,10 +18,10 @@ def contacts(request):
             return redirect("main:index")
     else:
         form = OnlineApplicationForm()
-    context = {"title": "Контакти компанії | HanBild.com.ua", "form": form}
+    context = {"title": _("Контакти компанії | HanBild.com.ua"), "form": form}
     return render(request, "main/contact_us.html", context=context)
 
 
 def services(request):
-    context = {"title": "Ремонт, Trade in та Leasing | HanBild.com.ua"}
+    context = {"title": _("Ремонт, Trade in та Leasing | HanBild.com.ua")}
     return render(request, "main/services.html", context=context)

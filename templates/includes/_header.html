@@ -1,9 +1,9 @@
-<a href="{% url 'main:index' %}">Головна сторінка</a>
-<a href="{% url 'catalog:product' %}">Каталог</a>
-<a href="{% url 'main:services' %}">Послуги</a>
-<a href="{% url 'main:contacts' %}">Контакти</a>
-
 {% load i18n %}
+
+<a href="{% url 'main:index' %}">{% translate "Головна сторінка" %}</a>
+<a href="{% url 'catalog:product' %}">{% translate "Каталог" %}</a>
+<a href="{% url 'main:services' %}">{% translate "Послуги" %}</a>
+<a href="{% url 'main:contacts' %}">{% translate "Контакти" %}</a>
 
 <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
     <input name="next" type="hidden" value="{{ redirect_to }}">

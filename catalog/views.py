@@ -1,13 +1,15 @@
 from django.shortcuts import render
+from django.utils.translation import gettext_lazy as _
 
 from catalog.models import Categories
+
 
 
 def products(request):
     categories = Categories.objects.all()
 
     context = {
-        "title": "Продукція компанії | HanBild.com.ua",
+        "title": _("Продукція компанії | HanBild.com.ua"),
         "categories": categories,
     }
     return render(request, "catalog/products.html", context=context)
