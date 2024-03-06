@@ -8,15 +8,15 @@
 
 {% block content %}
   <div style="display: flex; flex-direction: column; gap: 20px;">
-    {% for category in categories %}
+    {% for category in categories_descriptions %}
       <div style="display: flex; flex-direction: column; border: 1px solid black; gap: 5px; width: 400px;">
-        {% if category.image %}
-          <img src="{{ category.image.url }}" alt="{{ category.name }}" />
+        {% if categories_images.0.image %}
+          <img src="{{ categories_images.0.image.url }}" alt="{{ category.category.name }}" />
         {% else %}
-          <img height="140" src="{% static 'hanbild/images/image_not_found.png' %}" alt="{{ category.name }}" />
+          <img height="140" src="{% static 'hanbild/images/image_not_found.png' %}" alt="{{ category.category.name  }}" />
         {% endif %}
-        <div>{{ category.name }}</div>
-        <a href="{% url "catalog:category" category.slug %}">{% translate "Детальніше" %}</a>
+        <div>{{ category.category.name }}</div>
+        <a href="{% url 'catalog:category' category.category.slug %}">{% translate 'Детальніше' %}</a>
       </div>
     {% endfor %}
   </div>

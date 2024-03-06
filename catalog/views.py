@@ -1,16 +1,19 @@
+from django.db.models import F
 from django.shortcuts import render
 from django.utils.translation import gettext_lazy as _
 
-from catalog.models import Categories
-
+from catalog.models import Categories, CategoryDescription, CategoryImage
 
 
 def products(request):
-    # categories = Categories.objects.all()
+    categories_descriptions = CategoryDescription.objects.filter(is_main_content=True)
+    categories_images = CategoryImage.objects.filter(is_main_content=True)
+
 
     context = {
         "title": _("Продукція компанії | HanBild.com.ua"),
-        # "categories": categories,
+        "categories_descriptions": categories_descriptions,
+        "categories_images": categories_images,
     }
     return render(request, "catalog/products.html", context=context)
 
