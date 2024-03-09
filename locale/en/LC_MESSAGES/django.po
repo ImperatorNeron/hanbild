@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-05 01:31+0200\n"
+"POT-Creation-Date: 2024-03-09 01:21+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
 #: .\hanbild\settings.py:92
 msgid "Ukrainian"
 msgstr "Українська"
@@ -25,18 +26,26 @@ msgstr "Українська"
 msgid "English"
 msgstr "English"
 
-#: .\templates\includes\_header.html:3
-msgid "Головна сторінка"
-msgstr "Homepage"
+#: .\templates\includes\_header.html:29
+msgid "— Якість. Швидкість. Надійність"
+msgstr "Quality. Velocity. Reliability"
 
-#: .\templates\includes\_header.html:4
-msgid "Каталог"
-msgstr "Catalog"
+#: .\templates\includes\_header.html:49
+msgid "Про нас"
+msgstr "About us"
 
-#: .\templates\includes\_header.html:5
+#: .\templates\includes\_header.html:52
 msgid "Послуги"
 msgstr "Services"
 
-#: .\templates\includes\_header.html:6
+#: .\templates\includes\_header.html:71
+msgid "Продукція"
+msgstr "Products"
+
+#: .\templates\includes\_header.html:79
+msgid "Каталог"
+msgstr "Catalog"
+
+#: .\templates\includes\_header.html:87
 msgid "Контакти"
 msgstr "Contacts"

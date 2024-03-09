@@ -13,7 +13,7 @@ urlpatterns = [
 urlpatterns += i18n_patterns(
     path("i18n/", include("django.conf.urls.i18n")),
     path("", include("main.urls", namespace="main")),
-    path("products/", include("catalog.urls", namespace="catalog")),
+    path("catalog/", include("catalog.urls", namespace="catalog")),
     prefix_default_language=False,
 )
 
