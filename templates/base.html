@@ -4,7 +4,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="{% static "hanbild/css/style.min.css" %}">
+    <link rel="stylesheet" href="{% static 'hanbild/css/style.min.css' %}" />
     <title>
       {% block title %}
 
@@ -15,11 +15,14 @@
     {% endblock %}
   </head>
   <body>
-    {% include "includes/_header.html" %}
+    {% include 'includes/_header.html' %}
+    {% include 'includes/_feedback_button.html' %}
     {% block content %}
 
     {% endblock %}
   </body>
+  <script src="{% static 'hanbild/js/action.js' %}"></script>
   {% block js %}
+
   {% endblock %}
 </html>
