@@ -23,6 +23,9 @@ class Goods(models.Model):
     category = models.ForeignKey(to=Categories, on_delete=models.SET_NULL, null=True)
     slug = models.SlugField(max_length=200, blank=True, null=True, verbose_name="URL")
     name = models.CharField(max_length=150, verbose_name="Назва товару")
+    preview_image = models.ImageField(
+        upload_to="goods_images", null=True, blank=True, verbose_name="Зображення"
+    )
     price = models.FloatField(verbose_name="Ціна товару", default=0)
     upload_time = models.DateTimeField(auto_now_add=True)
     description = models.TextField(verbose_name="Опис товару", null=True, blank=True)

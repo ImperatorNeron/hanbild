@@ -27,8 +27,8 @@ msgid "English"
 msgstr "English"
 
 #: .\templates\includes\_header.html:29
-msgid "— Якість. Швидкість. Надійність"
-msgstr "Quality. Velocity. Reliability"
+msgid "— Якість. Швидкість. Надійність."
+msgstr "Quality. Velocity. Reliability."
 
 #: .\templates\includes\_header.html:49
 msgid "Про нас"

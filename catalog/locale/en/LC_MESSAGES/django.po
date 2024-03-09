@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-09 01:21+0200\n"
+"POT-Creation-Date: 2024-03-09 02:45+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,10 +18,40 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\catalog\templates\catalog\products.html:19
+#: .\templates\catalog\catalog.html:18
+msgid "Фільтр"
+msgstr "Filter"
+
+#: .\templates\catalog\catalog.html:23
+msgid "Категорії"
+msgstr "Categories"
+
+#: .\templates\catalog\catalog.html:41
+msgid "Діапазон цін"
+msgstr "Price range"
+
+#: .\templates\catalog\catalog.html:53
+msgid "Застосувати"
+msgstr "Apply"
+
+#: .\templates\catalog\catalog.html:58
+msgid "Товарів на сторінці:"
+msgstr "Products per page:"
+
+#: .\templates\catalog\catalog.html:97
+msgid "грн."
+msgstr "UAH."
+
+#: .\templates\catalog\catalog.html:99
+msgid "Ціна договірна"
+msgstr "Negotiated price"
+
+#: .\templates\catalog\catalog.html:103
 msgid "Детальніше"
 msgstr "Read more"
 
-#: .\catalog\views.py:10
-msgid "Продукція компанії | HanBild.com.ua"
+#: .\views.py:11
+#, fuzzy
+#| msgid "Продукція компанії | HanBild.com.ua"
+msgid "Каталог компанії | HanBild.com.ua"
 msgstr "Company's products | HanBild.com.ua"
