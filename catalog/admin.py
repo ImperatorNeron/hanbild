@@ -14,7 +14,7 @@ class CategoriesAdmin(TranslationAdmin):
 
 @admin.register(Goods)
 class GoodsAdmin(TranslationAdmin):
-    prepopulated_fields = {"slug": ("name",)}
+    exclude = ("name_en", "description_en")
 
 
 @admin.register(GoodsImage)

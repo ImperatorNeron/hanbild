@@ -1,4 +1,7 @@
 from django.db import models
+from django.urls import reverse
+
+from catalog.utils import translate_categories, translate_goods, validate_slug
 
 
 class Categories(models.Model):
@@ -17,6 +20,10 @@ class Categories(models.Model):
 
     def __str__(self):
         return f"{self.name}"
+
+    def save(self, *args, **kwargs):
+        translate_categories()
+        return super().save(*args, **kwargs)
 
 
 class Goods(models.Model):
@@ -37,6 +44,14 @@ class Goods(models.Model):
         db_table = "goods"
         verbose_name = "товар"
         verbose_name_plural = "Товар"
+
+    def save(self, *args, **kwargs):
+        translate_goods(self)
+        validate_slug(self)
+        return super().save(*args, **kwargs)
+
+    def get_absolute_url(self):
+        return reverse("catalog:goods", kwargs={"item_slug": self.slug})
 
 
 class GoodsImage(models.Model):

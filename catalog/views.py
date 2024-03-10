@@ -13,3 +13,14 @@ def catalog(request):
         "goods": goods,
     }
     return render(request, "catalog/catalog.html", context=context)
+
+
+def goods(request, item_slug):
+    goods = Goods.objects.get(slug=item_slug)
+    print(item_slug)
+    print(goods)
+    context = {
+        "title": _("Каталог компанії | HanBild.com.ua"),
+        "goods": goods,
+    }
+    return render(request, "catalog/goods.html", context=context)
