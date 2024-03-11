@@ -14,7 +14,7 @@ class CategoriesAdmin(TranslationAdmin):
 
 @admin.register(Goods)
 class GoodsAdmin(TranslationAdmin):
-    exclude = ("name_en", "description_en")
+    exclude = ("slug", "name_en", "description_en")
 
 
 @admin.register(GoodsImage)

@@ -1,6 +1,7 @@
 import uuid
 from deep_translator import GoogleTranslator
 from django.utils.text import slugify
+from django.db.models import Q
 
 
 def translate_to_en(to_field):
@@ -29,3 +30,15 @@ def validate_slug(obj):
             obj.slug = f"{slug}-{uuid.uuid4().hex[:8]}"
         else:
             obj.slug = slug
+
+
+def filter_categories(request):
+    from catalog.models import Goods
+
+    if keys := request.GET.keys():
+        print("her")
+        qeary = Q()
+        for key in keys:
+            qeary |= Q(category__slug=key)
+        return Goods.objects.filter(qeary)
+    return Goods.objects.all()

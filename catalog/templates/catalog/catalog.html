@@ -34,7 +34,11 @@
               {% comment %}Також подумати як краще зробити{% endcomment %}
               {% for category in categories %}
                 <li>
-                  <input type="checkbox" name="{{ category.name }}" value=" " />{{ category.name }}
+                  {% if category.slug in request.GET %}
+                    <input type="checkbox" name="{{ category.slug }}" value="on" checked />{{ category.name }}
+                  {% else %}
+                    <input type="checkbox" name="{{ category.slug }}" value="on" />{{ category.name }}
+                  {% endif %}
                 </li>
               {% endfor %}
             </ul>
@@ -108,7 +112,7 @@
             {% endif %}
 
             <div class="card-buttons">
-              <a href="{% url "catalog:goods" item.slug %}" id="details"><h4>{% translate 'Детальніше' %}</h4></a>
+              <a href="{% url 'catalog:goods' item.slug %}" id="details"><h4>{% translate 'Детальніше' %}</h4></a>
               <button>
                 <?xml version="1.0" encoding="UTF-8"?><svg id="_Слой_2" data-name="Слой 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 42.15 30.95">
                   <g id="_Слой_1-2" data-name="Слой 1">
