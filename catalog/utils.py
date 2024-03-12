@@ -1,7 +1,16 @@
+from operator import le
+from unittest import result
 import uuid
 from deep_translator import GoogleTranslator
 from django.utils.text import slugify
 from django.db.models import Q
+from django.contrib.postgres.search import (
+    SearchVector,
+    SearchRank,
+    SearchHeadline,
+    TrigramSimilarity,
+    SearchQuery,
+)
 
 
 def translate_to_en(to_field):
@@ -32,13 +41,40 @@ def validate_slug(obj):
             obj.slug = slug
 
 
-def filter_categories(request):
-    from catalog.models import Goods
-
+def filter_categories(request, result):
     if keys := request.GET.keys():
-        print("her")
         qeary = Q()
         for key in keys:
             qeary |= Q(category__slug=key)
-        return Goods.objects.filter(qeary)
-    return Goods.objects.all()
+        return result.filter(qeary)
+    return result
+
+
+def q_search(query, result):
+    if query.isdigit() and len(query) <= 3:
+        return result.filter(id=int(query))
+
+    if len(query.split()) == 1:
+        return result.filter(name__trigram_word_similar=query)
+    return result.filter(name__trigram_similar=query)
+
+
+def check_filters(request):
+    from catalog.models import Goods
+
+    q_query = request.GET.get("q", None)
+
+    if not len(request.GET) or q_query == "" and len(request.GET) == 1:
+        return Goods.objects.all()
+
+    if not q_query and len(request.GET) >= 1:
+        return filter_categories(request, Goods.objects)
+
+    elif q_query and len(request.GET) == 1:
+        return q_search(q_query, Goods.objects)
+    else:
+        result = q_search(q_query, Goods.objects)
+        request.GET.dict().pop("q")
+        return filter_categories(request, result)
+        
+

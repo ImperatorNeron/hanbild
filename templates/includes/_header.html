@@ -1,5 +1,6 @@
 {% load i18n %}
 {% load static %}
+{% load catalog_tags %}
 
 {% comment %} <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
     <input name="next" type="hidden" value="{{ redirect_to }}">
@@ -95,4 +96,14 @@
       </p>
     </div>
   </div>
+  <form role="search" action="{% url 'catalog:search' %}" method="get">
+    <input type="search" placeholder="Search" aria-label="Search" name="q" value="{{ request.GET.q }}" />
+    {% tag_get_categories as categories %}
+    {% for category in categories %}
+        {% if category.slug in request.GET %}
+          <input type="hidden" name="{{ category.slug }}" value="on" />
+        {% endif %}
+    {% endfor %}
+    <button type="submit">Search</button>
+  </form>
 </header>

@@ -25,6 +25,8 @@ INSTALLED_APPS = [
     # custom apps
     "main",
     "catalog",
+    # additional apps
+    "django.contrib.postgres",
 ]
 
 MIDDLEWARE = [

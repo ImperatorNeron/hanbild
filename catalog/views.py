@@ -2,16 +2,13 @@ from django.shortcuts import render
 from django.utils.translation import gettext_lazy as _
 
 from catalog.models import Categories, Goods
-from catalog.utils import filter_categories
+from catalog.utils import check_filters
 
 
 def catalog(request):
-    categories = Categories.objects.all()
-    goods = filter_categories(request)
     context = {
         "title": _("Каталог компанії | HanBild.com.ua"),
-        "categories": categories,
-        "goods": goods,
+        "goods": check_filters(request),
     }
     return render(request, "catalog/catalog.html", context=context)
 

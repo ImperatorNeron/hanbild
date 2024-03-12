@@ -1,11 +1,17 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load i18n %}
+{% load catalog_tags %}
 
 {% block content %}
   <main>
     <aside>
-      <form action="{% url 'catalog:catalog' %}" method="get">
+      <form action="{% if request.GET.q %}
+          {% url 'catalog:search' %}
+        {% else %}
+          {% url 'catalog:catalog' %}
+        {% endif %}"
+        method="get">
         <div class="filter-heading">
           <?xml version="1.0" encoding="iso-8859-1"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
           <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="402.577px" height="402.577px" viewBox="0 0 402.577 402.577" style="enable-background:new 0 0 402.577 402.577;" xml:space="preserve">
@@ -32,6 +38,10 @@
             <ul id="categories" class="filtermenu">
               {% comment %}Тут требе нормальна назва класу чи щось таке{% endcomment %}
               {% comment %}Також подумати як краще зробити{% endcomment %}
+              {% if request.GET.q %}
+                <input type="hidden" name="q" value="{{ request.GET.q }}" />
+              {% endif %}
+              {% tag_get_categories as categories %}
               {% for category in categories %}
                 <li>
                   {% if category.slug in request.GET %}
@@ -58,6 +68,7 @@
           </li>
         </ul>
         <button>{% translate 'Застосувати' %}</button>
+        <a href="{% url "catalog:catalog" %}">{% translate 'Скинути' %}</a>
       </form>
     </aside>
     <div class="catalog-bar">
@@ -112,7 +123,7 @@
             {% endif %}
 
             <div class="card-buttons">
-              <a href="{% url 'catalog:goods' item.slug %}" id="details"><h4>{% translate 'Детальніше' %}</h4></a>
+              <a id="details" href="{% url 'catalog:goods' item.slug %}" id="details"><h4>{% translate 'Детальніше' %}</h4></a>
               <button>
                 <?xml version="1.0" encoding="UTF-8"?><svg id="_Слой_2" data-name="Слой 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 42.15 30.95">
                   <g id="_Слой_1-2" data-name="Слой 1">
