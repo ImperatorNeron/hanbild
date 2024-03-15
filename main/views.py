@@ -2,6 +2,7 @@ from django.shortcuts import redirect, render
 from django.utils.translation import gettext_lazy as _
 
 from main.forms import OnlineApplicationForm
+from main.sending_email_service import send_email
 
 
 def index(request):
@@ -14,7 +15,7 @@ def contacts(request):
     if request.method == "POST":
         form = OnlineApplicationForm(data=request.POST)
         if form.is_valid():
-            print(form.cleaned_data)
+            send_email(form.cleaned_data)
             return redirect("main:index")
     else:
         form = OnlineApplicationForm()
