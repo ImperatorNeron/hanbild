@@ -1,13 +1,27 @@
+function setupLanguageSelection() {
+    document.querySelectorAll('.language-link').forEach(function (link) {
+        link.addEventListener('click', function (e) {
+            e.preventDefault()
+            var languageCode = this.getAttribute('data-lang-code')
+            document.querySelector('#languageForm input[name="language"]').value = languageCode
+            document.getElementById('languageForm').submit()
+        })
+    })
+}
+
+window.addEventListener('DOMContentLoaded', setupLanguageSelection);
+
+
 function startAnimation() {
     var pulseButton = document.querySelector('.pulsating-element');
     pulseButton.style.animation = 'pulse linear 1s infinite';
-    setTimeout(function() {
+    setTimeout(function () {
         pulseButton.style.animation = 'none';
-        setTimeout(startAnimation, 3000); 
+        setTimeout(startAnimation, 3000);
     }, 1000);
 }
 
-startAnimation(); 
+startAnimation();
 
 function toggleSubmenu(id) {
     var submenu = document.getElementById(id);
@@ -20,9 +34,9 @@ function toggleSubmenu(id) {
     }
 }
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     var submenus = document.querySelectorAll('.filtermenu');
-    submenus.forEach(function(submenu) {
+    submenus.forEach(function (submenu) {
         var id = submenu.id;
         var state = localStorage.getItem(id);
         if (state === "open") {
@@ -100,7 +114,7 @@ function restoreStateFromLocalStorage() {
 
 restoreStateFromLocalStorage();
 
-autoFillBtn.addEventListener('click', function() {
+autoFillBtn.addEventListener('click', function () {
     const gridColumns = 'repeat(auto-fill, minmax(300px, 1fr))';
     const cardFlexDirection = 'column';
     const imgWidth = '100%';
@@ -110,7 +124,7 @@ autoFillBtn.addEventListener('click', function() {
     saveStateToLocalStorage(gridColumns, cardFlexDirection, imgWidth, imgHeight);
 });
 
-customBtn.addEventListener('click', function() {
+customBtn.addEventListener('click', function () {
     const gridColumns = '1fr';
     const cardFlexDirection = 'row';
     const imgWidth = '87%';
@@ -120,7 +134,7 @@ customBtn.addEventListener('click', function() {
     saveStateToLocalStorage(gridColumns, cardFlexDirection, imgWidth, imgHeight);
 });
 
-window.onscroll = function() {scrollFunction()};
+window.onscroll = function () { scrollFunction() };
 
 function scrollFunction() {
     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
@@ -130,7 +144,6 @@ function scrollFunction() {
     }
 }
 
-document.getElementById("scrollToTopBtn").onclick = function() {
+document.getElementById("scrollToTopBtn").onclick = function () {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
-                
