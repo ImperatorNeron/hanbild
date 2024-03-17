@@ -1,16 +1,7 @@
-from operator import le
-from unittest import result
 import uuid
 from deep_translator import GoogleTranslator
 from django.utils.text import slugify
 from django.db.models import Q
-from django.contrib.postgres.search import (
-    SearchVector,
-    SearchRank,
-    SearchHeadline,
-    TrigramSimilarity,
-    SearchQuery,
-)
 
 
 def translate_to_en(to_field):
@@ -42,7 +33,14 @@ def validate_slug(obj):
 
 
 def filter_categories(request, result):
-    if keys := request.GET.keys():
+    keys_list = list(request.GET.keys())
+
+    if "sort_by" in keys_list:
+        keys_list.remove("sort_by")
+    if "q" in keys_list:
+        keys_list.remove("q")
+
+    if keys := keys_list:
         qeary = Q()
         for key in keys:
             qeary |= Q(category__slug=key)
@@ -51,6 +49,8 @@ def filter_categories(request, result):
 
 
 def q_search(query, result):
+    if not query:
+        return result
     if query.isdigit() and len(query) <= 3:
         return result.filter(id=int(query))
 
@@ -59,22 +59,25 @@ def q_search(query, result):
     return result.filter(name__trigram_similar=query)
 
 
-def check_filters(request):
+def sorting_filter(sort_by):
     from catalog.models import Goods
 
+    match sort_by:
+        case "price-increase":
+            return Goods.objects.order_by("price")
+        case "price-decrease":
+            return Goods.objects.order_by("-price")
+        case _:
+            return Goods.objects.order_by("upload_time")
+
+
+def check_filters(request):
     q_query = request.GET.get("q", None)
 
-    if not len(request.GET) or q_query == "" and len(request.GET) == 1:
-        return Goods.objects.all()
+    sort_by = request.GET.get("sort_by", None)
 
-    if not q_query and len(request.GET) >= 1:
-        return filter_categories(request, Goods.objects)
+    objects = sorting_filter(sort_by)
+    objects = filter_categories(request, objects)
+    objects = q_search(q_query, objects)
 
-    elif q_query and len(request.GET) == 1:
-        return q_search(q_query, Goods.objects)
-    else:
-        result = q_search(q_query, Goods.objects)
-        request.GET.dict().pop("q")
-        return filter_categories(request, result)
-        
-
+    return objects

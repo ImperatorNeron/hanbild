@@ -25,6 +25,9 @@
           <input type="hidden" name="{{ category.slug }}" value="on" />
         {% endif %}
       {% endfor %}
+      {% if request.GET.sort_by %}
+        <input hidden type="radio" id="{{ request.GET.sort_by }}" name="sort_by" value="{{ request.GET.sort_by }}" checked />
+      {% endif %}
       <button type="submit"></button>
     </form>
     <div class="connection">

@@ -59,8 +59,8 @@
                       <input type="checkbox" id="{{ category.slug }}" name="{{ category.slug }}" value="on" checked />
                       <label for="{{ category.slug }}">{{ category.name }}</label>
                     {% else %}
-                    <input type="checkbox" id="{{ category.slug }}" name="{{ category.slug }}" value="on"/>
-                    <label for="{{ category.slug }}">{{ category.name }}</label>
+                      <input type="checkbox" id="{{ category.slug }}" name="{{ category.slug }}" value="on" />
+                      <label for="{{ category.slug }}">{{ category.name }}</label>
                     {% endif %}
                   </li>
                 {% endfor %}
@@ -77,13 +77,27 @@
               </div>
               <ul id="price-range" class="filtermenu">
                 <li>
-                  <input type="radio" id="novelty" name="sorting" value="" checked /><label for="novelty">За новизною</label>
+                  {% if not request.GET.sort_by or request.GET.sort_by == 'novelty' %}
+                    <input type="radio" id="novelty" name="sort_by" value="novelty" checked /><label for="novelty">{% translate 'За новизною' %}</label>
+                  {% else %}
+                    <input type="radio" id="novelty" name="sort_by" value="novelty" /><label for="novelty">{% translate 'За новизною' %}</label>
+                  {% endif %}
                 </li>
+
                 <li>
-                  <input type="radio" id="price-increase" name="sorting" value="" /><label for="price-increase">За зростанням ціни</label>
+                  {% if request.GET.sort_by == 'price-increase' %}
+                    <input type="radio" id="price-increase" name="sort_by" value="price-increase" checked /><label for="price-increase">{% translate 'За зростанням ціни' %}</label>
+                  {% else %}
+                    <input type="radio" id="price-increase" name="sort_by" value="price-increase" /><label for="price-increase">{% translate 'За зростанням ціни' %}</label>
+                  {% endif %}
                 </li>
+
                 <li>
-                  <input type="radio" id="price-decrease" name="sorting" value="" /><label for="price-decrease">За спаданням ціни</label>
+                  {% if request.GET.sort_by == 'price-decrease' %}
+                    <input type="radio" id="price-decrease" name="sort_by" value="price-decrease" checked /><label for="price-decrease">{% translate 'За спаданням ціни' %}</label>
+                  {% else %}
+                    <input type="radio" id="price-decrease" name="sort_by" value="price-decrease" /><label for="price-decrease">{% translate 'За спаданням ціни' %}</label>
+                  {% endif %}
                 </li>
 
                 <div class="my-slider-wrapper">
