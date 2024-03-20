@@ -22,7 +22,7 @@ class Categories(models.Model):
         return f"{self.name}"
 
     def save(self, *args, **kwargs):
-        translate_categories()
+        translate_categories(self)
         return super().save(*args, **kwargs)
 
 

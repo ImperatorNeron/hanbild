@@ -450,7 +450,8 @@ main aside .filtermenu-button {
     justify-content: space-between
 }
 
-main aside .filtermenu-button button {
+main aside .filtermenu-button button,
+main aside .filtermenu-button a {
     font-family: "Raleway", Sans-serif;
     width: 80%;
     padding: 10px 0;
@@ -464,14 +465,15 @@ main aside .filtermenu-button button {
     cursor: pointer
 }
 
-main aside .filtermenu-button button:hover {
+main aside .filtermenu-button button:hover,
+main aside .filtermenu-button a:hover {
     background-color: #4341c4;
     color: #d8d8d8;
     -webkit-transition: .2s;
     transition: .2s
 }
 
-main aside .filtermenu-button button:nth-child(2) {
+main aside .filtermenu-button a {
     height: 40px;
     width: 40px;
     background-color: #37cbf0;
@@ -488,20 +490,21 @@ main aside .filtermenu-button button:nth-child(2) {
     justify-content: center
 }
 
-main aside .filtermenu-button button:nth-child(2):hover {
+main aside .filtermenu-button a:hover {
     background-color: #4341c4;
     color: #d8d8d8;
     -webkit-transition: .2s;
     transition: .2s
 }
 
-main aside .filtermenu-button button:nth-child(2):hover svg {
+main aside .filtermenu-button a:hover svg {
     -webkit-transition: .2s;
     transition: .2s;
     fill: #fff
 }
 
-main aside .filtermenu-button button svg {
+main aside .filtermenu-button button svg,
+main aside .filtermenu-button a svg {
     height: 22px
 }
 
@@ -711,7 +714,7 @@ input[type=range]::-webkit-slider-thumb {
     width: 1.7em;
     background-color: #f0500a;
     cursor: pointer;
-    margin-top: -11px;
+    margin-top: -10.8px;
     pointer-events: auto;
     border-radius: 50%;
     z-index: 1;
@@ -1013,6 +1016,14 @@ select {
     flex-direction: column;
     width: 100%;
     gap: 10px
+}
+
+.cards .card-info-block .card-title {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .cards .price-art {

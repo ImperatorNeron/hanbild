@@ -75,7 +75,7 @@ def sorting_filter(sort_by):
         case "price-decrease":
             return Goods.objects.order_by("-price")
         case _:
-            return Goods.objects.order_by("upload_time")
+            return Goods.objects.order_by("-upload_time")
 
 
 def price_filter(request, result):
@@ -88,7 +88,7 @@ def price_filter(request, result):
     return result
 
 
-def pagination(page, result, item_quantity=6):
+def pagination(page, result, item_quantity=9):
     paginator = Paginator(result, item_quantity)
     return paginator.get_page(page)
 

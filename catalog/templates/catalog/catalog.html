@@ -128,13 +128,13 @@
           </ul>
           <div class="filtermenu-button">
             <button>{% translate 'Застосувати' %}</button>
-            <button type="reset">
+            <a href="{% url "catalog:catalog" %}">
               <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512" x="0" y="0" viewBox="0 0 32 32" style="enable-background:new 0 0 512 512" xml:space="preserve" class="">
                 <g>
                   <path d="M28 4h-7V2a1 1 0 0 0-1-1h-8a1 1 0 0 0-1 1v2H4a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h1v18c0 2.206 1.794 4 4 4h14c2.206 0 4-1.794 4-4V9h1a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1zM13 3h6v1h-6zm12 24c0 1.103-.897 2-2 2H9c-1.103 0-2-.897-2-2V9h18zm2-20H5V6h22zM15 26V12a1 1 0 0 1 2 0v14a1 1 0 0 1-2 0zm-5 0V12a1 1 0 0 1 2 0v14a1 1 0 0 1-2 0zm10 0V12a1 1 0 1 1 2 0v14a1 1 0 1 1-2 0z" opacity="1" data-original="#000000" class=""></path>
                 </g>
               </svg>
-            </button>
+            </a>
           </div>
         </form>
       </aside>
@@ -191,7 +191,7 @@
               {% endif %}
 
               <div class="card-info-block">
-                <a href="">{{ item.name }}</a>
+                <a class="card-title" href="">{{ item.name }}</a>
                 <div class="price-art">
                   {% if item.price %}
                     <p>
@@ -203,7 +203,7 @@
                     </p>
                   {% endif %}
                   <p>
-                    <span>арт. 00909</span>
+                    <span>{% translate "арт." %} {{ item.pk|stringformat:"05d" }}</span>
                   </p>
                 </div>
 
