@@ -47,38 +47,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-let sliders = document.querySelectorAll(".my-slider");
-let displayValOne = document.getElementById("range1");
-let displayValTwo = document.getElementById("range2");
-let minGap = 60;
-let sliderTrack = document.querySelector(".my-slider-track");
-let sliderMaxValue = sliders[0].max;
-
-sliders[0].addEventListener("input", slideOne);
-sliders[1].addEventListener("input", slideTwo);
-
-function slideOne() {
-    if (parseInt(sliders[1].value) - parseInt(sliders[0].value) <= minGap) {
-        sliders[0].value = parseInt(sliders[1].value) - minGap;
-    }
-    displayValOne.textContent = `${8 + sliders[0].value / 60}:00`;
-    fillColor();
-}
-
-function slideTwo() {
-    if (parseInt(sliders[1].value) - parseInt(sliders[0].value) <= minGap) {
-        sliders[1].value = parseInt(sliders[0].value) + minGap;
-    }
-    displayValTwo.textContent = `${8 + sliders[1].value / 60}:00`;
-    fillColor();
-}
-
-function fillColor() {
-    percent1 = (sliders[0].value / sliderMaxValue) * 100;
-    percent2 = (sliders[1].value / sliderMaxValue) * 100;
-    sliderTrack.style.background = `linear-gradient(to right, #dadae5 ${percent1}% , black ${percent1}% , black ${percent2}%, #dadae5 ${percent2}%)`;
-}
-
 const autoFillBtn = document.getElementById('auto-fill-btn');
 const customBtn = document.getElementById('custom-btn');
 const cardsGrid = document.querySelector('.cards');

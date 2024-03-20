@@ -18,7 +18,7 @@
       </div>
     </div>
     <form role="search" action="{% url 'catalog:search' %}" method="get">
-      <input type="search" placeholder="{% translate 'Знайти...' %}" aria-label="Search" name="q" value="{{ request.GET.q }}" />
+      <input type="search" placeholder="{% translate 'Знайти...' %}" aria-label="Search" name="q" value="" />
       {% tag_get_categories as categories %}
       {% for category in categories %}
         {% if category.slug in request.GET %}
@@ -26,7 +26,11 @@
         {% endif %}
       {% endfor %}
       {% if request.GET.sort_by %}
-        <input hidden type="radio" id="{{ request.GET.sort_by }}" name="sort_by" value="{{ request.GET.sort_by }}" checked />
+        <input hidden id="{{ request.GET.sort_by }}" name="sort_by" value="{{ request.GET.sort_by }}" checked />
+      {% endif %}
+      {% if request.GET.left_range and request.GET.right_range %}
+        <input hidden name="left_range" value="{{ request.GET.left_range }}" />
+        <input hidden name="right_range" value="{{ request.GET.right_range }}" />
       {% endif %}
       <button type="submit"></button>
     </form>

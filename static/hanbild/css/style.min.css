@@ -633,24 +633,40 @@ main .placing .menu-buttons svg:hover {
 
 .my-slider-wrapper {
     position: relative;
-    width: 100%;
-    padding: 10px 0
+    width: 200px;
+    padding: 10px 0;
+    margin: 0 auto;
 }
 
 .my-slider-container {
     position: relative;
-    height: 100px
+    height: 30px
+}
+
+.custom-input {
+    padding: 10px;
+    border: 1px solid #d8d8d8;
+    border-radius: 13px;
+    font-size: 16px;
+    color: #f0500a;
+    width: 90px;
+    transition: border-color 0.3s ease;
+}
+
+.custom-input:focus {
+    border-color: #f0500a;
+    outline: none;
 }
 
 .my-slider-track {
     width: 100%;
-    height: 4px;
+    height: 2px;
     position: absolute;
     margin: auto 0;
     top: 0;
     bottom: 0;
     border-radius: 5px;
-    background: #000
+    background: #f0500a;
 }
 
 input[type=range] {
@@ -668,33 +684,37 @@ input[type=range] {
 }
 
 .my-slider-container input {
-    color: #000
+    color: #f0500a
 }
 
 input[type=range]::-webkit-slider-runnable-track {
     -webkit-appearance: none;
-    height: 4px
+    height: 2px;
+    z-index: 1;
 }
 
 input[type=range]::-moz-range-track {
     -moz-appearance: none;
-    height: 4px
+    height: 2px;
+    z-index: 1;
 }
 
 input[type=range]::-ms-track {
     appearance: none;
-    height: 4px
+    height: 2px;
+    z-index: 1;
 }
 
 input[type=range]::-webkit-slider-thumb {
     -webkit-appearance: none;
-    height: 1.4em;
-    width: 1.4em;
-    background-color: #000;
+    height: 1.7em;
+    width: 1.7em;
+    background-color: #f0500a;
     cursor: pointer;
-    margin-top: -9.5px;
+    margin-top: -11px;
     pointer-events: auto;
-    border-radius: 50%
+    border-radius: 50%;
+    z-index: 1;
 }
 
 input[type=range]::-moz-range-thumb {
@@ -703,9 +723,10 @@ input[type=range]::-moz-range-thumb {
     width: 1.4em;
     cursor: pointer;
     border-radius: 50%;
-    background-color: #000;
+    background-color: #f0500a;
     pointer-events: auto;
-    margin-top: -9.5px
+    margin-top: -8.8px;
+    z-index: 1;
 }
 
 input[type=range]::-ms-thumb {
@@ -714,23 +735,25 @@ input[type=range]::-ms-thumb {
     width: 1.4em;
     cursor: pointer;
     border-radius: 50%;
-    background-color: #000;
+    background-color: #f0500a;
     pointer-events: auto;
-    margin-top: -9.5px
+    margin-top: -8.8px;
+    z-index: 1;
 }
 
 input[type=range]:active::-webkit-slider-thumb {
-    background-color: #e3e3e3;
-    border: 4px solid #000
+    background-color: #ffffff;
+    border: 2px solid #f0500a;
+    z-index: 1;
 }
 
 .values {
     width: 100%;
-    position: relative;
-    margin: auto;
-    padding: 10px 0;
-    font-size: 1.3rem;
-    text-align: center
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
 }
 
 .time-parameters {

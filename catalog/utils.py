@@ -1,3 +1,4 @@
+from tkinter import NO
 import uuid
 from deep_translator import GoogleTranslator
 from django.core.paginator import Paginator
@@ -42,6 +43,9 @@ def filter_categories(request, result):
         keys_list.remove("q")
     if "page" in keys_list:
         keys_list.remove("page")
+    if "left_range" in keys_list and "right_range" in keys_list:
+        keys_list.remove("left_range")
+        keys_list.remove("right_range")
 
     if keys := keys_list:
         qeary = Q()
@@ -74,6 +78,16 @@ def sorting_filter(sort_by):
             return Goods.objects.order_by("upload_time")
 
 
+def price_filter(request, result):
+    left_range = request.GET.get("left_range", None)
+    right_range = request.GET.get("right_range", None)
+    if left_range and right_range:
+        return result.filter(
+            Q(price__gte=int(left_range)) & Q(price__lte=int(right_range))
+        )
+    return result
+
+
 def pagination(page, result, item_quantity=6):
     paginator = Paginator(result, item_quantity)
     return paginator.get_page(page)
@@ -85,6 +99,7 @@ def check_filters(request):
     sort_by = request.GET.get("sort_by", None)
     objects = sorting_filter(sort_by)
     objects = filter_categories(request, objects)
+    objects = price_filter(request, objects)
     objects = q_search(q_query, objects)
     objects = pagination(page, objects)
     return objects

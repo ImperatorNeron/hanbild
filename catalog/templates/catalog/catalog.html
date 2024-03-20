@@ -102,13 +102,24 @@
 
                 <div class="my-slider-wrapper">
                   <div class="values">
-                    <span id="range1">0</span>
-                    до
-                    <span id="range2">100</span>
+                    {% if request.GET.left_range and request.GET.right_range %}
+                      <input id="range1" type="text" class="custom-input" value="{{ request.GET.left_range }}" min="0" max="2000000" autocomplete="off" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+                      <div class="dash">-</div>
+                      <input id="range2" type="text" class="custom-input" value="{{ request.GET.right_range }}" min="0" max="2000000" autocomplete="off" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+                    {% else %}
+                      <input id="range1" type="text" class="custom-input" value="0" min="0" max="2000000" autocomplete="off" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+                      <div class="dash">-</div>
+                      <input id="range2" type="text" class="custom-input" value="2000000" min="0" max="2000000" autocomplete="off" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+                    {% endif %}
                   </div>
                   <div class="my-slider-container">
-                    <input type="range" class="my-slider" value="0" min="0" max="540" step="15" oninput="slideOne()" />
-                    <input type="range" class="my-slider" value="100" min="0" max="540" step="15" oninput="slideTwo()" />
+                    {% if request.GET.left_range and request.GET.right_range %}
+                      <input type="range" name="left_range" class="my-slider" value="{{ request.GET.left_range }}" min="0" max="2000000" step="1" oninput="slideOne()" />
+                      <input type="range" name="right_range" class="my-slider" value="{{ request.GET.right_range }}" min="0" max="2000000" step="1" oninput="slideTwo()" />
+                    {% else %}
+                      <input type="range" name="left_range" class="my-slider" value="0" min="0" max="2000000" step="1" oninput="slideOne()" />
+                      <input type="range" name="right_range" class="my-slider" value="2000000" min="0" max="2000000" step="1" oninput="slideTwo()" />
+                    {% endif %}
                     <div class="my-slider-track"></div>
                   </div>
                 </div>
@@ -312,3 +323,7 @@
     </div>
   </main>
 {% endblock %}
+
+{% block js %}
+<script src="{% static 'hanbild/js/price_range.js' %}"></script>
+{% endblock js %}
