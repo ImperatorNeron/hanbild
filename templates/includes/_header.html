@@ -32,6 +32,9 @@
         <input hidden name="left_range" value="{{ request.GET.left_range }}" />
         <input hidden name="right_range" value="{{ request.GET.right_range }}" />
       {% endif %}
+      {% if request.GET.quantity %}
+        <input type="hidden" name="quantity" value="{{ request.GET.quantity }}" />
+      {% endif %}
       <button type="submit"></button>
     </form>
     <div class="connection">

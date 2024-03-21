@@ -3,18 +3,15 @@
 {% load i18n %}
 {% load catalog_tags %}
 
+{% block breadcrumbs %}
+<li>
+  <a href="{% url 'main:index' %}">{% translate "Головна сторінка" %}</a>
+</li>
+<li style="font-weight: bold;">{% translate "Каталог" %}</li>
+{% endblock %}
+
 {% block content %}
   <main>
-    {% comment %}Demonstrate where you{% endcomment %}
-    <div class="breadcrumbs">
-      <ul>
-        <li>
-          <a href="{% url 'main:index' %}">Головна сторінка</a>
-        </li>
-        <li>Каталог</li>
-      </ul>
-    </div>
-    {% comment %}END Demonstrate where you{% endcomment %}
     <div class="content">
       <aside>
         <div class="filter-heading">
@@ -27,7 +24,7 @@
           C402.765,25.895,404.093,19.231,400.858,11.427z" />
             </g>
           </svg>
-          <h2>Фільтр</h2>
+          <h2>{% translate "Фільтр" %}</h2>
         </div>
         <form action="{% if request.GET.q %}
             {% url 'catalog:search' %}
@@ -51,6 +48,9 @@
                 {% comment %}Також подумати як краще зробити{% endcomment %}
                 {% if request.GET.q %}
                   <input type="hidden" name="q" value="{{ request.GET.q }}" />
+                {% endif %}
+                {% if request.GET.quantity %}
+                  <input type="hidden" name="quantity" value="{{ request.GET.quantity }}">
                 {% endif %}
                 {% tag_get_categories as categories %}
                 {% for category in categories %}
@@ -142,10 +142,11 @@
         <div class="placing">
           <div class="point">
             <label>{% translate 'Товарів на сторінці:' %}</label>
-            <select name="wind_farm" id="id_wind_farm">
-              <option value="1">10</option>
-              <option value="2">20</option>
-              <option value="3">50</option>
+            <select name="goods_quantity" id="id_goods_quantity">
+              <option value="9" {% if request.GET.quantity == '9' %}selected{% endif %}>9</option>
+              <option value="12" {% if request.GET.quantity == '12' %}selected{% endif %}>12</option>
+              <option value="15" {% if request.GET.quantity == '15' %}selected{% endif %}>15</option>
+              <option value="18" {% if request.GET.quantity == '18' %}selected{% endif %}>18</option>
             </select>
           </div>
 
@@ -203,7 +204,7 @@
                     </p>
                   {% endif %}
                   <p>
-                    <span>{% translate "арт." %} {{ item.pk|stringformat:"05d" }}</span>
+                    <span>{% translate "Арт." %} {{ item.pk|stringformat:"05d" }}</span>
                   </p>
                 </div>
 

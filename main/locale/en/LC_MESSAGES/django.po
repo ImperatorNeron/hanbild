@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-09 01:21+0200\n"
+"POT-Creation-Date: 2024-03-21 18:57+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,14 +18,26 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\main\views.py:8
+#: .\main\forms.py:17
+msgid "Ініціали повинні містити лише букви"
+msgstr ""
+
+#: .\main\forms.py:26
+msgid "Номер телефону повинен складатися лише з цифр!"
+msgstr ""
+
+#: .\main\forms.py:31
+msgid "Неправильний формат номера!"
+msgstr ""
+
+#: .\main\views.py:9
 msgid "HanBild - виробник самоскидних та бортових кузовів"
 msgstr "HanBild - manufacturer of dump trucks and side bodies"
 
-#: .\main\views.py:21
+#: .\main\views.py:22
 msgid "Контакти компанії | HanBild.com.ua"
 msgstr "Company contacts | HanBild.com.ua"
 
-#: .\main\views.py:26
+#: .\main\views.py:27
 msgid "Ремонт, Trade in та Leasing | HanBild.com.ua"
 msgstr "Repair, Trade in and Leasing | HanBild.com.ua"

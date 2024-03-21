@@ -115,3 +115,10 @@ function scrollFunction() {
 document.getElementById("scrollToTopBtn").onclick = function () {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
+
+
+document.getElementById("id_goods_quantity").addEventListener("change", function() {
+    var url = new URL(window.location.href);
+    url.searchParams.set('quantity', this.value);
+    window.location.href = url;
+  });

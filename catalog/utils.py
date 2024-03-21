@@ -46,6 +46,8 @@ def filter_categories(request, result):
     if "left_range" in keys_list and "right_range" in keys_list:
         keys_list.remove("left_range")
         keys_list.remove("right_range")
+    if "quantity" in keys_list:
+        keys_list.remove("quantity")
 
     if keys := keys_list:
         qeary = Q()
@@ -55,7 +57,8 @@ def filter_categories(request, result):
     return result
 
 
-def q_search(query, result):
+def q_search(request, result):
+    query = request.GET.get("q", None)
     if not query:
         return result
     if query.isdigit() and len(query) <= 3:
@@ -66,10 +69,10 @@ def q_search(query, result):
     return result.filter(name__trigram_similar=query)
 
 
-def sorting_filter(sort_by):
+def sorting_filter(request):
     from catalog.models import Goods
 
-    match sort_by:
+    match request.GET.get("sort_by", None):
         case "price-increase":
             return Goods.objects.order_by("price")
         case "price-decrease":
@@ -88,18 +91,16 @@ def price_filter(request, result):
     return result
 
 
-def pagination(page, result, item_quantity=9):
+def pagination(request, result):
+    item_quantity = request.GET.get("quantity", 9)
     paginator = Paginator(result, item_quantity)
-    return paginator.get_page(page)
+    return paginator.get_page(request.GET.get("page", 1))
 
 
 def check_filters(request):
-    page = request.GET.get("page", 1)
-    q_query = request.GET.get("q", None)
-    sort_by = request.GET.get("sort_by", None)
-    objects = sorting_filter(sort_by)
+    objects = sorting_filter(request)
     objects = filter_categories(request, objects)
     objects = price_filter(request, objects)
-    objects = q_search(q_query, objects)
-    objects = pagination(page, objects)
+    objects = q_search(request, objects)
+    objects = pagination(request, objects)
     return objects
