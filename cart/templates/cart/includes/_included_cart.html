@@ -1,3 +1,8 @@
+{% load static %}
+{% load carts_tags %}
+
+{% anonymous_user_carts request as carts %}
+
 <style>
   #cartContainer {
     position: fixed;
@@ -79,43 +84,35 @@
   }
 </style>
 <div id="cartContainer" style="display: none;">
-  <div class="cart-item">
-    <img src="product1.jpg" alt="Product 1" />
-    <div class="item-details">
-      <h3>Product 1</h3>
-      <p>
-        Quantity: <span class="quantity">1</span>
-      </p>
-      <button class="plus-btn">+</button>
-      <button class="minus-btn">-</button>
-      <button class="remove-btn">Remove</button>
-      <p>
-        Price: $<span class="price">10.00</span>
-      </p>
+  {% for cart in carts %}
+    <div class="cart-item">
+      {% if cart.item.preview_image %}
+        <img src="{{ cart.item.preview_image.url }}" alt="{{ cart.item.name }}" />
+      {% else %}
+        <img src="{% static 'hanbild/images/image_not_found.png' %}" alt="{{ cart.item.name }}" />
+      {% endif %}
+      <div class="item-details">
+        <h3>{{ cart.item.name }}</h3>
+        <p>
+          Quantity: <span class="quantity">{{ cart.quantity }}</span>
+        </p>
+        <button class="plus-btn">+</button>
+        <button class="minus-btn">-</button>
+        <a href="{% url "cart:cart_remove" cart.id %}" class="remove-btn">Remove</a>
+        <p>
+          Price: $<span class="price">{{ cart.goods_price }}</span>
+        </p>
+      </div>
     </div>
-  </div>
-  <div class="cart-item">
-    <img src="product2.jpg" alt="Product 2" />
-    <div class="item-details">
-      <h3>Product 2</h3>
-      <p>
-        Quantity: <span class="quantity">2</span>
-      </p>
-      <button class="plus-btn">+</button>
-      <button class="minus-btn">-</button>
-      <button class="remove-btn">Remove</button>
-      <p>
-        Price: $<span class="price">20.00</span>
-      </p>
-    </div>
-  </div>
+  {% endfor %}
+
   <div id="summary">
     <h2>Summary</h2>
     <p>
-      Total Items: <span id="total-items">3</span>
+      Total Items: <span id="total-items">{{ carts.total_quantity }}</span>
     </p>
     <p>
-      Total Price: $<span id="total-price">30.00</span>
+      Total Price: $<span id="total-price">{{ carts.total_price }}</span>
     </p>
   </div>
   <script>
