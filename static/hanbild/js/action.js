@@ -117,8 +117,8 @@ document.getElementById("scrollToTopBtn").onclick = function () {
 }
 
 
-document.getElementById("id_goods_quantity").addEventListener("change", function() {
+document.getElementById("id_goods_quantity").addEventListener("change", function () {
     var url = new URL(window.location.href);
     url.searchParams.set('quantity', this.value);
     window.location.href = url;
-  });
+});
