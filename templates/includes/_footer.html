@@ -1,5 +1,6 @@
 {% load static %}
 {% load tz %}
+{% load i18n %}
 
 <footer>
   <div class="footer-logo">
@@ -13,7 +14,7 @@
     </svg>
     <div class="connection-block">
       <div class="contact-heading">
-        <p>Номери телефонів</p>
+        <p>{% translate "Номери телефонів" %}</p>
       </div>
       <ul>
         <li>
@@ -39,7 +40,7 @@
     </svg>
     <div class="connection-block">
       <div class="contact-heading">
-        <p>Електронна пошта</p>
+        <p>{% translate "Електронна пошта" %}</p>
       </div>
       <a href="mailto:handbild@gmail.com">handbild@gmail.com</a>
     </div><?xml version="1.0" encoding="UTF-8"?><svg id="_Слой_2" data-name="Слой 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 153.26 204.35">
@@ -49,9 +50,9 @@
     </svg>
     <div class="connection-block">
       <div class="contact-heading">
-        <p>Адреса</p>
+        <p>{% translate "Адреса" %}</p>
       </div>
-      <a href="">м. Дніпро, вул. Дніпрянська 7</a>
+      <a href="">{% translate "м. Дніпро, вул. Орловська, 21" %}</a>
     </div>
   </div>
   <div class="footer-info">
@@ -63,14 +64,14 @@
     </svg>
     <div class="connection-block">
       <div class="contact-heading">
-        <p>Графік роботи</p>
+        <p>{% translate "Графік роботи" %}</p>
       </div>
       <ul>
         <li>
-          <span>Пн-Пн:</span> з 9.00 по 20.00
+          <span>{% translate "Пн-Пн:" %}</span> {% translate "з 9.00 по 20.00" %}
         </li>
         <li>
-          <span>Сб-Нд:</span> вихідний
+          <span>{% translate "Сб-Нд:" %}</span> {% translate "вихідний" %}
         </li>
       </ul>
     </div>
@@ -83,29 +84,29 @@
     </svg>
     <div class="connection-block">
       <div class="contact-heading">
-        <p>Навігація</p>
+        <p>{% translate "Навігація" %}</p>
       </div>
       <ul>
         <li>
-          <a href="#">Про нас</a>
+          <a href="#">{% translate "Про нас" %}</a>
         </li>
         <li>
-          <a href="#">Послуги</a>
+          <a href="#">{% translate "Послуги" %}</a>
         </li>
         <li>
-          <a href="#">Продукція</a>
+          <a href="#">{% translate "Продукція" %}</a>
         </li>
         <li>
-          <a href="#">Каталог</a>
+          <a href="#">{% translate "Каталог" %}</a>
         </li>
         <li>
-          <a href="#">Контакти</a>
+          <a href="#">{% translate "Контакти" %}</a>
         </li>
       </ul>
     </div>
   </div>
   <div class="footer-additional-info">
-    <a href="{% url "main:contacts" %}">Зв'язатися</a>
+    <a href="{% url "main:contacts" %}">{% translate "Зв'язатися" %}</a>
     <div class="lang-network">
       <div class="lang">
         <?xml version="1.0" encoding="UTF-8"?><svg id="_Слой_2" data-name="Слой 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 319.31 319.3">

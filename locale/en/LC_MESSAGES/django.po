@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-21 18:57+0200\n"
+"POT-Creation-Date: 2024-03-26 01:27+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,13 +18,123 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\hanbild\settings.py:94
+#: .\hanbild\settings.py:95
 msgid "Ukrainian"
 msgstr "Українська"
 
-#: .\hanbild\settings.py:95
+#: .\hanbild\settings.py:96
 msgid "English"
 msgstr "English"
+
+#: .\templates\includes\_feedback_form.html:15
+msgid ""
+"Ми цінуємо ваш інтерес до нашої компанії та готові відповісти на всі ваші "
+"запитання. Будь ласка, заповніть цю форму, і ми зв'яжемося з вами найближчим "
+"часом. Дякуємо за вибір наших послуг!"
+msgstr ""
+"We appreciate your interest in our company and are ready to answer all your "
+"questions. Please fill out this form and we will get back to you soon"
+"sometimes. Thank you for choosing our services!"
+
+#: .\templates\includes\_feedback_form.html:18
+msgid "Як до вас звертатися:"
+msgstr "How to name you:"
+
+#: .\templates\includes\_feedback_form.html:19
+msgid "Ваше ім`я"
+msgstr "Your name"
+
+#: .\templates\includes\_feedback_form.html:22
+msgid "Номер телефону або e-mail:"
+msgstr "Phone number or e-mail:"
+
+#: .\templates\includes\_feedback_form.html:23
+msgid "Залиште контакт для зв`язку"
+msgstr "Leave a contact for communication"
+
+#: .\templates\includes\_feedback_form.html:26
+msgid "Повідомлення:"
+msgstr "Message:"
+
+#: .\templates\includes\_feedback_form.html:27
+msgid "Напишіть, що саме вас цікавить"
+msgstr "Write what interests you"
+
+#: .\templates\includes\_feedback_form.html:31
+msgid "Натискаючи кнопку \"Надіслати\" я погоджуюсь з умовами"
+msgstr "By clicking the \"Send\" button, I agree to the terms of the"
+
+#: .\templates\includes\_feedback_form.html:31
+msgid "політики конфіденційності"
+msgstr "privacy policy"
+
+#: .\templates\includes\_feedback_form.html:34
+msgid "Надіслати"
+msgstr "Send"
+
+#: .\templates\includes\_footer.html:17
+msgid "Номери телефонів"
+msgstr "Phone numbers"
+
+#: .\templates\includes\_footer.html:43
+msgid "Електронна пошта"
+msgstr "Email"
+
+#: .\templates\includes\_footer.html:53
+msgid "Адреса"
+msgstr "Address"
+
+#: .\templates\includes\_footer.html:55
+msgid "м. Дніпро, вул. Орловська, 21"
+msgstr "Dnipro, str. Orlovska, 21"
+
+#: .\templates\includes\_footer.html:67
+msgid "Графік роботи"
+msgstr "Work schedule"
+
+#: .\templates\includes\_footer.html:71
+msgid "Пн-Пн:"
+msgstr "Mon-Fri"
+
+#: .\templates\includes\_footer.html:71
+msgid "з 9.00 по 20.00"
+msgstr "from 9.00 to 20.00"
+
+#: .\templates\includes\_footer.html:74
+msgid "Сб-Нд:"
+msgstr "Sat-Sun"
+
+#: .\templates\includes\_footer.html:74
+msgid "вихідний"
+msgstr "day off"
+
+#: .\templates\includes\_footer.html:87
+msgid "Навігація"
+msgstr "Navigation"
+
+#: .\templates\includes\_footer.html:91 .\templates\includes\_header.html:56
+msgid "Про нас"
+msgstr "About us"
+
+#: .\templates\includes\_footer.html:94 .\templates\includes\_header.html:59
+msgid "Послуги"
+msgstr "Services"
+
+#: .\templates\includes\_footer.html:97 .\templates\includes\_header.html:81
+msgid "Продукція"
+msgstr "Products"
+
+#: .\templates\includes\_footer.html:100 .\templates\includes\_header.html:96
+msgid "Каталог"
+msgstr "Catalog"
+
+#: .\templates\includes\_footer.html:103 .\templates\includes\_header.html:99
+msgid "Контакти"
+msgstr "Contacts"
+
+#: .\templates\includes\_footer.html:109
+msgid "Зв'язатися"
+msgstr "Contact"
 
 #: .\templates\includes\_header.html:16
 msgid "— Якість. Швидкість. Надійність."
@@ -33,23 +143,3 @@ msgstr "— Quality. Velocity. Reliability."
 #: .\templates\includes\_header.html:21
 msgid "Знайти..."
 msgstr "Search..."
-
-#: .\templates\includes\_header.html:56
-msgid "Про нас"
-msgstr "About us"
-
-#: .\templates\includes\_header.html:59
-msgid "Послуги"
-msgstr "Services"
-
-#: .\templates\includes\_header.html:81
-msgid "Продукція"
-msgstr "Products"
-
-#: .\templates\includes\_header.html:96
-msgid "Каталог"
-msgstr "Catalog"
-
-#: .\templates\includes\_header.html:104
-msgid "Контакти"
-msgstr "Contacts"

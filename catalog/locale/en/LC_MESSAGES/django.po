@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-21 19:06+0200\n"
+"POT-Creation-Date: 2024-03-26 01:27+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,62 +17,66 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-#: .\templates\catalog\catalog.html:8
+
+#: .\catalog\templates\catalog\catalog.html:8
 msgid "Головна сторінка"
 msgstr "Main page"
 
-#: .\templates\catalog\catalog.html:10
+#: .\catalog\templates\catalog\catalog.html:10
 msgid "Каталог"
 msgstr "Catalog"
 
-#: .\templates\catalog\catalog.html:27
+#: .\catalog\templates\catalog\catalog.html:27
 msgid "Фільтр"
 msgstr "Filter"
 
-#: .\templates\catalog\catalog.html:38
+#: .\catalog\templates\catalog\catalog.html:38
 msgid "Категорії"
 msgstr "Categories"
 
-#: .\templates\catalog\catalog.html:73
+#: .\catalog\templates\catalog\catalog.html:73
 msgid "Діапазон цін"
 msgstr "Price range"
 
-#: .\templates\catalog\catalog.html:83 .\templates\catalog\catalog.html:85
+#: .\catalog\templates\catalog\catalog.html:83
+#: .\catalog\templates\catalog\catalog.html:85
 msgid "За новизною"
 msgstr "By novelty"
 
-#: .\templates\catalog\catalog.html:91 .\templates\catalog\catalog.html:93
+#: .\catalog\templates\catalog\catalog.html:91
+#: .\catalog\templates\catalog\catalog.html:93
 msgid "За зростанням ціни"
 msgstr "Low to high price"
 
-#: .\templates\catalog\catalog.html:99 .\templates\catalog\catalog.html:101
+#: .\catalog\templates\catalog\catalog.html:99
+#: .\catalog\templates\catalog\catalog.html:101
 msgid "За спаданням ціни"
 msgstr "High to low price"
 
-#: .\templates\catalog\catalog.html:132
+#: .\catalog\templates\catalog\catalog.html:132
 msgid "Застосувати"
 msgstr "Apply"
 
-#: .\templates\catalog\catalog.html:146
+#: .\catalog\templates\catalog\catalog.html:146
 msgid "Товарів на сторінці:"
 msgstr "Products per page:"
 
-#: .\templates\catalog\catalog.html:202
+#: .\catalog\templates\catalog\catalog.html:202
 msgid "грн."
 msgstr "UAH"
 
-#: .\templates\catalog\catalog.html:206
+#: .\catalog\templates\catalog\catalog.html:206
 msgid "Ціна договірна"
 msgstr "Negotiated price"
 
-#: .\templates\catalog\catalog.html:210
+#: .\catalog\templates\catalog\catalog.html:210
 msgid "Арт."
 msgstr "Сode:"
 
-#: .\templates\catalog\catalog.html:215
+#: .\catalog\templates\catalog\catalog.html:215
 msgid "Детальніше"
 msgstr "Read more"
 
-#: .\views.py:10 .\views.py:19
+#: .\catalog\views.py:10 .\catalog\views.py:19
 msgid "Каталог компанії | HanBild.com.ua"
 msgstr "Company catalog | HanBild.com.ua"

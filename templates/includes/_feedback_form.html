@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 
 <div class="popup-contact-form">
   <div class="left-container"></div>
@@ -12,26 +13,26 @@
   <div class="right-container">
     <img class="logotype" src="{% static 'hanbild/icons/logo_dv.svg' %}" alt="logo" />
     <form action="" class="feedback-form">
-      <p>Ми цінуємо ваш інтерес до нашої компанії та готові відповісти на всі ваші запитання. Будь ласка, заповніть цю форму, і ми зв'яжемося з вами найближчим часом. Дякуємо за вибір наших послуг!</p>
+      <p>{% translate "Ми цінуємо ваш інтерес до нашої компанії та готові відповісти на всі ваші запитання. Будь ласка, заповніть цю форму, і ми зв'яжемося з вами найближчим часом. Дякуємо за вибір наших послуг!" %}</p>
       <div class="form-container">
         <div class="point">
-          <label for="form-name">Як до вас звертатися:</label>
-          <input type="text" name="" id="input" required placeholder="Ваше ім'я" />
+          <label for="form-name">{% translate "Як до вас звертатися:" %}</label>
+          <input type="text" name="" id="input" required placeholder="{% translate 'Ваше ім`я' %}" />
         </div>
         <div class="point">
-          <label for="form-phone">Номер телефону або e-mail:</label>
-          <input type="tel" name="" id="form-phone" required placeholder="Залиште контакт для зв'язку" />
+          <label for="form-phone">{% translate "Номер телефону або e-mail:" %}</label>
+          <input type="tel" name="" id="form-phone" required placeholder="{% translate 'Залиште контакт для зв`язку' %}" />
         </div>
         <div class="point">
-          <label for="message">Повідомлення:</label>
-          <textarea name="message" placeholder="Напишіть, що саме вас цікавить"></textarea>
+          <label for="message">{% translate "Повідомлення:" %}</label>
+          <textarea name="message" placeholder="{% translate 'Напишіть, що саме вас цікавить' %}"></textarea>
         </div>
       </div>
       <div class="form-end">
-        <input type="checkbox" id="agreement" value="" checked /><label for="agreement">Натискаючи кнопку "Надіслати" я погоджуюсь з умовами <a href=""><span>політики конфіденційності</span></a></label>
+        <input type="checkbox" id="agreement" value="" checked /><label for="agreement">{% translate 'Натискаючи кнопку "Надіслати" я погоджуюсь з умовами' %} <a href=""><span>{% translate 'політики конфіденційності' %}</span></a></label>
 
         <div class="form-buttons">
-          <a>Надіслати</a>
+          <a>{% translate "Надіслати" %}</a>
           <a>
             <?xml version="1.0" encoding="UTF-8"?><svg id="_Слой_2" data-name="Слой 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 42.15 30.95">
               <g id="_Слой_1-2" data-name="Слой 1">
