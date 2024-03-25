@@ -11,7 +11,6 @@ function setupLanguageSelection() {
 
 window.addEventListener('DOMContentLoaded', setupLanguageSelection);
 
-
 function startAnimation() {
     var pulseButton = document.querySelector('.pulsating-element');
     pulseButton.style.animation = 'pulse linear 1s infinite';
@@ -47,60 +46,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-const autoFillBtn = document.getElementById('auto-fill-btn');
-const customBtn = document.getElementById('custom-btn');
-const cardsGrid = document.querySelector('.cards');
-const cards = document.querySelectorAll('.card');
-const normalizationImgs = document.querySelectorAll('.normalization-img');
-
-function applyStyles(gridColumns, cardFlexDirection, imgWidth, imgHeight) {
-    cardsGrid.style.gridTemplateColumns = gridColumns;
-    cards.forEach(card => {
-        card.style.flexDirection = cardFlexDirection;
-    });
-    normalizationImgs.forEach(img => {
-        img.style.width = imgWidth;
-        img.style.height = imgHeight;
-    });
-}
-
-function saveStateToLocalStorage(gridColumns, cardFlexDirection, imgWidth, imgHeight) {
-    localStorage.setItem('gridColumns', gridColumns);
-    localStorage.setItem('cardFlexDirection', cardFlexDirection);
-    localStorage.setItem('imgWidth', imgWidth);
-    localStorage.setItem('imgHeight', imgHeight);
-}
-
-function restoreStateFromLocalStorage() {
-    const gridColumns = localStorage.getItem('gridColumns') || 'repeat(auto-fill, minmax(300px, 1fr))';
-    const cardFlexDirection = localStorage.getItem('cardFlexDirection') || 'column';
-    const imgWidth = localStorage.getItem('imgWidth') || '100%';
-    const imgHeight = localStorage.getItem('imgHeight') || '230px';
-
-    applyStyles(gridColumns, cardFlexDirection, imgWidth, imgHeight);
-}
-
-restoreStateFromLocalStorage();
-
-autoFillBtn.addEventListener('click', function () {
-    const gridColumns = 'repeat(auto-fill, minmax(300px, 1fr))';
-    const cardFlexDirection = 'column';
-    const imgWidth = '100%';
-    const imgHeight = '230px';
-
-    applyStyles(gridColumns, cardFlexDirection, imgWidth, imgHeight);
-    saveStateToLocalStorage(gridColumns, cardFlexDirection, imgWidth, imgHeight);
-});
-
-customBtn.addEventListener('click', function () {
-    const gridColumns = '1fr';
-    const cardFlexDirection = 'row';
-    const imgWidth = '87%';
-    const imgHeight = '340px';
-
-    applyStyles(gridColumns, cardFlexDirection, imgWidth, imgHeight);
-    saveStateToLocalStorage(gridColumns, cardFlexDirection, imgWidth, imgHeight);
-});
 
 window.onscroll = function () { scrollFunction() };
 
@@ -116,6 +61,21 @@ document.getElementById("scrollToTopBtn").onclick = function () {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
+const openPopUp = document.querySelector('.pulsating-element');
+const closePopUp = document.querySelector('.close-button');
+const popUp = document.querySelector('.popup-contact-form');
+const additionalElements = document.querySelector('.additional-elements');
+
+openPopUp.addEventListener('click', function (e) {
+    e.preventDefault();
+    popUp.classList.add('active');
+    additionalElements.style.display = 'none';
+})
+
+closePopUp.addEventListener('click', () => {
+    popUp.classList.remove('active');
+    additionalElements.style.display = '';
+})
 
 document.getElementById("id_goods_quantity").addEventListener("change", function () {
     var url = new URL(window.location.href);

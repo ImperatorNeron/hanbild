@@ -14,17 +14,24 @@
 
       {% endblock %}
     </title>
+    <style>
+      .leaflet-control-zoom-in{
+        width: 50px;
+        height: 100px;
+      }
+    </style>
     {% block css %}
 
     {% endblock %}
   </head>
   <body>
-    {% include 'includes/_header.html' %}
-    {% include 'includes/_feedback_button.html' %}
     <div id="cartContainer">
       {% include 'cart/includes/_included_cart.html' %}
     </div>
-    {% include "includes/_notifications.html" %}
+    {% include 'includes/_header.html' %}
+    {% include 'includes/_feedback_button.html' %}
+    {% include 'includes/_feedback_form.html' %}
+    {% include 'includes/_notifications.html' %}
     <div class="breadcrumbs">
       <ul>
         {% block breadcrumbs %}
@@ -36,6 +43,7 @@
     {% block content %}
 
     {% endblock %}
+    {% include 'includes/_footer.html' %}
   </body>
   <script src="{% static 'hanbild/js/jquery/jquery.js' %}"></script>
   <script src="{% static 'hanbild/js/action.js' %}"></script>
