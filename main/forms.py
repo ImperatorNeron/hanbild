@@ -10,6 +10,12 @@ class OnlineApplicationForm(forms.ModelForm):
         model = ClientMessages
         fields = ["name", "number_or_email", "message"]
 
+    def clean_number_or_email(self):
+        data = self.cleaned_data['number_or_email']
+        # Перевірка, чи введено номер телефону або електронну пошту
+        if not re.match(r'^[\w\.-]+@[\w\.-]+$', data) and not re.match(r'^\+?1?\d{9,15}$', data):
+            raise forms.ValidationError("Введіть дійсний номер телефону або електронну пошту")
+        return data
 
 
 

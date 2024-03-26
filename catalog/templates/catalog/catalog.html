@@ -3,6 +3,10 @@
 {% load i18n %}
 {% load catalog_tags %}
 
+{% block title %}
+{{ title }}
+{% endblock title %}
+
 {% block breadcrumbs %}
 <li>
   <a href="{% url 'main:index' %}">{% translate "Головна сторінка" %}</a>
@@ -209,7 +213,7 @@
                 </div>
 
                 <div class="card-buttons">
-                  <a href="{% url 'catalog:goods' item.slug %}">{% translate 'Детальніше' %}</a>
+                  <a href="{% url 'catalog:item' item.slug %}">{% translate 'Детальніше' %}</a>
                   <a>
                     <?xml version="1.0" encoding="UTF-8"?><svg id="_Слой_2" data-name="Слой 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 42.15 30.95">
                       <g id="_Слой_1-2" data-name="Слой 1">

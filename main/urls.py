@@ -5,7 +5,7 @@ from main import views
 app_name = "main"
 
 urlpatterns = [
-    path("", views.index, name="index"),
-    path("contacts/", views.contacts, name="contacts"),
-    path("services/", views.services, name="services"),
+    path("", views.IndexView.as_view(), name="index"),
+    path("contacts/", views.ContactsView.as_view(), name="contacts"),
+    path("services/", views.ServicesView.as_view(), name="services"),
 ]

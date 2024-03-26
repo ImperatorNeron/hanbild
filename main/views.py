@@ -1,35 +1,52 @@
-from os import name
-from django.shortcuts import redirect, render
+from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
 
 from main.forms import OnlineApplicationForm
 from main.models import ClientMessages
 from main.sending_email_service import send_email
 
+from django.views.generic import FormView
 
-def index(request):
+
+class BaseApplicationFormView(FormView):
+
+    form_class = OnlineApplicationForm
+    context = {}
+
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        if self.context:
+            for key, value in self.context.items():
+                context[key] = value
+        if kwargs:
+            for key, value in kwargs.items():
+                context[key] = value
+        return context
+
+    def form_valid(self, form):
+        # ClientMessages.objects.create(
+        #     name=form.cleaned_data["name"],
+        #     number_or_email=form.cleaned_data["number_or_email"],
+        #     message=form.cleaned_data["message"],
+        # )
+        # send_email(form.cleaned_data)
+        print(form.cleaned_data)
+        return super().form_valid(form)
+
+
+class IndexView(BaseApplicationFormView):
+    template_name = "main/index.html"
+    success_url = reverse_lazy("main:index")
     context = {"title": _("HanBild - виробник самоскидних та бортових кузовів")}
-    return render(request, "main/index.html", context=context)
 
 
-def contacts(request):
-
-    if request.method == "POST":
-        form = OnlineApplicationForm(data=request.POST)
-        if form.is_valid():
-            ClientMessages.objects.create(
-                name=form.cleaned_data["name"],
-                number_or_email=form.cleaned_data["number_or_email"],
-                message=form.cleaned_data["message"],
-            )
-            send_email(form.cleaned_data)
-            return redirect("main:index")
-    else:
-        form = OnlineApplicationForm()
-    context = {"title": _("Контакти компанії | HanBild.com.ua"), "form": form}
-    return render(request, "main/contact_us.html", context=context)
+class ContactsView(BaseApplicationFormView):
+    template_name = "main/contact_us.html"
+    success_url = reverse_lazy("main:contacts")
+    context = {"title": _("Контакти компанії | HanBild.com.ua")}
 
 
-def services(request):
+class ServicesView(BaseApplicationFormView):
+    template_name = "main/services.html"
+    success_url = reverse_lazy("main:services")
     context = {"title": _("Ремонт, Trade in та Leasing | HanBild.com.ua")}
-    return render(request, "main/services.html", context=context)

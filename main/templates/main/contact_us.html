@@ -109,7 +109,7 @@
             
           </div>
         </div>
-        <form class="feedback-form" action="{% url "main:contacts" %}" method="post">
+        <form class="feedback-form" method="post">
           {% csrf_token %}
           <h3>{% translate "Форма зворотнього зв'язку" %}</h3>
           <div class="form-container">
