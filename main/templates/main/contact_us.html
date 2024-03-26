@@ -109,27 +109,28 @@
             
           </div>
         </div>
-        <form class="feedback-form" action="">
+        <form class="feedback-form" action="{% url "main:contacts" %}" method="post">
+          {% csrf_token %}
           <h3>{% translate "Форма зворотнього зв'язку" %}</h3>
           <div class="form-container">
             <div class="point">
-              <label for="form-name">{% translate "Як до вас звертатися:" %}</label>
-              <input type="text" name="" id="input" required placeholder="{% translate 'Ваше ім`я' %}" />
+              <label for="id_name">{% translate "Як до вас звертатися:" %}</label>
+              <input type="text" name="name" id="id_name" required placeholder="{% translate 'Ваше ім`я' %}" />
             </div>
             <div class="point">
-              <label for="form-phone">{% translate "Номер телефону або e-mail:" %}</label>
-              <input type="tel" name="" id="form-phone" required placeholder="{% translate 'Залиште контакт для зв`язку' %}" />
+              <label for="id_number_or_email">{% translate "Номер телефону або e-mail:" %}</label>
+              <input type="tel" name="number_or_email" id="id_number_or_email" required placeholder="{% translate 'Залиште контакт для зв`язку' %}" />
             </div>
             <div class="point">
-              <label for="message">{% translate "Повідомлення:" %}</label>
-              <textarea name="message" placeholder="{% translate 'Напишіть, що саме вас цікавить' %}"></textarea>
+              <label for="id_message">{% translate "Повідомлення:" %}</label>
+              <textarea name="message" id="id_message" placeholder="{% translate 'Напишіть, що саме вас цікавить' %}"></textarea>
             </div>
           </div>
           <div class="form-end">
             <input type="checkbox" id="agreement" value="" checked /><label for="agreement">{% translate 'Натискаючи кнопку "Надіслати" я погоджуюсь з умовами' %} <a href=""><span>{% translate 'політики конфіденційності' %}</span></a></label>
-
+            
             <div class="form-buttons">
-              <a>{% translate "Надіслати" %}</a>
+              <button type="submit">{% translate "Надіслати" %}</button>
             </div>
           </div>
         </form>

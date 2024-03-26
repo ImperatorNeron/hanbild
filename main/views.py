@@ -1,7 +1,9 @@
+from os import name
 from django.shortcuts import redirect, render
 from django.utils.translation import gettext_lazy as _
 
 from main.forms import OnlineApplicationForm
+from main.models import ClientMessages
 from main.sending_email_service import send_email
 
 
@@ -15,6 +17,11 @@ def contacts(request):
     if request.method == "POST":
         form = OnlineApplicationForm(data=request.POST)
         if form.is_valid():
+            ClientMessages.objects.create(
+                name=form.cleaned_data["name"],
+                number_or_email=form.cleaned_data["number_or_email"],
+                message=form.cleaned_data["message"],
+            )
             send_email(form.cleaned_data)
             return redirect("main:index")
     else:

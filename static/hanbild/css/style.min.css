@@ -1375,7 +1375,7 @@ textarea {
     gap: 10px
 }
 
-.form-buttons a {
+.form-buttons button {
     border-radius: 100%;
     padding: 12px;
     margin: 12px 0;
@@ -1396,23 +1396,23 @@ textarea {
     font-family: "Raleway", Sans-serif
 }
 
-.form-buttons a svg {
+.form-buttons button svg {
     height: 100%;
     width: 100%
 }
 
-.form-buttons a:first-child {
+.form-buttons button:first-child {
     background-color: #f0500a;
     width: 200px;
     border-radius: 8px;
     text-transform: uppercase
 }
 
-.form-buttons a:nth-child(2) {
+.form-buttons button:nth-child(2) {
     background-color: #37cbf0
 }
 
-.form-buttons a:nth-child(3) {
+.form-buttons button:nth-child(3) {
     background-color: #4341c4
 }
 
