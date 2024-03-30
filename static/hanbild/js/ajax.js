@@ -26,6 +26,7 @@ $(document).ready(function () {
                 setTimeout(function () {
                     successMessage.fadeOut(400);
                 }, 7000);
+                console.log($(this).serialize())
                 // Увеличиваем количество товаров в корзине (отрисовка в шаблоне)
                 // cartCount++;
                 // goodsInCartCount.text(cartCount);
@@ -51,6 +52,7 @@ $(document).ready(function () {
 
         // Получаем id корзины из атрибута data-cart-id
         var cart_id = $(this).data("cart-id");
+        console.log(parseInt(cart_id));
         // Из атрибута href берем ссылку на контроллер django
         var remove_from_cart = $(this).attr("href");
 
@@ -88,33 +90,25 @@ $(document).ready(function () {
         });
     });
 
-
-
-
-    $(document).on("click", ".minus-btn", function () {
-        var url = $(this).data("cart-change-url");
+    $(document).on("click", ".minus-btn", function (e) {
+        e.preventDefault();
+        var url = $(this).attr("href");
         var cartID = $(this).data("cart-id");
-        var $input = $(this).closest('.item-details').find('.number')
-        var currentValue = parseInt($input.val());
-        console.log(url, cartID, $input, currentValue)
+        var quantity_displayer = $(this).closest('.cart-item').find('.quantity_displayer');
+        var currentValue = parseInt(quantity_displayer.text());
         if (currentValue > 1) {
-            $input.val(currentValue - 1);
-            // Запускаем функцию определенную ниже
-            // с аргументами (id карты, новое количество, количество уменьшилось или прибавилось, url)
+            quantity_displayer.val(currentValue - 1);
             updateCart(cartID, currentValue - 1, -1, url);
         }
     });
 
-    $(document).on("click", ".plus-btn", function () {
-        console.log(1)
-        var url = $(this).data("cart-change-url");
+    $(document).on("click", ".plus-btn", function (e) {
+        e.preventDefault();
+        var url = $(this).attr("href");
         var cartID = $(this).data("cart-id");
-        var $input = $(this).closest('.cart-item').find('.number');
-        var currentValue = parseInt($input.val());
-        $input.val(currentValue + 1);
-
-        // Запускаем функцию определенную ниже
-        // с аргументами (id карты, новое количество, количество уменьшилось или прибавилось, url)
+        var quantity_displayer = $(this).closest('.cart-item').find('.quantity_displayer');
+        var currentValue = parseInt(quantity_displayer.text());
+        quantity_displayer.val(currentValue + 1);
         updateCart(cartID, currentValue + 1, 1, url);
 
     });
@@ -163,17 +157,4 @@ $(document).ready(function () {
             notification.alert('close');
         }, 7000);
     }
-    var cart = $('#cart');
-    var cartContainer = $('#cartContainer');
-
-    cart.on('click', function (event) {
-        event.stopPropagation();
-        cartContainer.css('display', 'block');
-    });
-
-    $(document).on('click', function (event) {
-        if (!cartContainer.is(event.target) && cartContainer.has(event.target).length === 0) {
-            cartContainer.css('display', 'none');
-        }
-    });
 });

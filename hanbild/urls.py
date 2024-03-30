@@ -6,6 +6,8 @@ from django.conf.urls.i18n import i18n_patterns
 from hanbild import settings
 from hanbild.settings import DEBUG
 
+handler404 = "main.views.page404exception"
+
 urlpatterns = [
     path("admin/", admin.site.urls),
 ]

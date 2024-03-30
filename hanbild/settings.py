@@ -1,5 +1,6 @@
 from pathlib import Path
 import os
+from django.conf.urls import handler404
 from dotenv import load_dotenv
 
 from django.utils.translation import gettext_lazy as _
@@ -10,7 +11,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.getenv("SECRET_KEY")
 
-DEBUG = os.getenv("DEBUG")
+# DEBUG = os.getenv("DEBUG") == "True"
+DEBUG = True
 
 ALLOWED_HOSTS = []
 
@@ -54,7 +56,6 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
-                "main.context_processors.feedback_from"
             ],
         },
     },
@@ -127,3 +128,4 @@ EMAIL_PORT = os.getenv("EMAIL_PORT")
 EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
 EMAIL_USE_TLS = os.getenv("EMAIL_USE_TLS")
+

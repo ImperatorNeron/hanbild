@@ -1,37 +1,55 @@
 {% load static %}
+{% load i18n %}
 {% load carts_tags %}
 
-{% anonymous_user_carts request as carts %}
-
 {% for cart in carts %}
-  <div class="cart-item">
-    {% if cart.item.preview_image %}
-      <img src="{{ cart.item.preview_image.url }}" alt="{{ cart.item.name }}" />
-    {% else %}
-      <img src="{% static 'hanbild/images/image_not_found.png' %}" alt="{{ cart.item.name }}" />
-    {% endif %}
-    <div class="item-details">
-      <h3>{{ cart.item.name }}</h3>
+  <tr class="cart-item">
+    <td>1</td>
+    <td>
+      {% if cart.item.preview_image %}
+        <img src="{{ cart.item.preview_image.url }}" alt="" />
+      {% else %}
+        <img src="{% static 'hanbild/images/image_not_found.png' %}" alt="" />
+      {% endif %}
+    </td>
+    <td>
+      <a href="">{{ cart.item.name }}</a>
+    </td>
+    <td>{{ cart.item.pk|stringformat:'05d' }}</td>
+    <td>
+      <div class="quantity">
+        <p class="quantity_displayer">{{ cart.quantity }}</p>
+        <div class="num-but">
+          <a class="plus-btn" data-cart-id="{{ cart.id }}" href="{% url 'cart:cart_change' %}">▲</a>
+          <a class="minus-btn" data-cart-id="{{ cart.id }}" href="{% url 'cart:cart_change' %}">▼</a>
+        </div>
+      </div>
+    </td>
+    <td>
+      {% if cart.goods_price == 0 %}
+        {% translate 'Договірна' %}
+      {% else %}
+        {{ cart.goods_price }} грн.
+      {% endif %}
+    </td>
+    <td>
+      <a class="remove-btn" data-cart-id="{{ cart.id }}" href="{% url 'cart:cart_remove' %}">
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" viewBox="0 0 348.333 348.334" style="enable-background:new 0 0 512 512" xml:space="preserve" class="">
+          <g>
+            <path d="M336.559 68.611 231.016 174.165l105.543 105.549c15.699 15.705 15.699 41.145 0 56.85-7.844 7.844-18.128 11.769-28.407 11.769-10.296 0-20.581-3.919-28.419-11.769L174.167 231.003 68.609 336.563c-7.843 7.844-18.128 11.769-28.416 11.769-10.285 0-20.563-3.919-28.413-11.769-15.699-15.698-15.699-41.139 0-56.85l105.54-105.549L11.774 68.611c-15.699-15.699-15.699-41.145 0-56.844 15.696-15.687 41.127-15.687 56.829 0l105.563 105.554L279.721 11.767c15.705-15.687 41.139-15.687 56.832 0 15.705 15.699 15.705 41.145.006 56.844z" opacity="1" data-original="#000000" class=""></path>
+          </g>
+        </svg>
+      </a>
+    </td>
+  </tr>
+{% endfor %}
+<tr>
+  <td colspan="7">
+    <div class="final-price">
+      <p>Всього:</p>
       <p>
-        Quantity: <input class="number" value="{{ cart.quantity }} шт." readonly type="text" />
-      </p>
-      <a class="plus-btn" data-cart-id="{{ cart.id }}" data-cart-change-url="{% url 'cart:cart_change' %}">{% csrf_token %}+</a>
-      <a class="minus-btn" data-cart-quantity="{{ cart.quantity }}" data-cart-id="{{ cart.id }}" data-cart-change-url="{% url 'cart:cart_change' %}">{% csrf_token %}-</a>
-      <a href="{% url 'cart:cart_remove' %}" data-cart-id="{{ cart.id }}" class="remove-btn">Remove</a>
-      {% csrf_token %}
-      <p>
-        Price: $<span class="price">{{ cart.goods_price }}</span>
+        <span>{{ carts.total_price }} грн.</span>
       </p>
     </div>
-  </div>
-{% endfor %}
-
-<div id="summary">
-  <h2>Summary</h2>
-  <p>
-    Total Items: <span id="total-items">{{ carts.total_quantity }}</span>
-  </p>
-  <p>
-    Total Price: $<span id="total-price">{{ carts.total_price }}</span>
-  </p>
-</div>
+  </td>
+</tr>

@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="{% static 'hanbild/css/style.min.css' %}" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="icon" href="{% static 'hanbild/favicon/icon.svg' %}" type="image/icon type">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
     <title>
@@ -25,9 +26,6 @@
     {% endblock %}
   </head>
   <body>
-    <div id="cartContainer">
-      {% include 'cart/includes/_included_cart.html' %}
-    </div>
     {% include 'includes/_header.html' %}
     {% include 'includes/_feedback_button.html' %}
     {% include 'includes/_feedback_form.html' %}

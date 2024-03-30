@@ -1,5 +1,8 @@
+from django.http import HttpRequest, HttpResponse
+from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
+from django.views import View
 
 from main.forms import OnlineApplicationForm
 from main.models import ClientMessages
@@ -50,3 +53,7 @@ class ServicesView(BaseApplicationFormView):
     template_name = "main/services.html"
     success_url = reverse_lazy("main:services")
     context = {"title": _("Ремонт, Trade in та Leasing | HanBild.com.ua")}
+
+
+def page404exception(request, exception):
+        return render(request, "main/page404.html", status=404)
