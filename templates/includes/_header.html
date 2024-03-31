@@ -1,6 +1,9 @@
 {% load i18n %}
 {% load static %}
 {% load catalog_tags %}
+{% load carts_tags %}
+
+{% length_user_carts request as cart_count %}
 
 <header>
   <div class="up-section">
@@ -46,7 +49,10 @@
         <a href="tel:+380680000000">+38 068 000 0000</a>
         <a href="mailto:handbild@gmail.com">handbild@gmail.com</a>
       </div>
-      <a href="{% url 'cart:cart' %}"><img id="cart" src="{% static 'hanbild/icons/shopping_cart.svg' %}" alt="cart" /></a>
+      <div class="sh-cart-img">
+        <a href="{% url 'cart:cart' %}"><img id="cart" src="{% static 'hanbild/icons/shopping_cart.svg' %}" alt="cart" /></a>
+        <span id="cartCount" class="cart-count">{{ cart_count }}</span>
+      </div>
     </div>
   </div>
   <div class="down-section">

@@ -1,13 +1,13 @@
-// cart prototype ----------------------------------------------------------------------
-
 $(document).ready(function () {
-    // берем в переменную элемент разметки с id jq-notification для оповещений от ajax
     var successMessage = $("#jq-notification");
+    var goodsInCartCount = $("#cartCount");
+    var cartCount = parseInt(goodsInCartCount.text() || 0);
+
+    check_carts_quantity()
+
     $(document).on("click", ".add-to-cart", function (e) {
         e.preventDefault();
-        // Берем элемент счетчика в значке корзины и берем оттуда значение
-        // var goodsInCartCount = $("#goods-in-cart-count");
-        // var cartCount = parseInt(goodsInCartCount.text() || 0);
+
         var product_id = $(this).data("product-id");
         var add_to_cart_url = $(this).attr("href");
 
@@ -19,18 +19,14 @@ $(document).ready(function () {
                 csrfmiddlewaretoken: $("[name=csrfmiddlewaretoken]").val(),
             },
             success: function (data) {
-                // Сообщение
                 successMessage.html(data.message);
                 successMessage.fadeIn(400);
-                // Через 7сек убираем сообщение
                 setTimeout(function () {
                     successMessage.fadeOut(400);
                 }, 7000);
-                console.log($(this).serialize())
-                // Увеличиваем количество товаров в корзине (отрисовка в шаблоне)
-                // cartCount++;
-                // goodsInCartCount.text(cartCount);
-                // Меняем содержимое корзины на ответ от django (новый отрисованный фрагмент разметки корзины)
+                cartCount++;
+                goodsInCartCount.text(cartCount);
+                check_carts_quantity()
                 var cartItemsContainer = $("#cartContainer");
                 cartItemsContainer.html(data.cart_items_html);
             },
@@ -41,22 +37,12 @@ $(document).ready(function () {
         });
     });
 
-    // Ловим собыитие клика по кнопке удалить товар из корзины
     $(document).on("click", ".remove-btn", function (e) {
-        // Блокируем его базовое действие
         e.preventDefault();
-
-        // Берем элемент счетчика в значке корзины и берем оттуда значение
         var successMessage = $("#jq-notification");
-        // var cartCount = parseInt(goodsInCartCount.text() || 0);
-
-        // Получаем id корзины из атрибута data-cart-id
         var cart_id = $(this).data("cart-id");
-        console.log(parseInt(cart_id));
-        // Из атрибута href берем ссылку на контроллер django
         var remove_from_cart = $(this).attr("href");
 
-        // делаем post запрос через ajax не перезагружая страницу
         $.ajax({
 
             type: "POST",
@@ -66,20 +52,14 @@ $(document).ready(function () {
                 csrfmiddlewaretoken: $("[name=csrfmiddlewaretoken]").val(),
             },
             success: function (data) {
-                // Сообщение
                 successMessage.html(data.message);
                 successMessage.fadeIn(400);
-                // Через 7сек убираем сообщение
                 setTimeout(function () {
                     successMessage.fadeOut(400);
                 }, 7000);
-
-                // Уменьшаем количество товаров в корзине (отрисовка)
-                // cartCount -= data.quantity_deleted;
-                // goodsInCartCount.text(cartCount);
-
-                // Меняем содержимое корзины на ответ от django (новый отрисованный фрагмент разметки корзины)
-                var cartItemsContainer = null;
+                goodsInCartCount.text(data.total_quantity);
+                cartCount = data.total_quantity
+                check_carts_quantity()
                 cartItemsContainer = $("#cartContainer");
                 cartItemsContainer.html(data.cart_items_html);
             },
@@ -98,7 +78,7 @@ $(document).ready(function () {
         var currentValue = parseInt(quantity_displayer.text());
         if (currentValue > 1) {
             quantity_displayer.val(currentValue - 1);
-            updateCart(cartID, currentValue - 1, -1, url);
+            updateCart(cartID, currentValue - 1, url);
         }
     });
 
@@ -109,11 +89,10 @@ $(document).ready(function () {
         var quantity_displayer = $(this).closest('.cart-item').find('.quantity_displayer');
         var currentValue = parseInt(quantity_displayer.text());
         quantity_displayer.val(currentValue + 1);
-        updateCart(cartID, currentValue + 1, 1, url);
-
+        updateCart(cartID, currentValue + 1, url);
     });
 
-    function updateCart(cartID, quantity, change, url) {
+    function updateCart(cartID, quantity, url) {
         $.ajax({
             type: "POST",
             url: url,
@@ -124,21 +103,7 @@ $(document).ready(function () {
             },
 
             success: function (data) {
-                // Сообщение
-                // successMessage.html(data.message);
-                // successMessage.fadeIn(400);
-                // // Через 7сек убираем сообщение
-                // setTimeout(function () {
-                //     successMessage.fadeOut(400);
-                // }, 7000);
-
-                // Изменяем количество товаров в корзине
-                // var goodsInCartCount = $("#goods-in-cart-count");
-                // var cartCount = parseInt(goodsInCartCount.text() || 0);
-                // cartCount += change;
-                // goodsInCartCount.text(cartCount);
-
-                // Меняем содержимое корзины
+                goodsInCartCount.text(data.total_quantity);
                 var cartItemsContainer = $("#cartContainer");
                 cartItemsContainer.html(data.cart_items_html);
 
@@ -176,12 +141,12 @@ $(document).ready(function () {
         })
     })
 
-    // // Берем из разметки элемент по id - оповещения от django
-    var notification = $('#notification');
-    // И через 7 сек. убираем
-    if (notification.length > 0) {
-        setTimeout(function () {
-            notification.alert('close');
-        }, 7000);
+    function check_carts_quantity() {
+        if (cartCount > 0) {
+            goodsInCartCount.css("display", "flex");
+        } else {
+            goodsInCartCount.css("display", "none");
+        }
     }
+
 });

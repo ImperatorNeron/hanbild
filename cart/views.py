@@ -46,6 +46,7 @@ def cart_change(request):
     response_data = {
         "message": "Змінено кількість",
         "cart_items_html": cart_items_html,
+        "total_quantity": user_carts.total_quantity()
     }
 
     return JsonResponse(response_data)
@@ -69,6 +70,7 @@ def cart_remove(request):
     response_data = {
         "message": "Товар видалено з корзини",
         "cart_items_html": cart_items_html,
+        "total_quantity": user_carts.total_quantity()
     }
 
     return JsonResponse(response_data)

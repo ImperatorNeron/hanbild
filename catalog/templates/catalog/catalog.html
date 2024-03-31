@@ -16,6 +16,25 @@
 
 {% block content %}
   <main>
+    <div class="up-main-section">
+      <div class="breadcrumbs">
+          <ul>
+              <li><a href="#">Головна сторінка</a></li>
+              <li>Каталог</li>
+          </ul>
+      </div>
+      <div class="search-line">
+        {% if request.GET.q %}
+          <p>Результати за запитом "
+            <span>
+              {{ request.GET.q|truncatechars:20 }}
+            </span>"
+          </p>
+        {% endif %}
+
+      </div>
+    </div>
+
     <div class="content">
       <aside>
         <div class="filter-heading">
@@ -182,6 +201,7 @@
             </button>
           </div>
         </div>
+        {% if goods %}
         <div class="cards">
           {% for item in goods %}
             {% comment %}CARD TEMPLATE{% endcomment %}
@@ -238,6 +258,13 @@
             {% comment %}END CARD TEMPLATE{% endcomment %}
           {% endfor %}
         </div>
+        {% else %}
+        <div class="no-results">
+          <img id="no-results-img" src="{% static 'hanbild/icons/no-results.svg' %}" alt="">
+          <p>На жаль, за вашим запитом нічого не знайдено. <a href="{% url "catalog:catalog" %}" class="special-link"> Повернутися до
+                  каталогу.</a></p>
+        </div>
+        {% endif %}
         {% comment %}PAGINATION{% endcomment %}
         <div class="pagination">
           {% if goods.has_previous %}

@@ -438,7 +438,8 @@ main .breadcrumbs ul li {
 main .breadcrumbs ul li:before {
     margin-right: 5px;
     content: ">";
-    font-size: 13px
+    font-size: 13px;
+    font-weight: normal;
 }
 
 main .breadcrumbs ul li:first-child:before {
@@ -446,7 +447,11 @@ main .breadcrumbs ul li:first-child:before {
     content: "";
     height: 13px;
     width: 13px;
-    background: url(../icons/hpi.svg) no-repeat
+    background: url(../icons/hpi.svg) no-repeat;
+}
+
+main .breadcrumbs ul li:last-child{
+    font-weight: bold;
 }
 
 main .content {
@@ -2257,51 +2262,6 @@ thead tr th:last-child svg {
 
 /*# sourceMappingURL=style.min.css.map */
 
-
-/* bread */
-main,
-.breadcrumbs {
-    font-family: "Raleway", Sans-serif;
-}
-
-.breadcrumbs ul {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    text-align: center;
-    margin: 15px 0 15px 10px;
-    font-size: 15px;
-    gap: 5px;
-    -webkit-box-align: stretch;
-    -ms-flex-align: stretch;
-    align-items: stretch
-}
-
-.breadcrumbs ul li {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center
-}
-
-.breadcrumbs ul li:before {
-    margin-right: 5px;
-    content: ">";
-    font-size: 13px
-}
-
-.breadcrumbs ul li:first-child:before {
-    margin-left: 5px;
-    content: "";
-    height: 13px;
-    width: 13px;
-    background: url(../icons/hpi.svg) no-repeat
-}
-
-/* end bread */
-
 /* buttons */
 main aside .filtermenu-button {
     width: 100%;
@@ -2511,5 +2471,14 @@ input[type=range]:active::-webkit-slider-thumb {
 }
 
 і кожен button обгортай в пустий тег а
+
+main .breadcrumbs ul li:last-child{
+    font-weight: bold;
+}
+
+це додати десь в крихтах
+
+додати font-weight: normal; в 
+main .breadcrumbs ul li:before 
 
 */

@@ -6,4 +6,4 @@ def get_user_carts(request):
         request.session.create()
     return Cart.objects.filter(session_key=request.session.session_key).select_related(
         "item"
-    )
+    ).order_by("-created_timestamp")
