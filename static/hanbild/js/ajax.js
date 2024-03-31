@@ -149,6 +149,33 @@ $(document).ready(function () {
         });
     }
 
+    $('#contact-form').on('submit', function (e) {
+        e.preventDefault();
+        var successMessage = $("#jq-notification");
+
+        $.ajax({
+            url: window.location.href,
+            type: 'POST',
+            data: $(this).serialize(),
+            dataType: 'json',
+            success: function (response) {
+                if (response.success == true) {
+                    $('#contact-form').trigger('reset');
+                    document.querySelector('.popup-contact-form').classList.remove('active');
+                    document.querySelector('.additional-elements').style.display = ''
+                    successMessage.html(response.message);
+                    successMessage.fadeIn(400);
+                    setTimeout(function () {
+                        successMessage.fadeOut(400)
+                    }, 7000)
+                } else {
+                    console.log(response.form_errors)
+                    // Придумати якийсь вивід
+                }
+            }
+        })
+    })
+
     // // Берем из разметки элемент по id - оповещения от django
     var notification = $('#notification');
     // И через 7 сек. убираем

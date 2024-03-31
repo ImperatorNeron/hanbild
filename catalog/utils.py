@@ -92,7 +92,7 @@ def price_filter(request, result):
 
 
 def pagination(request, result):
-    item_quantity = request.GET.get("quantity", 9)
+    item_quantity = request.GET.get("quantity", 6)
     paginator = Paginator(result, item_quantity)
     return paginator.get_page(request.GET.get("page", 1))
 

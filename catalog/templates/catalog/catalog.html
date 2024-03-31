@@ -147,6 +147,7 @@
           <div class="point">
             <label>{% translate 'Товарів на сторінці:' %}</label>
             <select name="goods_quantity" id="id_goods_quantity">
+              <option value="6" {% if request.GET.quantity == '6' %}selected{% endif %}>6</option>
               <option value="9" {% if request.GET.quantity == '9' %}selected{% endif %}>9</option>
               <option value="12" {% if request.GET.quantity == '12' %}selected{% endif %}>12</option>
               <option value="15" {% if request.GET.quantity == '15' %}selected{% endif %}>15</option>

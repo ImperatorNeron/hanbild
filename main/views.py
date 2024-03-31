@@ -1,4 +1,4 @@
-from django.http import HttpRequest, HttpResponse
+from django.http import HttpRequest, HttpResponse, JsonResponse
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
@@ -27,6 +27,7 @@ class BaseApplicationFormView(FormView):
         return context
 
     def form_valid(self, form):
+        super().form_valid(form)
         # ClientMessages.objects.create(
         #     name=form.cleaned_data["name"],
         #     number_or_email=form.cleaned_data["number_or_email"],
@@ -34,7 +35,12 @@ class BaseApplicationFormView(FormView):
         # )
         # send_email(form.cleaned_data)
         print(form.cleaned_data)
-        return super().form_valid(form)
+        return JsonResponse(
+            {"success": True, "message": "Повідомлення надійшло успішно!"}
+        )
+
+    def form_invalid(self, form):
+        return JsonResponse({"success": False, "form_errors": form.errors})
 
 
 class IndexView(BaseApplicationFormView):
@@ -56,4 +62,4 @@ class ServicesView(BaseApplicationFormView):
 
 
 def page404exception(request, exception):
-        return render(request, "main/page404.html", status=404)
+    return render(request, "main/page404.html", status=404)

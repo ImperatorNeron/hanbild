@@ -12,7 +12,7 @@
   </div>
   <div class="right-container">
     <img class="logotype" src="{% static 'hanbild/icons/logo_dv.svg' %}" alt="logo" />
-    <form class="feedback-form" method="post">
+    <form class="feedback-form" id="contact-form" method="post">
       {% csrf_token %}
       <p>{% translate "Ми цінуємо ваш інтерес до нашої компанії та готові відповісти на всі ваші запитання. Будь ласка, заповніть цю форму, і ми зв'яжемося з вами найближчим часом. Дякуємо за вибір наших послуг!" %}</p>
       <div class="form-container">
@@ -40,7 +40,7 @@
         <input type="checkbox" id="agreement" value="" checked /><label for="agreement">{% translate 'Натискаючи кнопку "Надіслати" я погоджуюсь з умовами' %} <a href=""><span>{% translate 'політики конфіденційності' %}</span></a></label>
 
         <div class="form-buttons">
-          <a><button type="submit">{% translate "Надіслати" %}</button></a>
+          <a><button class="feedback-submit-button" type="submit">{% translate "Надіслати" %}</button></a>
           <a>
             <?xml version="1.0" encoding="UTF-8"?><svg id="_Слой_2" data-name="Слой 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 42.15 30.95">
               <g id="_Слой_1-2" data-name="Слой 1">
@@ -57,6 +57,7 @@
             </svg>
           </a>
         </div>
+        <div id="alert"></div>
       </div>
     </form>
 
