@@ -1,3 +1,4 @@
+from django.conf.urls import handler500
 from django.contrib import admin
 from django.conf.urls.static import static
 from django.urls import path, include
@@ -7,6 +8,7 @@ from hanbild import settings
 from hanbild.settings import DEBUG
 
 handler404 = "main.views.page404exception"
+handler500 = "main.views.page500exception"
 
 urlpatterns = [
     path("admin/", admin.site.urls),

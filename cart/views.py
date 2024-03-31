@@ -56,9 +56,14 @@ def cart_remove(request):
     cart = Cart.objects.get(id=cart_id)
     cart.delete()
     user_carts = get_user_carts(request)
+    
+    cart_template = "cart/includes/_included_cart.html"
+
+    if not user_carts:
+        cart_template = "cart/includes/_included_empty_cart.html"
 
     cart_items_html = render_to_string(
-        "cart/includes/_included_cart.html", {"carts": user_carts}, request=request
+        cart_template, {"carts": user_carts}, request=request
     )
 
     response_data = {

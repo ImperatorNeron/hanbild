@@ -63,3 +63,6 @@ class ServicesView(BaseApplicationFormView):
 
 def page404exception(request, exception):
     return render(request, "main/page404.html", status=404)
+
+def page500exception(request):
+    return render(request, "main/page404.html", status=500)

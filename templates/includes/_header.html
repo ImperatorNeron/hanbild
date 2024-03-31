@@ -46,7 +46,7 @@
         <a href="tel:+380680000000">+38 068 000 0000</a>
         <a href="mailto:handbild@gmail.com">handbild@gmail.com</a>
       </div>
-      <a href="{% url "cart:cart" %}"><img id="cart" src="{% static 'hanbild/icons/shopping_cart.svg' %}" alt="cart" /></a>
+      <a href="{% url 'cart:cart' %}"><img id="cart" src="{% static 'hanbild/icons/shopping_cart.svg' %}" alt="cart" /></a>
     </div>
   </div>
   <div class="down-section">
@@ -161,4 +161,5 @@
       </div>
     </div>
   </div>
+  {% include 'includes/_notifications.html' %}
 </header>

@@ -15,12 +15,6 @@
 
       {% endblock %}
     </title>
-    <style>
-      .leaflet-control-zoom-in {
-        width: 50px;
-        height: 100px;
-      }
-    </style>
     {% block css %}
 
     {% endblock %}
@@ -29,7 +23,6 @@
     {% include 'includes/_header.html' %}
     {% include 'includes/_feedback_button.html' %}
     {% include 'includes/_feedback_form.html' %}
-    {% include 'includes/_notifications.html' %}
     <div class="breadcrumbs">
       <ul>
         {% block breadcrumbs %}

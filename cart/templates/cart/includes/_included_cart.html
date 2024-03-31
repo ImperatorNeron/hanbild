@@ -2,54 +2,92 @@
 {% load i18n %}
 {% load carts_tags %}
 
-{% for cart in carts %}
-  <tr class="cart-item">
-    <td>1</td>
-    <td>
-      {% if cart.item.preview_image %}
-        <img src="{{ cart.item.preview_image.url }}" alt="" />
-      {% else %}
-        <img src="{% static 'hanbild/images/image_not_found.png' %}" alt="" />
-      {% endif %}
-    </td>
-    <td>
-      <a href="">{{ cart.item.name }}</a>
-    </td>
-    <td>{{ cart.item.pk|stringformat:'05d' }}</td>
-    <td>
-      <div class="quantity">
-        <p class="quantity_displayer">{{ cart.quantity }}</p>
-        <div class="num-but">
-          <a class="plus-btn" data-cart-id="{{ cart.id }}" href="{% url 'cart:cart_change' %}">▲</a>
-          <a class="minus-btn" data-cart-id="{{ cart.id }}" href="{% url 'cart:cart_change' %}">▼</a>
-        </div>
-      </div>
-    </td>
-    <td>
-      {% if cart.goods_price == 0 %}
-        {% translate 'Договірна' %}
-      {% else %}
-        {{ cart.goods_price }} грн.
-      {% endif %}
-    </td>
-    <td>
-      <a class="remove-btn" data-cart-id="{{ cart.id }}" href="{% url 'cart:cart_remove' %}">
-        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" viewBox="0 0 348.333 348.334" style="enable-background:new 0 0 512 512" xml:space="preserve" class="">
-          <g>
-            <path d="M336.559 68.611 231.016 174.165l105.543 105.549c15.699 15.705 15.699 41.145 0 56.85-7.844 7.844-18.128 11.769-28.407 11.769-10.296 0-20.581-3.919-28.419-11.769L174.167 231.003 68.609 336.563c-7.843 7.844-18.128 11.769-28.416 11.769-10.285 0-20.563-3.919-28.413-11.769-15.699-15.698-15.699-41.139 0-56.85l105.54-105.549L11.774 68.611c-15.699-15.699-15.699-41.145 0-56.844 15.696-15.687 41.127-15.687 56.829 0l105.563 105.554L279.721 11.767c15.705-15.687 41.139-15.687 56.832 0 15.705 15.699 15.705 41.145.006 56.844z" opacity="1" data-original="#000000" class=""></path>
-          </g>
-        </svg>
-      </a>
-    </td>
-  </tr>
-{% endfor %}
-<tr>
-  <td colspan="7">
-    <div class="final-price">
-      <p>Всього:</p>
-      <p>
-        <span>{{ carts.total_price }} грн.</span>
-      </p>
-    </div>
-  </td>
-</tr>
+<div class="shopping_cart">
+  <div class="cart-heading">
+    <h3>Кошик</h3>
+  </div>
+  <div class="cart-table">
+    <table>
+      <thead>
+        <tr>
+          <th>№</th>
+          <th>Фото</th>
+          <th>Назва</th>
+          <th>Арт.</th>
+          <th>К-сть</th>
+          <th>Ціна</th>
+          <th>
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" viewBox="0 0 32 32" style="enable-background:new 0 0 512 512" xml:space="preserve" class="">
+              <g>
+                <path d="M28 4h-7V2a1 1 0 0 0-1-1h-8a1 1 0 0 0-1 1v2H4a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h1v18c0 2.206 1.794 4 4 4h14c2.206 0 4-1.794 4-4V9h1a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1zM13 3h6v1h-6zm12 24c0 1.103-.897 2-2 2H9c-1.103 0-2-.897-2-2V9h18zm2-20H5V6h22zM15 26V12a1 1 0 0 1 2 0v14a1 1 0 0 1-2 0zm-5 0V12a1 1 0 0 1 2 0v14a1 1 0 0 1-2 0zm10 0V12a1 1 0 1 1 2 0v14a1 1 0 1 1-2 0z" opacity="1" data-original="#000000" class=""></path>
+              </g>
+            </svg>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for cart in carts %}
+          <tr class="cart-item">
+            <td>1</td>
+            <td>
+              {% if cart.item.preview_image %}
+                <img src="{{ cart.item.preview_image.url }}" alt="" />
+              {% else %}
+                <img src="{% static 'hanbild/images/image_not_found.png' %}" alt="" />
+              {% endif %}
+            </td>
+            <td>
+              <a href="">{{ cart.item.name }}</a>
+            </td>
+            <td>{{ cart.item.pk|stringformat:'05d' }}</td>
+            <td>
+              <div class="quantity">
+                <p class="quantity_displayer">{{ cart.quantity }}</p>
+                <div class="num-but">
+                  <a class="plus-btn" data-cart-id="{{ cart.id }}" href="{% url 'cart:cart_change' %}">▲</a>
+                  <a class="minus-btn" data-cart-id="{{ cart.id }}" href="{% url 'cart:cart_change' %}">▼</a>
+                </div>
+              </div>
+            </td>
+            <td>
+              {% if cart.goods_price == 0 %}
+                {% translate 'Договірна' %}
+              {% else %}
+                {{ cart.goods_price }} грн.
+              {% endif %}
+            </td>
+            <td>
+              <a class="remove-btn" data-cart-id="{{ cart.id }}" href="{% url 'cart:cart_remove' %}">
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" viewBox="0 0 348.333 348.334" style="enable-background:new 0 0 512 512" xml:space="preserve" class="">
+                  <g>
+                    <path d="M336.559 68.611 231.016 174.165l105.543 105.549c15.699 15.705 15.699 41.145 0 56.85-7.844 7.844-18.128 11.769-28.407 11.769-10.296 0-20.581-3.919-28.419-11.769L174.167 231.003 68.609 336.563c-7.843 7.844-18.128 11.769-28.416 11.769-10.285 0-20.563-3.919-28.413-11.769-15.699-15.698-15.699-41.139 0-56.85l105.54-105.549L11.774 68.611c-15.699-15.699-15.699-41.145 0-56.844 15.696-15.687 41.127-15.687 56.829 0l105.563 105.554L279.721 11.767c15.705-15.687 41.139-15.687 56.832 0 15.705 15.699 15.705 41.145.006 56.844z" opacity="1" data-original="#000000" class=""></path>
+                  </g>
+                </svg>
+              </a>
+            </td>
+          </tr>
+        {% endfor %}
+        <tr>
+          <td colspan="7">
+            <div class="final-price">
+              <p>Всього:</p>
+              <p>
+                <span>{{ carts.total_price }} грн.</span>
+              </p>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="form-buttons">
+    <a href="">Оформити замовлення</a>
+    <a href="">
+      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" viewBox="0 0 32 32" style="enable-background:new 0 0 512 512" xml:space="preserve" class="">
+        <g>
+          <path d="M28 4h-7V2a1 1 0 0 0-1-1h-8a1 1 0 0 0-1 1v2H4a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h1v18c0 2.206 1.794 4 4 4h14c2.206 0 4-1.794 4-4V9h1a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1zM13 3h6v1h-6zm12 24c0 1.103-.897 2-2 2H9c-1.103 0-2-.897-2-2V9h18zm2-20H5V6h22zM15 26V12a1 1 0 0 1 2 0v14a1 1 0 0 1-2 0zm-5 0V12a1 1 0 0 1 2 0v14a1 1 0 0 1-2 0zm10 0V12a1 1 0 1 1 2 0v14a1 1 0 1 1-2 0z" opacity="1" data-original="#000000" class=""></path>
+        </g>
+      </svg>
+    </a>
+  </div>
+</div>

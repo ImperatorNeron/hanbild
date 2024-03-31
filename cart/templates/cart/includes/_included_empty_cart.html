@@ -1,0 +1,8 @@
+{% load static %}
+<div class="empty-cart" id="emptyCartContainer">
+  <h4><span>Кошик</span> порожній!</h4>
+  <img src="{% static 'hanbild/icons/empty-cart.svg' %}" alt="" />
+  <p>
+    ... і через це виглядає трохи сумно. Давайте допоможемо йому заповнитися радістю :) Перегляньте та додайте наші найкращі позиції і зробіть його щасливим. <a href="{% url 'catalog:catalog' %}" class="special-link">Перейти до каталогу.</a>
+  </p>
+</div>

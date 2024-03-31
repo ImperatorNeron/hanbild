@@ -79,8 +79,8 @@ $(document).ready(function () {
                 // goodsInCartCount.text(cartCount);
 
                 // Меняем содержимое корзины на ответ от django (новый отрисованный фрагмент разметки корзины)
-
-                var cartItemsContainer = $("#cartContainer");
+                var cartItemsContainer = null;
+                cartItemsContainer = $("#cartContainer");
                 cartItemsContainer.html(data.cart_items_html);
             },
 
