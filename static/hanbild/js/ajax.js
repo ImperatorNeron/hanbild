@@ -133,9 +133,46 @@ $(document).ready(function () {
                     setTimeout(function () {
                         successMessage.fadeOut(400)
                     }, 7000)
+                    document.querySelectorAll('.validation-error').forEach(function (element) {
+                        element.style.display = "none";
+                    });
                 } else {
-                    console.log(response.form_errors)
-                    // Придумати якийсь вивід
+                    document.querySelectorAll('.validation-error').forEach(function (element) {
+                        element.style.display = "block";
+                    });
+                    $("#user_number_or_email").text(response.form_errors.number_or_email);
+                    $("#user_name").text(response.form_errors.name);
+                }
+            }
+        })
+    })
+
+    $('#page-contact-form').on('submit', function (e) {
+        e.preventDefault();
+        var successMessage = $("#jq-notification");
+
+        $.ajax({
+            url: window.location.href,
+            type: 'POST',
+            data: $(this).serialize(),
+            dataType: 'json',
+            success: function (response) {
+                if (response.success == true) {
+                    $('#page-contact-form').trigger('reset');
+                    successMessage.html(response.message);
+                    successMessage.fadeIn(400);
+                    setTimeout(function () {
+                        successMessage.fadeOut(400)
+                    }, 7000)
+                    document.querySelectorAll('.page-validation-error').forEach(function (element) {
+                        element.style.display = "none";
+                    });
+                } else {
+                    document.querySelectorAll('.page-validation-error').forEach(function (element) {
+                        element.style.display = "block";
+                    });
+                    $("#page_number_or_email").text(response.form_errors.number_or_email);
+                    $("#page_name").text(response.form_errors.name);
                 }
             }
         })

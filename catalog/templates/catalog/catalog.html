@@ -137,8 +137,8 @@
                   </div>
                   <div class="my-slider-container">
                     {% if request.GET.left_range and request.GET.right_range %}
-                      <input type="range" name="left_range" class="my-slider" value="{{ request.GET.left_range }}" min="0" max="2000000" step="1" oninput="slideOne()" />
-                      <input type="range" name="right_range" class="my-slider" value="{{ request.GET.right_range }}" min="0" max="2000000" step="1" oninput="slideTwo()" />
+                      <input type="range" name="left_range" class="my-slider left-range" value="{{ request.GET.left_range }}" min="0" max="2000000" step="1" oninput="slideOne()" />
+                      <input type="range" name="right_range" class="my-slider right-range" value="{{ request.GET.right_range }}" min="0" max="2000000" step="1" oninput="slideTwo()" />
                     {% else %}
                       <input type="range" name="left_range" class="my-slider" value="0" min="0" max="2000000" step="1" oninput="slideOne()" />
                       <input type="range" name="right_range" class="my-slider" value="2000000" min="0" max="2000000" step="1" oninput="slideTwo()" />

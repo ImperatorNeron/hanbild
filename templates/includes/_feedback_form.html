@@ -14,33 +14,30 @@
     <img class="logotype" src="{% static 'hanbild/icons/logo_dv.svg' %}" alt="logo" />
     <form class="feedback-form" id="contact-form" method="post">
       {% csrf_token %}
-      <p>{% translate "Ми цінуємо ваш інтерес до нашої компанії та готові відповісти на всі ваші запитання. Будь ласка, заповніть цю форму, і ми зв'яжемося з вами найближчим часом. Дякуємо за вибір наших послуг!" %}</p>
+      <p>
+        {% translate "Ми цінуємо ваш інтерес до нашої компанії та готові відповісти на всі ваші запитання. Будь ласка, заповніть цю форму, і ми зв'яжемося з вами найближчим часом. Дякуємо за вибір наших послуг!" %}
+      </p>
       <div class="form-container">
         <div class="point">
-          <label for="id_name">{% translate "Як до вас звертатися:" %}</label>
+          <label for="id_name">{% translate 'Як до вас звертатися:' %}</label>
           <input type="text" name="name" id="id_name" required placeholder="{% translate 'Ваше ім`я' %}" />
+          <div id="user_name" class="validation-error"></div>
         </div>
         <div class="point">
-          <label for="id_number_or_email">{% translate "Номер телефону або e-mail:" %}</label>
+          <label for="id_number_or_email">{% translate 'Номер телефону або e-mail:' %}</label>
           <input type="tel" name="number_or_email" id="id_number_or_email" required placeholder="{% translate 'Залиште контакт для зв`язку' %}" />
+          <div id="user_number_or_email" class="validation-error"></div>
         </div>
-        {% if form.number_or_email.errors %}
-        <ul class="errorlist">
-            {% for error in form.number_or_email.errors %}
-                <li>{{ error }}</li>
-            {% endfor %}
-        </ul>
-        {% endif %}
         <div class="point">
-          <label for="id_message">{% translate "Повідомлення:" %}</label>
-          <textarea name="message" id="id_message" placeholder="{% translate 'Напишіть, що саме вас цікавить' %}"></textarea>
+          <label for="id_message">{% translate 'Повідомлення:' %}</label>
+          <textarea name="message" id="id_message" placeholder="{% translate 'Напишіть, що саме вас цікавить' %}" required></textarea>
         </div>
       </div>
       <div class="form-end">
         <input type="checkbox" id="agreement" value="" checked /><label for="agreement">{% translate 'Натискаючи кнопку "Надіслати" я погоджуюсь з умовами' %} <a href=""><span>{% translate 'політики конфіденційності' %}</span></a></label>
 
         <div class="form-buttons">
-          <a><button class="feedback-submit-button" type="submit">{% translate "Надіслати" %}</button></a>
+          <a><button class="feedback-submit-button" type="submit">{% translate 'Надіслати' %}</button></a>
           <a>
             <?xml version="1.0" encoding="UTF-8"?><svg id="_Слой_2" data-name="Слой 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 42.15 30.95">
               <g id="_Слой_1-2" data-name="Слой 1">
@@ -57,7 +54,6 @@
             </svg>
           </a>
         </div>
-        <div id="alert"></div>
       </div>
     </form>
 

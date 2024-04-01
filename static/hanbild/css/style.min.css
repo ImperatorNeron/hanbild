@@ -2382,7 +2382,8 @@ input[type=range] {
     top: 0;
     bottom: 0;
     background-color: transparent;
-    pointer-events: none
+    pointer-events: none;
+    padding: 0;
 }
 
 .my-slider-container input {
@@ -2460,9 +2461,16 @@ input[type=range]:active::-webkit-slider-thumb {
 
 /* end range */
 
-/* map */
+/* Errore in forms */
 
-/* end map */
+.validation-error, .page-validation-error{
+    display: none;
+    font-family: "Raleway", Sans-serif;
+    color: red;
+    font-size: 12px;
+    height: 15px;
+}
+
 
 /* в .form-buttons додавай 
 
