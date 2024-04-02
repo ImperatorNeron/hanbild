@@ -2471,6 +2471,84 @@ input[type=range]:active::-webkit-slider-thumb {
     height: 15px;
 }
 
+/* Error in forms end */
+
+/* Privacy */
+
+.privacy-policy-container{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    border-radius: 10px;
+    padding: 50px;
+    width: 80%;
+    margin: 0 auto 25px auto;
+}
+
+.privacy-policy-container h1{
+    text-align: center;
+    margin-bottom: 20px;
+    color: #f0500a;
+}
+
+.privacy-policy-block{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.privacy-policy-block h2{
+    margin-bottom: 10px;
+    color: #f0500a;
+}
+
+.policy-breadcrumbs{
+    width: 100%;
+    display: flex;
+    margin: 10px 0;
+}
+
+.policy-breadcrumbs ul{
+    flex: 1;
+}
+
+@media(max-width: 1024px) {
+    .privacy-policy-container{
+        padding: 40px;
+        width: 90%;
+    }
+}
+
+@media(max-width: 500px) {
+    .privacy-policy-container{
+        padding: 30px;
+        width: 95%;
+        gap: 20px;
+    }
+
+    .privacy-policy-container h1{
+        margin-bottom: 10px;
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+    }
+
+    .privacy-policy-block h2{
+        font-size: 1.1rem;
+    }
+}
+
+@media(max-width: 360px) {
+    .privacy-policy-container{
+        padding: 30px 15px;
+    }
+
+    .privacy-policy-container h1{
+        font-size: 1.3rem;
+    }
+
+}
+/* end privacy */
 
 /* в .form-buttons додавай 
 

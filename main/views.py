@@ -60,6 +60,10 @@ class ServicesView(BaseApplicationFormView):
     success_url = reverse_lazy("main:services")
     context = {"title": _("Ремонт, Trade in та Leasing | HanBild.com.ua")}
 
+class PrivacyPolicyView(BaseApplicationFormView):
+    template_name = "main/privacy_policy.html"
+    success_url = reverse_lazy("main:privacy_policy")
+    context = {"title": _("Політика конфіденційності | HanBild.com.ua")}
 
 def page404exception(request, exception):
     return render(request, "main/page404.html", status=404)

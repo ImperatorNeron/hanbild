@@ -130,7 +130,7 @@
             </div>
           </div>
           <div class="form-end">
-            <input type="checkbox" id="agreement" value="" checked /><label for="agreement">{% translate 'Натискаючи кнопку "Надіслати" я погоджуюсь з умовами' %} <a href=""><span>{% translate 'політики конфіденційності' %}</span></a></label>
+            <input type="checkbox" id="agreement" value="" checked /><label for="agreement">{% translate 'Натискаючи кнопку "Надіслати" я погоджуюсь з умовами' %} <a href="{% url "main:privacy_policy" %}"><span>{% translate 'політики конфіденційності' %}</span></a></label>
 
             <div class="form-buttons">
               <a><button type="submit">{% translate 'Надіслати' %}</button></a>
