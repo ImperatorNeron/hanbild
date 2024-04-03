@@ -11,6 +11,10 @@ function setupLanguageSelection() {
 
 window.addEventListener('DOMContentLoaded', setupLanguageSelection);
 
+document.getElementById('languageSelect').onchange = function () {
+    document.getElementById('languageFormFooter').submit();
+};
+
 function startAnimation() {
     var pulseButton = document.querySelector('.pulsating-element');
     pulseButton.style.animation = 'pulse linear 1s infinite';

@@ -2488,7 +2488,6 @@ input[type=range]:active::-webkit-slider-thumb {
 
 .privacy-policy-container h1{
     text-align: center;
-    margin-bottom: 20px;
     color: #f0500a;
 }
 
@@ -2528,9 +2527,7 @@ input[type=range]:active::-webkit-slider-thumb {
     }
 
     .privacy-policy-container h1{
-        margin-bottom: 10px;
         font-size: 1.5rem;
-        margin-bottom: 10px;
     }
 
     .privacy-policy-block h2{
