@@ -450,7 +450,7 @@ main .breadcrumbs ul li:first-child:before {
     background: url(../icons/hpi.svg) no-repeat;
 }
 
-main .breadcrumbs ul li:last-child{
+main .breadcrumbs ul li:last-child {
     font-weight: bold;
 }
 
@@ -2032,7 +2032,7 @@ footer .contact-heading p {
     width: 233px
 }
 
-.form-buttons a button{
+.form-buttons a button {
     all: inherit;
 }
 
@@ -2463,7 +2463,8 @@ input[type=range]:active::-webkit-slider-thumb {
 
 /* Errore in forms */
 
-.validation-error, .page-validation-error{
+.validation-error,
+.page-validation-error {
     display: none;
     font-family: "Raleway", Sans-serif;
     color: red;
@@ -2475,7 +2476,7 @@ input[type=range]:active::-webkit-slider-thumb {
 
 /* Privacy */
 
-.privacy-policy-container{
+.privacy-policy-container {
     background-color: white;
     display: flex;
     flex-direction: column;
@@ -2483,69 +2484,76 @@ input[type=range]:active::-webkit-slider-thumb {
     border-radius: 10px;
     padding: 50px;
     width: 80%;
-    margin: 0 auto 25px auto;
+    margin: 0 auto 20px auto;
 }
 
-.privacy-policy-container h1{
+.privacy-policy-container h1 {
     text-align: center;
     color: #f0500a;
 }
 
-.privacy-policy-block{
+.privacy-policy-block {
     display: flex;
     flex-direction: column;
     gap: 5px;
 }
 
-.privacy-policy-block h2{
+.privacy-policy-block h2 {
     margin-bottom: 10px;
     color: #f0500a;
 }
 
-.policy-breadcrumbs{
+.policy-breadcrumbs {
     width: 100%;
     display: flex;
     margin: 10px 0;
 }
 
-.policy-breadcrumbs ul{
+.policy-breadcrumbs ul {
     flex: 1;
 }
 
 @media(max-width: 1024px) {
-    .privacy-policy-container{
+    .privacy-policy-container {
         padding: 40px;
         width: 90%;
     }
 }
 
 @media(max-width: 500px) {
-    .privacy-policy-container{
+    .privacy-policy-container {
         padding: 30px;
         width: 95%;
         gap: 20px;
     }
 
-    .privacy-policy-container h1{
+    .privacy-policy-container h1 {
         font-size: 1.5rem;
     }
 
-    .privacy-policy-block h2{
+    .privacy-policy-block h2 {
         font-size: 1.1rem;
     }
 }
 
 @media(max-width: 360px) {
-    .privacy-policy-container{
+    .privacy-policy-container {
         padding: 30px 15px;
     }
 
-    .privacy-policy-container h1{
+    .privacy-policy-container h1 {
         font-size: 1.3rem;
     }
 
 }
+
 /* end privacy */
+
+/* Delete default background */
+.background-off {
+    background: none;
+}
+/* end deleteting of background */
 
 /* в .form-buttons додавай 
 

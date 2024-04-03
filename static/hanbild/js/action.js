@@ -81,8 +81,38 @@ closePopUp.addEventListener('click', () => {
     additionalElements.style.display = '';
 })
 
-document.getElementById("id_goods_quantity").addEventListener("change", function () {
-    var url = new URL(window.location.href);
-    url.searchParams.set('quantity', this.value);
-    window.location.href = url;
+function setupSubmitButton(agreementCheckboxId, submitButtonClass, submitButtonWrapperClass) {
+    var agreementCheckbox = document.getElementById(agreementCheckboxId);
+    var submitButton = document.querySelector(submitButtonClass);
+    var submitButtonWrapper = document.querySelector(submitButtonWrapperClass);
+
+    function toggleSubmitButton() {
+        if (agreementCheckbox.checked) {
+            submitButton.disabled = false;
+            submitButtonWrapper.style.backgroundColor = "#f0500a";
+            submitButtonWrapper.style.color = "black";
+        } else {
+            submitButton.disabled = true;
+            submitButtonWrapper.style.backgroundColor = "#fc9a79";
+            submitButtonWrapper.style.color = "#666666";
+        }
+    }
+
+    toggleSubmitButton();
+    agreementCheckbox.addEventListener('change', toggleSubmitButton);
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    setupSubmitButton('feedback-agreement', '.feedback-submit-button', '.feedback-submit-button-wrapper');
+    setupSubmitButton('contact-agreement', '.contact-submit-button', '.contact-submit-button-wrapper');
 });
+
+var goodsQuantityInput = document.getElementById("id_goods_quantity");
+
+if (goodsQuantityInput) {
+    goodsQuantityInput.addEventListener("change", function () {
+        var url = new URL(window.location.href);
+        url.searchParams.set('quantity', this.value);
+        window.location.href = url;
+    });
+}

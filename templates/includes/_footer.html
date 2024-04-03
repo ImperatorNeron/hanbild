@@ -76,7 +76,7 @@
       </div>
       <ul>
         <li>
-          <span>{% translate 'Пн-Пн:' %}</span> {% translate 'з 9.00 по 20.00' %}
+          <span>{% translate 'Пн-Пт:' %}</span> {% translate 'з 9.00 по 20.00' %}
         </li>
         <li>
           <span>{% translate 'Сб-Нд:' %}</span> {% translate 'вихідний' %}
@@ -98,19 +98,19 @@
       </div>
       <ul>
         <li>
-          <a href="#">{% translate 'Про нас' %}</a>
+          <a href="{% url "main:index" %}">{% translate 'Про нас' %}</a>
         </li>
         <li>
-          <a href="#">{% translate 'Послуги' %}</a>
+          <a href="{% url "main:services" %}">{% translate 'Послуги' %}</a>
         </li>
         <li>
-          <a href="#">{% translate 'Продукція' %}</a>
+          <a href="{% url "product:product" %}">{% translate 'Продукція' %}</a>
         </li>
         <li>
-          <a href="#">{% translate 'Каталог' %}</a>
+          <a href="{% url "catalog:catalog" %}">{% translate 'Каталог' %}</a>
         </li>
         <li>
-          <a href="#">{% translate 'Контакти' %}</a>
+          <a href="{% url "main:contacts" %}">{% translate 'Контакти' %}</a>
         </li>
       </ul>
     </div>
@@ -169,7 +169,7 @@
   </div>
   <div class="rights-reserved">
     <p>
-      Copyright ©{% now 'Y' %}Hanbild
+      Copyright ©{% now 'Y' %} Hanbild
     </p>
   </div>
 </footer>

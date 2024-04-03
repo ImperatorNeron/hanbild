@@ -28,11 +28,11 @@ class BaseApplicationFormView(FormView):
 
     def form_valid(self, form):
         super().form_valid(form)
-        # ClientMessages.objects.create(
-        #     name=form.cleaned_data["name"],
-        #     number_or_email=form.cleaned_data["number_or_email"],
-        #     message=form.cleaned_data["message"],
-        # )
+        ClientMessages.objects.create(
+            name=form.cleaned_data["name"],
+            number_or_email=form.cleaned_data["number_or_email"],
+            message=form.cleaned_data["message"],
+        )
         # send_email(form.cleaned_data)
         print(form.cleaned_data)
         return JsonResponse(

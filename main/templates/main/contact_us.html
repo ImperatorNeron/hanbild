@@ -17,7 +17,7 @@
 
 {% block content %}
   <div class="main-wrapper">
-    <main>
+    <main class="background-off">
       <div class="photo-block">
         <div class="left-container">
           <div class="info">
@@ -82,7 +82,7 @@
               <ul>
                 <li>
                   <p>
-                    <span>{% translate 'Пн-Пн:' %}</span> {% translate 'з 9.00 по 20.00' %}
+                    <span>{% translate 'Пн-Пт:' %}</span> {% translate 'з 9.00 по 20.00' %}
                   </p>
                 </li>
                 <li>
@@ -130,10 +130,10 @@
             </div>
           </div>
           <div class="form-end">
-            <input type="checkbox" id="agreement" value="" checked /><label for="agreement">{% translate 'Натискаючи кнопку "Надіслати" я погоджуюсь з умовами' %} <a href="{% url "main:privacy_policy" %}"><span>{% translate 'політики конфіденційності' %}</span></a></label>
+            <input type="checkbox" id="contact-agreement" value="" checked /><label for="contact-agreement">{% translate 'Натискаючи кнопку "Надіслати" я погоджуюсь з умовами' %} <a href="{% url 'main:privacy_policy' %}"><span>{% translate 'політики конфіденційності' %}</span></a></label>
 
             <div class="form-buttons">
-              <a><button type="submit">{% translate 'Надіслати' %}</button></a>
+              <a class="contact-submit-button-wrapper"><button class="contact-submit-button" type="submit">{% translate 'Надіслати' %}</button></a>
             </div>
           </div>
         </form>

@@ -34,10 +34,10 @@
         </div>
       </div>
       <div class="form-end">
-        <input type="checkbox" id="agreement" value="" checked /><label for="agreement">{% translate 'Натискаючи кнопку "Надіслати" я погоджуюсь з умовами' %} <a href="{% url "main:privacy_policy" %}"><span>{% translate 'політики конфіденційності' %}</span></a></label>
+        <input type="checkbox" id="feedback-agreement" value="" checked /><label for="feedback-agreement">{% translate 'Натискаючи кнопку "Надіслати" я погоджуюсь з умовами' %} <a href="{% url 'main:privacy_policy' %}"><span>{% translate 'політики конфіденційності' %}</span></a></label>
 
         <div class="form-buttons">
-          <a><button class="feedback-submit-button" type="submit">{% translate 'Надіслати' %}</button></a>
+          <a class="feedback-submit-button-wrapper"><button class="feedback-submit-button" type="submit">{% translate 'Надіслати' %}</button></a>
           <a>
             <?xml version="1.0" encoding="UTF-8"?><svg id="_Слой_2" data-name="Слой 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 42.15 30.95">
               <g id="_Слой_1-2" data-name="Слой 1">
