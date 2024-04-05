@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     "catalog",
     "cart",
     "product",
+    "order",
     # additional apps
     "django.contrib.postgres",
 ]
