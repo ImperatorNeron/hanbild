@@ -1,88 +1,86 @@
 from operator import le
 from django.http import JsonResponse
-from django.shortcuts import redirect, render
 from django.template.loader import render_to_string
 from django.urls import reverse_lazy
+from django.views import View
 
 from cart.models import Cart
 from cart.utils import get_user_carts
 from catalog.models import Goods
 from main.views import BaseApplicationFormView
+from django.utils.translation import gettext_lazy as _
 
 
-def cart_add(request):
-    item_id = request.POST.get("product_id")
-    item = Goods.objects.get(id=item_id)
-    carts = Cart.objects.filter(session_key=request.session.session_key, item=item)
-    if carts.exists():
-        cart = carts.first()
-        if cart:
-            cart.quantity += 1
-            cart.save()
-    else:
-        Cart.objects.create(
-            session_key=request.session.session_key, item=item, quantity=1
+class CardAddView(View):
+
+    def post(self, request):
+        item = Goods.objects.get(id=request.POST.get("product_id"))
+        carts = Cart.objects.filter(session_key=request.session.session_key, item=item)
+        if carts.exists():
+            if cart := carts.first():
+                cart.quantity += 1
+                cart.save()
+        else:
+            Cart.objects.create(
+                session_key=request.session.session_key, item=item, quantity=1
+            )
+
+        return JsonResponse(
+            {
+                "message": "Товар доданий в корзину",
+            }
         )
 
-    response_data = {
-        "message": "Товар доданий в корзину",
-    }
 
-    return JsonResponse(response_data)
+class CartChangeView(View):
 
-
-def cart_change(request):
-    cart_id = request.POST.get("cart_id")
-    quantity = request.POST.get("quantity")
-    cart = Cart.objects.get(id=cart_id)
-    cart.quantity = quantity
-    cart.save()
-    user_carts = get_user_carts(request)
-
-    cart_items_html = render_to_string(
-        "cart/includes/_included_cart.html", {"carts": user_carts}, request=request
-    )
-
-    response_data = {
-        "message": "Змінено кількість",
-        "cart_items_html": cart_items_html,
-        "total_quantity": user_carts.total_quantity()
-    }
-
-    return JsonResponse(response_data)
+    def post(self, request):
+        cart = Cart.objects.get(id=request.POST.get("cart_id"))
+        cart.quantity = request.POST.get("quantity")
+        cart.save()
+        user_carts = get_user_carts(request)
+        string_html = render_to_string(
+            "cart/includes/_included_cart.html", {"carts": user_carts}, request=request
+        )
+        return JsonResponse(
+            {
+                "message": "Змінено кількість",
+                "cart_items_html": string_html,
+                "total_quantity": user_carts.total_quantity(),
+            }
+        )
 
 
-def cart_remove(request):
-    cart_id = request.POST.get("cart_id")
-    cart = Cart.objects.get(id=cart_id)
-    cart.delete()
-    user_carts = get_user_carts(request)
-    
+class CartRemoveView(View):
+
     cart_template = "cart/includes/_included_cart.html"
+    cart_empty_template = "cart/includes/_included_empty_cart.html"
 
-    if not user_carts:
-        cart_template = "cart/includes/_included_empty_cart.html"
-
-    cart_items_html = render_to_string(
-        cart_template, {"carts": user_carts}, request=request
-    )
-
-    response_data = {
-        "message": "Товар видалено з корзини",
-        "cart_items_html": cart_items_html,
-        "total_quantity": user_carts.total_quantity()
-    }
-
-    return JsonResponse(response_data)
+    def post(self, request):
+        Cart.objects.get(id=request.POST.get("cart_id")).delete()
+        user_carts = get_user_carts(request)
+        string_html = render_to_string(
+            self.cart_template if user_carts else self.cart_empty_template,
+            {"carts": user_carts},
+            request=request,
+        )
+        return JsonResponse(
+            {
+                "message": "Товар видалено з корзини",
+                "cart_items_html": string_html,
+                "total_quantity": user_carts.total_quantity(),
+            }
+        )
 
 
 class CartView(BaseApplicationFormView):
     template_name = "cart/cart.html"
     success_url = reverse_lazy("cart:cart")
+    title = _("Корзина")
 
-    def get_context_data(self, **kwargs):
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
         if not self.request.session.session_key:
             self.request.session.create()
-        kwargs.update({"carts": get_user_carts(self.request)})
-        context = super().get_context_data(**kwargs)
+        context["carts"] = get_user_carts(self.request)
         return context

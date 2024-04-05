@@ -65,16 +65,23 @@ document.getElementById("scrollToTopBtn").onclick = function () {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
+const catalogMessageButtons = document.querySelectorAll('.catalog-message');
 const openPopUp = document.querySelector('.pulsating-element');
 const closePopUp = document.querySelector('.close-button');
 const popUp = document.querySelector('.popup-contact-form');
 const additionalElements = document.querySelector('.additional-elements');
 
-openPopUp.addEventListener('click', function (e) {
-    e.preventDefault();
+function handlePopUpFormClick(event) {
+    event.preventDefault();
     popUp.classList.add('active');
     additionalElements.style.display = 'none';
-})
+}
+
+catalogMessageButtons.forEach(button => {
+    button.addEventListener('click', handlePopUpFormClick);
+});
+
+openPopUp.addEventListener('click', handlePopUpFormClick);
 
 closePopUp.addEventListener('click', () => {
     popUp.classList.remove('active');
