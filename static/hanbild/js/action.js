@@ -95,18 +95,19 @@ function setupSubmitButton(agreementCheckboxId, submitButtonClass, submitButtonW
 
     function toggleSubmitButton() {
         if (agreementCheckbox.checked) {
-            submitButton.disabled = false;
-            submitButtonWrapper.style.backgroundColor = "#f0500a";
-            submitButtonWrapper.style.color = "black";
+            changeStyle(false, "#f0500a", "black");
         } else {
-            submitButton.disabled = true;
-            submitButtonWrapper.style.backgroundColor = "#fc9a79";
-            submitButtonWrapper.style.color = "#666666";
+            changeStyle(true, "#fc9a79", "#666666");
         }
     }
 
-    toggleSubmitButton();
-    agreementCheckbox.addEventListener('change', toggleSubmitButton);
+    function changeStyle(is_active, bg_color, color) {
+        submitButton.disabled = is_active;
+        submitButtonWrapper.style.backgroundColor = bg_color;
+        submitButtonWrapper.style.color = color;
+    }
+
+    if (agreementCheckbox) agreementCheckbox.addEventListener('change', toggleSubmitButton);
 }
 
 document.addEventListener('DOMContentLoaded', function () {
