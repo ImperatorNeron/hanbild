@@ -8,7 +8,6 @@ register = template.Library()
 
 @register.simple_tag()
 def anonymous_user_carts(request):
-    print("her")
     return get_user_carts(request)
 
 @register.simple_tag()

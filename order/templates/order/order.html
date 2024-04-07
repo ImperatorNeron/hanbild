@@ -6,36 +6,38 @@
 {% endblock %}
 
 {% block content %}
-  <main id="cartTabId">
+  <main>
     {% anonymous_user_carts request as carts %}
+
     {% if carts %}
       <div class="order">
         <div class="cart-heading">
           <h2>Оформлення замовлення</h2>
         </div>
         <div class="order-box">
-          <form action="" class="order-form">
+          <form action="{% url "order:order" %}" class="order-form" method="post">
+            {% csrf_token %}
             <div class="info-container">
               <h3>Особисті дані</h3>
               <div class="point-wrapper">
                 <div class="point-container">
                   <div class="point">
-                    <label for="form-name">Ім'я:</label>
-                    <input type="text" name="" id="input" required placeholder="Микола" />
+                    <label for="id_name">Ім'я:</label>
+                    <input type="text" name="name" id="id_name" required placeholder="Микола" />
                   </div>
                   <div class="point">
-                    <label for="form-name">Прізвище:</label>
-                    <input type="text" name="" id="input" required placeholder="Коцюбинський" />
+                    <label for="id_surname">Прізвище:</label>
+                    <input type="text" name="surname" id="id_surname" required placeholder="Коцюбинський" />
                   </div>
                 </div>
                 <div class="point-container">
                   <div class="point">
-                    <label for="form-phone">Номер телефону:</label>
-                    <input type="tel" name="" id="form-phone" required placeholder="+38 068 000 0000" />
+                    <label for="id_phone_number">Номер телефону:</label>
+                    <input type="tel" name="phone_number" id="id_phone_number" required placeholder="+38 068 000 0000" />
                   </div>
                   <div class="point">
-                    <label for="form-phone">Електронная пошта:</label>
-                    <input type="email" name="" id="form-phone" required placeholder="handbild@gmail.com" />
+                    <label for="id_email">Електронная пошта:</label>
+                    <input type="email" name="email" id="id_email" required placeholder="handbild@gmail.com" />
                   </div>
                 </div>
               </div>
@@ -45,12 +47,12 @@
               <div class="point-wrapper">
                 <div class="point-container">
                   <div class="point">
-                    <label for="form-phone">Місто:</label>
-                    <input type="text" name="" id="form-phone" required placeholder="Дніпро" />
+                    <label for="id_city">Місто:</label>
+                    <input type="text" name="city" id="id_city" required placeholder="Дніпро" />
                   </div>
                   <div class="point">
-                    <label for="form-phone">Адреса:</label>
-                    <input type="twxt" name="" id="form-phone" required placeholder="вул. Дніпрянська 7" />
+                    <label for="id_delivery_address">Адреса:</label>
+                    <input type="twxt" name="delivery_address" id="id_delivery_address" required placeholder="вул. Дніпрянська 7" />
                   </div>
                 </div>
                 <div class="additional-order-info">
@@ -67,10 +69,11 @@
               <h3>Коментар</h3>
               <div class="point-wrapper">
                 <div class="point">
-                  <textarea name="message" placeholder="Побажання, прохання, тощо ..."></textarea>
+                  <textarea name="message" id="id_message" placeholder="Побажання, прохання, тощо ..."></textarea>
                 </div>
               </div>
             </div>
+            <button type="submit">OK</button>
           </form>
 
           <div class="cart-table">
