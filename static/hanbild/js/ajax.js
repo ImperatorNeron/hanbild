@@ -118,7 +118,13 @@ $(document).ready(function () {
             goodsInCartCount.text(data.total_quantity);
             cartCount = data.total_quantity;
             check_carts_quantity();
-            updateHTML(data.cart_items_html);
+            if (cartCount == 0) {
+                var cartItemsContainer = $("#cartTabId");
+                cartItemsContainer.html(data.cart_items_html);
+            }
+            else {
+                updateHTML(data.cart_items_html);
+            }
         }
 
         function error(data) {

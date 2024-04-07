@@ -447,7 +447,7 @@ main .breadcrumbs ul li:first-child:before {
     content: "";
     height: 13px;
     width: 13px;
-    background: url(../icons/hpi.svg) no-repeat;
+    background: url(../icons/hpi.svg) no-repeat
 }
 
 main .breadcrumbs ul li:last-child {
@@ -1222,8 +1222,7 @@ select {
     height: 100%;
     width: 100%;
     background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+    border-radius: 8px
 }
 
 .no-results,
@@ -1496,7 +1495,7 @@ textarea {
     font-size: 14px;
     cursor: pointer;
     font-weight: 800;
-    font-family: "Raleway", Sans-serif
+    font-family: "Raleway", Sans-serif;
 }
 
 .form-buttons a svg {
@@ -2033,8 +2032,18 @@ footer .contact-heading p {
     width: 233px
 }
 
-.form-buttons a button {
-    all: inherit;
+.additional-order-info {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    gap: 5px;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center
+}
+
+.additional-order-info svg {
+    width: 3%
 }
 
 .cart-heading {
@@ -2052,7 +2061,7 @@ footer .contact-heading p {
     margin-bottom: 10px
 }
 
-.cart-heading h3 {
+.cart-heading h2 {
     font-size: 34px;
     font-weight: 900;
     text-transform: uppercase
@@ -2064,15 +2073,15 @@ footer .contact-heading p {
 
 .cart-table {
     width: 100%;
-    margin: 10px auto;
-    background-color: #fff;
-    border-radius: 8px
+    margin: 10px auto
 }
 
 .cart-table table {
     table-layout: fixed;
     width: 100%;
-    border-collapse: collapse
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 8px
 }
 
 .cart-table table .quantity {
@@ -2211,54 +2220,171 @@ thead tr th:last-child svg {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: space-evenly;
-    -ms-flex-pack: space-evenly;
-    justify-content: space-evenly
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px 0;
+    width: 95%;
+    margin: 0 auto
 }
 
-.order .point-container {
+.order-box {
     display: -webkit-box;
     display: -ms-flexbox;
-    display: flex
+    display: flex;
+    -webkit-box-pack: space-evenly;
+    -ms-flex-pack: space-evenly;
+    justify-content: space-evenly;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    gap: 25px
 }
 
-.order .cart-table {
-    width: 50%;
-    margin: 0
+.order-box textarea {
+    height: 17vh
 }
 
-.order .cart-table td {
-    padding: 8px 13px
+.order-box h3 {
+    font-size: 24px
 }
 
-.order .cart-table td svg {
-    width: 80%
+.order-box h3::before {
+    content: "▶ "
 }
 
-.order .cart-table thead tr th:first-child {
-    border-top-left-radius: 8px;
-    width: 17%
+.order-box .order-form {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    gap: 20px
 }
 
-.order .cart-table thead tr th:nth-child(2) {
+.order-box .info-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    gap: 10px
+}
+
+.order-box .info-container .form-buttons a {
+    width: 100%
+}
+
+.order-box .point-wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    background: #808286;
+    border-radius: 8px;
+    padding: 15px;
+    gap: 15px
+}
+
+.order-box .final-price {
     width: 32%
 }
 
-.order .cart-table thead tr th:nth-child(3) {
-    width: 10%
+.order-box .point-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    gap: 15px
 }
 
-.order .cart-table thead tr th:nth-child(4) {
+.order-box .point {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    width: 100%;
+    gap: 8px
+}
+
+.order-box .point label {
+    font-weight: 600
+}
+
+.order-box .cart-table {
+    width: 50%;
+    margin: 0;
+    font-size: 14px
+}
+
+.order-box .cart-table td {
+    padding: 8px 13px;
+    text-align: center
+}
+
+.order-box .cart-table td:nth-child(2) {
+    text-align: left
+}
+
+.order-box .cart-table td svg {
+    width: 80%
+}
+
+.order-box .cart-table table .num-but a {
+    font-size: 11px
+}
+
+.order-box .cart-table thead tr th:first-child {
+    border-top-left-radius: 8px;
+    width: 5%
+}
+
+.order-box .cart-table thead tr th:nth-child(2) {
+    width: 20%
+}
+
+.order-box .cart-table thead tr th:nth-child(3) {
+    width: 30%
+}
+
+.order-box .cart-table thead tr th:nth-child(4) {
+    width: 12%
+}
+
+.order-box .cart-table thead tr th:nth-child(5) {
     width: 13%
 }
 
-.order .cart-table thead tr th:last-child {
+.order-box .cart-table thead tr th:nth-child(6) {
+    width: 20%
+}
+
+.order-box .cart-table thead tr th:last-child {
     border-top-right-radius: 8px;
     width: 6%
 }
 
-.order .cart-table thead tr th:last-child svg {
+.order-box .cart-table thead tr th:last-child svg {
     width: 90%
+}
+
+#order-placed {
+    margin: 30px 0;
+    width: 37%
 }
 
 /*# sourceMappingURL=style.min.css.map */
@@ -2550,22 +2676,24 @@ input[type=range]:active::-webkit-slider-thumb {
 
 /* end privacy */
 
+/* formbutton */
+/* кожен баттон обгортувати тегом а якщо треба */
+.form-buttons a button{
+    all: inherit;
+}
+/* end formbutton */
+
 /* Delete default background */
 .background-off {
     background: none;
 }
+
 /* end deleteting of background */
 
 /* в .form-buttons додавай 
 
 .form-buttons a button{
     all: inherit;
-}
-
-і кожен button обгортай в пустий тег а
-
-main .breadcrumbs ul li:last-child{
-    font-weight: bold;
 }
 
 це додати десь в крихтах

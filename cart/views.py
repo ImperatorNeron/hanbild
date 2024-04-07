@@ -57,7 +57,10 @@ class CartRemoveView(View):
     cart_empty_template = "cart/includes/_included_empty_cart.html"
 
     def post(self, request):
-        Cart.objects.get(id=request.POST.get("cart_id")).delete()
+        try:
+            Cart.objects.get(id=request.POST.get("cart_id")).delete()
+        except Cart.DoesNotExist:
+            print("Помилка: об'єкт не знайдено!")
         user_carts = get_user_carts(request)
         string_html = render_to_string(
             self.cart_template if user_carts else self.cart_empty_template,
@@ -77,10 +80,3 @@ class CartView(BaseApplicationFormView):
     template_name = "cart/cart.html"
     success_url = reverse_lazy("cart:cart")
     title = _("Корзина")
-
-    def get_context_data(self, *args, **kwargs):
-        context = super().get_context_data(*args, **kwargs)
-        if not self.request.session.session_key:
-            self.request.session.create()
-        context["carts"] = get_user_carts(self.request)
-        return context
