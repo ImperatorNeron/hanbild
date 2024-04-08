@@ -25,20 +25,24 @@
                   <div class="point">
                     <label for="id_name">Ім'я:</label>
                     <input type="text" name="name" id="id_name" required placeholder="Микола" />
+                    <div id="user_name_" class="order-validation-error"></div>
                   </div>
                   <div class="point">
                     <label for="id_surname">Прізвище:</label>
                     <input type="text" name="surname" id="id_surname" required placeholder="Коцюбинський" />
+                    <div id="user_surname" class="order-validation-error"></div>
                   </div>
                 </div>
                 <div class="point-container">
                   <div class="point">
                     <label for="id_phone_number">Номер телефону:</label>
                     <input type="tel" name="phone_number" id="id_phone_number" required placeholder="+38 068 000 0000" />
+                    <div id="user_phone_number" class="order-validation-error"></div>
                   </div>
                   <div class="point">
                     <label for="id_email">Електронная пошта:</label>
                     <input type="email" name="email" id="id_email" required placeholder="handbild@gmail.com" />
+                    <div id="user_email" class="order-validation-error"></div>
                   </div>
                 </div>
               </div>
@@ -54,10 +58,12 @@
                       <a id="cityDropdownButton">&#9660;</a>
                       <div id="cityDropdown" class="dropdown-content"></div>
                     </div>
+                    <div id="user_city" class="order-validation-error"></div>
                   </div>
                   <div class="point">
                     <label for="id_delivery_address">Адреса:</label>
                     <input type="twxt" name="delivery_address" id="id_delivery_address" required placeholder="вул. Дніпрянська 7" />
+                    <div id="user_address" class="order-validation-error"></div>
                   </div>
                 </div>
                 <div class="additional-order-info">

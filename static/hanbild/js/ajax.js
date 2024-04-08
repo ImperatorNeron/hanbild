@@ -193,4 +193,34 @@ $(document).ready(function () {
         ajaxPostRequest(window.location.href, $(this).serialize(), success, error)
     });
 
+    $("#id-confirm-order-button").on("click", function () {
+        $("#id-order-form").submit();
+    });
+
+    $("#id-order-form").on("submit", function (e) {
+        e.preventDefault();
+
+        function success(data) {
+            if (data.success) {
+                window.location.href = data.url
+            } else {
+                data.form_errors.forEach(element => {
+                    $(element[0]).text(element[1]);
+                });
+                document.querySelectorAll(".order-validation-error").forEach(function (element) {
+                    if (element.textContent.trim().length > 0) {
+                        element.style.display = "block";
+                    } else {
+                        element.style.display = "none";
+                    }
+                });
+            }
+
+        }
+
+        function error(data) {
+            console.log("Помилка при створенні замовлення!");
+        }
+        ajaxPostRequest(window.location.href, $(this).serialize(), success, error)
+    })
 });

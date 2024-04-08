@@ -2312,7 +2312,6 @@ thead tr th:last-child svg {
     display: flex;
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
-    justify-content: space-between;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
@@ -2591,7 +2590,8 @@ input[type=range]:active::-webkit-slider-thumb {
 /* Errore in forms */
 
 .validation-error,
-.page-validation-error {
+.page-validation-error,
+.order-validation-error {
     display: none;
     font-family: "Raleway", Sans-serif;
     color: red;
@@ -2752,4 +2752,7 @@ input[type=range]:active::-webkit-slider-thumb {
 додати font-weight: normal; в 
 main .breadcrumbs ul li:before 
 
+В .order-box .point ТРЕБА ВИДАЛИТИ СПЕЙС БЕВІІН
+
 */
+
