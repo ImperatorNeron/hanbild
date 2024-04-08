@@ -15,7 +15,7 @@
           <h2>Оформлення замовлення</h2>
         </div>
         <div class="order-box">
-          <form action="{% url "order:order" %}" class="order-form" method="post">
+          <form action="{% url 'order:order' %}" class="order-form" method="post" id="id-order-form">
             {% csrf_token %}
             <div class="info-container">
               <h3>Особисті дані</h3>
@@ -73,7 +73,6 @@
                 </div>
               </div>
             </div>
-            <button type="submit">OK</button>
           </form>
 
           <div class="cart-table">
@@ -83,7 +82,7 @@
                 {% include 'cart/includes/_included_cart.html' %}
               </div>
               <div class="form-buttons">
-                <a href="">Підтвердити замовлення</a>
+                <a id="id-confirm-order-button">Підтвердити замовлення</a>
               </div>
             </div>
           </div>

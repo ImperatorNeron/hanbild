@@ -39,7 +39,7 @@ class OrderItem(models.Model):
         default=None,
     )
     name = models.CharField(max_length=150, verbose_name="Назва")
-    price = models.DecimalField(max_digits=7, decimal_places=2, verbose_name="Ціна")
+    price = models.FloatField(verbose_name="Ціна")
     quantity = models.PositiveIntegerField(default=0, verbose_name="Кількість")
     created_timestamp = models.DateTimeField(
         auto_now_add=True, verbose_name="Дата продажі"

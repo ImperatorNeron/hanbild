@@ -124,3 +124,13 @@ if (goodsQuantityInput) {
         window.location.href = url;
     });
 }
+
+confirmOrderButton = document.getElementById('id-confirm-order-button');
+
+if (confirmOrderButton) {
+    confirmOrderButton.addEventListener("click", function (e) {
+        e.preventDefault();
+        document.getElementById('id-order-form').submit();
+    });
+}
+

@@ -193,4 +193,5 @@ $(document).ready(function () {
 
         ajaxPostRequest(window.location.href, $(this).serialize(), success, error)
     });
+
 });
