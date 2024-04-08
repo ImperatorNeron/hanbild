@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load carts_tags %}
+{% load static %}
 
 {% block title %}
   {{ title }}
@@ -48,7 +49,11 @@
                 <div class="point-container">
                   <div class="point">
                     <label for="id_city">Місто:</label>
-                    <input type="text" name="city" id="id_city" required placeholder="Дніпро" />
+                    <div class="autocomplete">
+                      <input type="text" name="city" id="id_city" required placeholder="Дніпро" autocomplete="off" />
+                      <a id="cityDropdownButton">&#9660;</a>
+                      <div id="cityDropdown" class="dropdown-content"></div>
+                    </div>
                   </div>
                   <div class="point">
                     <label for="id_delivery_address">Адреса:</label>
@@ -92,4 +97,9 @@
       {% include 'cart/includes/_included_empty_cart.html' %}
     {% endif %}
   </main>
+{% endblock %}
+
+{% block js %}
+  <script src="{% static 'hanbild/js/cities.js' %}"></script>
+  <script src="{% static 'hanbild/js/city_selector.js' %}"></script>
 {% endblock %}

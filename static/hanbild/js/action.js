@@ -133,4 +133,3 @@ if (confirmOrderButton) {
         document.getElementById('id-order-form').submit();
     });
 }
-

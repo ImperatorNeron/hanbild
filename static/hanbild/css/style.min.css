@@ -2678,9 +2678,10 @@ input[type=range]:active::-webkit-slider-thumb {
 
 /* formbutton */
 /* кожен баттон обгортувати тегом а якщо треба */
-.form-buttons a button{
+.form-buttons a button {
     all: inherit;
 }
+
 /* end formbutton */
 
 /* Delete default background */
@@ -2689,6 +2690,56 @@ input[type=range]:active::-webkit-slider-thumb {
 }
 
 /* end deleteting of background */
+
+/* AUTOCOMPLETE */
+.autocomplete {
+    position: relative;
+    display: inline-block;
+}
+
+#id_city {
+    padding-right: 30px;
+}
+
+#cityDropdownButton {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    width: 100%;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 5px;
+    margin-top: 10px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.show {
+    display: block;
+}
+
+/* END AUTOCOMPLETE */
+
 
 /* в .form-buttons додавай 
 
