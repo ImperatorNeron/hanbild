@@ -53,9 +53,6 @@ class CartChangeView(View):
 
 class CartRemoveView(View):
 
-    cart_template = "cart/includes/_included_cart.html"
-    cart_empty_template = "cart/includes/_included_empty_cart.html"
-
     def post(self, request):
         try:
             Cart.objects.get(id=request.POST.get("cart_id")).delete()
@@ -63,7 +60,7 @@ class CartRemoveView(View):
             print("Помилка: об'єкт не знайдено!")
         user_carts = get_user_carts(request)
         string_html = render_to_string(
-            self.cart_template if user_carts else self.cart_empty_template,
+            "cart/includes/_included_cart.html",
             {"carts": user_carts},
             request=request,
         )

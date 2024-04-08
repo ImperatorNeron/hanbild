@@ -119,8 +119,7 @@ $(document).ready(function () {
             cartCount = data.total_quantity;
             check_carts_quantity();
             if (cartCount == 0) {
-                var cartItemsContainer = $("#cartTabId");
-                cartItemsContainer.html(data.cart_items_html);
+                location.reload();
             }
             else {
                 updateHTML(data.cart_items_html);
