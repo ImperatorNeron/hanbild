@@ -3,8 +3,8 @@ const dropdown = document.getElementById('cityDropdown')
 const dropdownButton = document.getElementById('cityDropdownButton')
 
 function createCityList(cityArray) {
-    dropdown.innerHTML = '' // очищення списку перед додаванням нових елементів
-    cityArray.slice(0, 6).forEach((city) => { // обмеження до перших 6 елементів
+    dropdown.innerHTML = ''
+    cityArray.slice(0, 6).forEach((city) => {
         const option = document.createElement('a')
         option.textContent = city
         option.addEventListener('click', function () {
@@ -22,7 +22,14 @@ function showMatchingCities() {
     dropdown.classList.add('show')
 }
 
-dropdownButton.addEventListener('click', function () {
+function makeClickToInput() {
+    if (input.value === '') {
+        createCityList(cities)
+        dropdown.classList.toggle('show')
+    }
+}
+
+dropdownButton.addEventListener('click', function (event) {
     event.preventDefault()
     input.value = ''
     createCityList(cities)
@@ -35,5 +42,17 @@ document.addEventListener('click', function (event) {
     }
 })
 
+input.addEventListener('keydown', function (event) {
+    const dropdownOptions = dropdown.querySelectorAll('a')
+
+    if (event.key === 'Enter' && dropdownOptions.length > 0) {
+        event.preventDefault()
+        input.value = dropdownOptions[0].textContent
+        dropdown.classList.remove('show')
+    }
+})
+
 createCityList(cities)
+
 input.addEventListener('input', showMatchingCities)
+input.addEventListener('click', makeClickToInput)
