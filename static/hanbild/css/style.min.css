@@ -1375,7 +1375,7 @@ select {
     display: flex;
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
@@ -2590,14 +2590,29 @@ input[type=range]:active::-webkit-slider-thumb {
 /* Errore in forms */
 
 .validation-error,
-.page-validation-error,
-.order-validation-error {
+.page-validation-error {
     display: none;
     font-family: "Raleway", Sans-serif;
     color: red;
     font-size: 12px;
-    height: 15px;
+    font-weight: bold;
+    height: auto;
 }
+
+.order-validation-error {
+    display: none;
+    font-family: "Raleway", Sans-serif;
+    font-size: 12px;
+    height: auto;
+
+    background-color: rgba(255, 25, 0, 0.8); /* Прозорий червоний фон */
+    color: #fff; /* Колір тексту */
+    padding: 7px 10px; /* Відступи всередині */
+    border-radius: 4px; /* Закруглені кути */
+    font-size: 14px; /* Розмір тексту */
+    font-weight: bold;
+}
+
 
 /* Error in forms end */
 
@@ -2752,7 +2767,7 @@ input[type=range]:active::-webkit-slider-thumb {
 додати font-weight: normal; в 
 main .breadcrumbs ul li:before 
 
-В .order-box .point ТРЕБА ВИДАЛИТИ СПЕЙС БЕВІІН
+В .form-container .point, .order-box .point ТРЕБА ВИДАЛИТИ СПЕЙС БЕВІІН
+
 
 */
-

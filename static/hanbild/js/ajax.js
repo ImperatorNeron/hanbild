@@ -39,6 +39,7 @@ $(document).ready(function () {
 
     function validateForm(response) {
         if (response.data.success == true) {
+            console.log("her4")
             $(response.form_id).trigger('reset');
             sendMessageToScreen(response.data.message);
             document.querySelectorAll(response.error_class).forEach(function (element) {
@@ -46,11 +47,13 @@ $(document).ready(function () {
             });
             return true
         }
+        console.log("her5")
         document.querySelectorAll(response.error_class).forEach(function (element) {
             element.style.display = "block";
         });
         $(response.number_or_email_error_field_id).text(response.data.form_errors.number_or_email);
         $(response.name_error_field_id).text(response.data.form_errors.name);
+        console.log("her6")
         return false
     }
 
@@ -149,7 +152,7 @@ $(document).ready(function () {
 
     $('#contact-form').on('submit', function (e) {
         e.preventDefault();
-
+        console.log("her1")
         function success(data) {
             response = {
                 data: data,
@@ -158,11 +161,12 @@ $(document).ready(function () {
                 number_or_email_error_field_id: "#user_number_or_email",
                 name_error_field_id: "#user_name"
             }
-
+            console.log("her2")
             if (validateForm(response)) {
                 document.querySelector('.popup-contact-form').classList.remove('active');
                 document.querySelector('.additional-elements').style.display = ''
             }
+            console.log("her3")
         }
 
         function error(data) {

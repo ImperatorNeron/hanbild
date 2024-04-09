@@ -1,13 +1,9 @@
-from django.http import JsonResponse
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
-
 from main.forms import OnlineApplicationForm
-from main.models import ClientMessages
-from main.sending_email_service import send_email
-
 from django.views.generic import FormView
+from main.utils import contact_form_errors, create_user_message
 
 
 class BaseApplicationFormView(FormView):
@@ -21,20 +17,10 @@ class BaseApplicationFormView(FormView):
         return context
 
     def form_valid(self, form):
-        super().form_valid(form)
-        ClientMessages.objects.create(
-            name=form.cleaned_data["name"],
-            number_or_email=form.cleaned_data["number_or_email"],
-            message=form.cleaned_data["message"],
-        )
-        # send_email(form.cleaned_data)
-        print(form.cleaned_data)
-        return JsonResponse(
-            {"success": True, "message": "Повідомлення надійшло успішно!"}
-        )
+        return create_user_message(form)
 
     def form_invalid(self, form):
-        return JsonResponse({"success": False, "form_errors": form.errors})
+        return contact_form_errors(form)
 
 
 class IndexView(BaseApplicationFormView):

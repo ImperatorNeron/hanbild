@@ -1,4 +1,3 @@
-from operator import le
 from django.http import JsonResponse
 from django.template.loader import render_to_string
 from django.urls import reverse_lazy

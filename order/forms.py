@@ -7,8 +7,8 @@ from django.core.validators import EmailValidator, RegexValidator
 class CreateOrderForm(forms.Form):
 
     ukr_eng_alpha_validator = RegexValidator(
-        regex="^[a-zA-Zа-яА-ЯіІїЇєЄґҐ]+$",
-        message="Поле може містити лише літери українського або англійського алфавіту",
+        regex=r"^[a-zA-Z0-9а-яА-ЯіІїЇєЄґҐ.,\s`\'’-]+$",
+        message="Поле не може містити цифри та заборонені знаки!",
         code="invalid_characters",
     )
 
@@ -31,5 +31,13 @@ class CreateOrderForm(forms.Form):
         ]
     )
     city = forms.CharField(validators=[ukr_eng_alpha_validator])
-    delivery_address = forms.CharField()
-    message = forms.CharField(widget=forms.Textarea)
+    delivery_address = forms.CharField(
+        validators=[
+            RegexValidator(
+                regex=r"^[a-zA-Z0-9а-яА-ЯіІїЇєЄґҐ.,\s`\'’-]+$",
+                message="Адреса не може містити заборонені знаки!",
+                code="invalid_address_characters",
+            )
+        ]
+    )
+    message = forms.CharField(widget=forms.Textarea, required=False)

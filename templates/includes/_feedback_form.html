@@ -14,6 +14,7 @@
     <img class="logotype" src="{% static 'hanbild/icons/logo_dv.svg' %}" alt="logo" />
     <form class="feedback-form" id="contact-form" method="post">
       {% csrf_token %}
+      <input type="text" value="feedback-form" name="form-class" hidden required>
       <p>
         {% translate "Ми цінуємо ваш інтерес до нашої компанії та готові відповісти на всі ваші запитання. Будь ласка, заповніть цю форму, і ми зв'яжемося з вами найближчим часом. Дякуємо за вибір наших послуг!" %}
       </p>
