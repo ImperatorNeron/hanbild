@@ -24,9 +24,11 @@ class ItemView(BaseApplicationFormView):
 
     def get(self, request, item_slug, *args, **kwargs):
         item = Goods.objects.get(slug=item_slug)
-        self.context["item"] = item
-        self.context["title"] = f"{item.name} | HanBild.com.ua"
-        return super().get(request, *args, **kwargs)
+        return render(
+            request,
+            self.template_name,
+            {"item": item, "title": f"{item.name} | HanBild.com.ua"},
+        )
 
     def dispatch(self, request, *args, **kwargs):
         self.success_url = reverse_lazy(
