@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load embed_video_tags %}
 
 {% block title %}
   {{ item.name }} | Hanbild.com.ua
@@ -32,34 +33,25 @@
               <div class="image-slider__wrapper swiper-wrapper">
                 <div class="image-slider__slide swiper-slide">
                   <div class="image-slider__image">
-                    <img src="img/test_photo_1.jpg" alt="" />
+                    <img src="{{ item.preview_image.url }}" alt="" />
                   </div>
                 </div>
-                <div class="image-slider__slide swiper-slide">
-                  <div class="image-slider__image">
-                    <img src="img/test_photo_2.jpg" alt="" />
+                {% for photo in item_photos %}
+                  <div class="image-slider__slide swiper-slide">
+                    <div class="image-slider__image">
+                      <img src="{{ photo.image.url }}" alt="" />
+                    </div>
                   </div>
-                </div>
-                <div class="image-slider__slide swiper-slide">
-                  <div class="image-slider__image">
-                    <img src="img/test_photo_3.jpg" alt="" />
+                {% endfor %}
+                {% for item_video in item_videos %}
+                  {% video item_video.video as vid %}
+                  <div class="image-slider__slide swiper-slide">
+                    <div class="image-slider__image">
+                      <iframe id="video-slide" src="{{ vid.url }}" title="Слайдер SWIPER. Подробный курс. Подключение настройка примеры." frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
                   </div>
-                </div>
-                <div class="image-slider__slide swiper-slide">
-                  <div class="image-slider__image">
-                    <img src="img/test_photo_1.jpg" alt="" />
-                  </div>
-                </div>
-                <div class="image-slider__slide swiper-slide">
-                  <div class="image-slider__image">
-                    <img src="img/test_photo_1.jpg" alt="" />
-                  </div>
-                </div>
-                <div class="image-slider__slide swiper-slide">
-                  <div class="image-slider__image">
-                    <iframe id="video-slide" src="https://www.youtube.com/embed/ddbxsrGPRY0" title="Слайдер SWIPER. Подробный курс. Подключение настройка примеры." frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                  </div>
-                </div>
+                  {% endvideo %}
+                {% endfor %}
               </div>
               <div class="button-next">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.85 9.25">
@@ -82,34 +74,23 @@
               <div class="image-mini-slider__wrapper swiper-wrapper">
                 <div class="image-mini-slider__slide swiper-slide">
                   <div class="image-mini-slider__image">
-                    <img src="img/test_photo_1.jpg" alt="" />
+                    <img src="{{ item.preview_image.url }}" alt="" />
                   </div>
                 </div>
-                <div class="image-mini-slider__slide swiper-slide">
-                  <div class="image-mini-slider__image">
-                    <img src="img/test_photo_2.jpg" alt="" />
+                {% for photo in item_photos %}
+                  <div class="image-mini-slider__slide swiper-slide">
+                    <div class="image-mini-slider__image">
+                      <img src="{{ photo.image.url }}" alt="" />
+                    </div>
                   </div>
-                </div>
-                <div class="image-mini-slider__slide swiper-slide">
-                  <div class="image-mini-slider__image">
-                    <img src="img/test_photo_3.jpg" alt="" />
+                {% endfor %}
+                {% for video in item_videos %}
+                  <div class="image-mini-slider__slide swiper-slide">
+                    <div class="image-mini-slider__image">
+                      <img src="{% static 'hanbild/icons/play.svg' %}" alt="" />
+                    </div>
                   </div>
-                </div>
-                <div class="image-mini-slider__slide swiper-slide">
-                  <div class="image-mini-slider__image">
-                    <img src="img/test_photo_1.jpg" alt="" />
-                  </div>
-                </div>
-                <div class="image-mini-slider__slide swiper-slide">
-                  <div class="image-mini-slider__image">
-                    <img src="img/test_photo_1.jpg" alt="" />
-                  </div>
-                </div>
-                <div class="image-mini-slider__slide swiper-slide">
-                  <div class="image-mini-slider__image">
-                    <iframe src="https://www.youtube.com/embed/ddbxsrGPRY0" title="Слайдер SWIPER. Подробный курс. Подключение настройка примеры." frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                  </div>
-                </div>
+                {% endfor %}
               </div>
             </div>
           </div>

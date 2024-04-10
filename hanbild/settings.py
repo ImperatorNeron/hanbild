@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     "order",
     # additional apps
     "django.contrib.postgres",
+    'embed_video',
 ]
 
 MIDDLEWARE = [

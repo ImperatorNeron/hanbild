@@ -4,7 +4,9 @@ from catalog.models import (
     Categories,
     Goods,
     GoodsImage,
+    GoodsVideo,
 )
+from embed_video.admin import AdminVideoMixin
 
 
 @admin.register(Categories)
@@ -19,3 +21,7 @@ class GoodsAdmin(TranslationAdmin):
 
 @admin.register(GoodsImage)
 class GoodsImagesAdmin(admin.ModelAdmin): ...
+
+
+@admin.register(GoodsVideo)
+class GoodsVideosAdmin(AdminVideoMixin, admin.ModelAdmin): ...

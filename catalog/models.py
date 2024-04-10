@@ -2,6 +2,7 @@ from django.db import models
 from django.urls import reverse
 
 from catalog.utils import translate_categories, translate_goods, validate_slug
+from embed_video.fields import EmbedVideoField
 
 
 class Categories(models.Model):
@@ -69,3 +70,16 @@ class GoodsImage(models.Model):
         db_table = "goods_images"
         verbose_name = "фотографію товару"
         verbose_name_plural = "Фотографії товару"
+
+
+class GoodsVideo(models.Model):
+    good = models.ForeignKey(to=Goods, on_delete=models.SET_NULL, null=True)
+    video = EmbedVideoField(verbose_name="Посилання на відео")
+
+    def __str__(self):
+        return f"{self.good.name} - {self.video}"
+
+    class Meta:
+        db_table = "goods_videos"
+        verbose_name = "відео товару"
+        verbose_name_plural = "Відео товару"
