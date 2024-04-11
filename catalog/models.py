@@ -83,3 +83,17 @@ class GoodsVideo(models.Model):
         db_table = "goods_videos"
         verbose_name = "відео товару"
         verbose_name_plural = "Відео товару"
+
+
+class GoodsCharacteristic(models.Model):
+    good = models.ForeignKey(to=Goods, on_delete=models.SET_NULL, null=True)
+    name = models.CharField(max_length=100, verbose_name="Назва характеристики")
+    value = models.CharField(max_length=255, verbose_name="Опис")
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        db_table = "goods_characteristics"
+        verbose_name = "характеристика товару"
+        verbose_name_plural = "Характеристики товару"

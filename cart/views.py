@@ -72,6 +72,19 @@ class CartRemoveView(View):
         )
 
 
+class UserCartsRemoveView(View):
+    def post(self, request):
+        session_key = request.session.session_key
+        try:
+            carts = Cart.objects.filter(session_key=session_key)
+            carts.delete()
+        except Cart.DoesNotExist:
+            print("Помилка: об'єкти не знайдено!")
+        except Exception as e:
+            print(f"Помилка: {e}")
+        return JsonResponse({})
+
+
 class CartView(BaseApplicationFormView):
     template_name = "cart/cart.html"
     success_url = reverse_lazy("cart:cart")

@@ -15,21 +15,6 @@ new Swiper('.image-slider', {
     },
 });
 
-var miniSlides = document.querySelectorAll('.image-mini-slider__slide');
-
-miniSlides.forEach(function (slide) {
-    var content = slide.querySelector('.image-mini-slider__image').innerHTML;
-    if (content.includes('<iframe')) {
-        var imageSrc = slide.querySelector('iframe').getAttribute('src');
-        var thumbnailSrc = getThumbnail(imageSrc);
-        slide.querySelector('.image-mini-slider__image').innerHTML = '<img src="' + thumbnailSrc + '" alt="Відео">';
-    }
-});
-
-function getThumbnail() {
-    return 'img/play.svg';
-}
-
 document.addEventListener('DOMContentLoaded', function () {
     const images = document.querySelectorAll('.image-slider__image img');
     const overlay = document.createElement('div');

@@ -2945,11 +2945,11 @@ input[type=range]:active::-webkit-slider-thumb {
     font-size: 12px;
     height: auto;
 
-    background-color: rgba(255, 25, 0, 0.8);
-    color: #fff;
-    padding: 7px 10px;
-    border-radius: 4px;
-    font-size: 14px;
+    background-color: #f0500a;
+    color: #000000;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 11px;
     font-weight: bold;
 }
 
@@ -3084,7 +3084,7 @@ input[type=range]:active::-webkit-slider-thumb {
 }
 
 .dropdown-content a:hover {
-    background-color: #f1f1f1;
+    background-color: #eaeaea;
     border-radius: 5px;
     cursor: pointer;
 }

@@ -7,7 +7,7 @@ from django.core.validators import EmailValidator, RegexValidator
 class CreateOrderForm(forms.Form):
 
     ukr_eng_alpha_validator = RegexValidator(
-        regex=r"^[a-zA-Z0-9а-яА-ЯіІїЇєЄґҐ.,\s`\'’-]+$",
+        regex=r"^[a-zA-Zа-яА-ЯіІїЇєЄґҐ.,\s`\'’-]+$",
         message="Поле не може містити цифри та заборонені знаки!",
         code="invalid_characters",
     )

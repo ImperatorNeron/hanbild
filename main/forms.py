@@ -10,6 +10,14 @@ class OnlineApplicationForm(forms.ModelForm):
         model = ClientMessages
         fields = ["name", "number_or_email", "message"]
 
+    def clean_name(self):
+        data = self.cleaned_data["name"]
+        if not re.match(r"^[a-zA-Zа-яА-ЯіІїЇєЄґҐ.,\s`\'’-]+$", data):
+            raise forms.ValidationError(
+                "Поле не може містити цифри та заборонені знаки!"
+            )
+        return data
+
     def clean_number_or_email(self):
         data = self.cleaned_data["number_or_email"]
         # Перевірка, чи введено номер телефону або електронну пошту

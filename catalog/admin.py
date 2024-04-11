@@ -3,6 +3,7 @@ from modeltranslation.admin import TranslationAdmin
 from catalog.models import (
     Categories,
     Goods,
+    GoodsCharacteristic,
     GoodsImage,
     GoodsVideo,
 )
@@ -25,3 +26,6 @@ class GoodsImagesAdmin(admin.ModelAdmin): ...
 
 @admin.register(GoodsVideo)
 class GoodsVideosAdmin(AdminVideoMixin, admin.ModelAdmin): ...
+
+@admin.register(GoodsCharacteristic)
+class GoodsCharacteristicsAdmin(admin.ModelAdmin): ...
