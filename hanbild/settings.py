@@ -1,7 +1,7 @@
 from pathlib import Path
 import os
 from django.conf.urls import handler404
-from dotenv import load_dotenv
+from dotenv import load_dotenv 
 
 from django.utils.translation import gettext_lazy as _
 
@@ -14,7 +14,7 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 # DEBUG = os.getenv("DEBUG") == "True"
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 INSTALLED_APPS = [
     "modeltranslation",

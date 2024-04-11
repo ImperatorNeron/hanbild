@@ -28,18 +28,22 @@ class Categories(models.Model):
 
 
 class Goods(models.Model):
-    category = models.ForeignKey(to=Categories, on_delete=models.SET_NULL, null=True)
+    category = models.ForeignKey(
+        to=Categories, on_delete=models.SET_NULL, null=True, verbose_name="Категорія"
+    )
     slug = models.SlugField(max_length=200, blank=True, null=True, verbose_name="URL")
     name = models.CharField(max_length=150, verbose_name="Назва товару")
     preview_image = models.ImageField(
         upload_to="goods_images", null=True, blank=True, verbose_name="Зображення"
     )
     price = models.FloatField(verbose_name="Ціна товару", default=0)
-    upload_time = models.DateTimeField(auto_now_add=True)
+    upload_time = models.DateTimeField(
+        auto_now_add=True, verbose_name="Дата завантаження"
+    )
     description = models.TextField(verbose_name="Опис товару", null=True, blank=True)
 
     def __str__(self):
-        return f"Товар: {self.name} | Категорія: {self.category.name}"
+        return f"Товар: {self.name} | Категорія: {self.category}"
 
     class Meta:
         db_table = "goods"
@@ -52,7 +56,7 @@ class Goods(models.Model):
         return super().save(*args, **kwargs)
 
     def get_absolute_url(self):
-        return reverse("catalog:goods", kwargs={"item_slug": self.slug})
+        return reverse("catalog:item", kwargs={"item_slug": self.slug})
 
 
 class GoodsImage(models.Model):
