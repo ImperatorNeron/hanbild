@@ -24,7 +24,7 @@ def create_order_transaction(form, **kwargs):
                     OrderItem.objects.create(
                         order=order,
                         product=item.item,
-                        name=item.item.name,
+                        name=item.item.name_uk,
                         price=item.goods_price(),
                         quantity=item.quantity,
                     )

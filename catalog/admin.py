@@ -13,6 +13,7 @@ from embed_video.admin import AdminVideoMixin
 @admin.register(Categories)
 class CategoriesAdmin(TranslationAdmin):
     prepopulated_fields = {"slug": ("name",)}
+    exclude = ("name_en",)
 
 
 @admin.register(Goods)
@@ -28,4 +29,4 @@ class GoodsImagesAdmin(admin.ModelAdmin): ...
 class GoodsVideosAdmin(AdminVideoMixin, admin.ModelAdmin): ...
 
 @admin.register(GoodsCharacteristic)
-class GoodsCharacteristicsAdmin(admin.ModelAdmin): ...
+class GoodsCharacteristicsAdmin(TranslationAdmin): ...

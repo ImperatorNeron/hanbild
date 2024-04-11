@@ -39,7 +39,7 @@ class Goods(models.Model):
     description = models.TextField(verbose_name="Опис товару", null=True, blank=True)
 
     def __str__(self):
-        return f"{self.category.name} - {self.name}"
+        return f"Товар: {self.name} | Категорія: {self.category.name}"
 
     class Meta:
         db_table = "goods"
@@ -88,7 +88,7 @@ class GoodsVideo(models.Model):
 class GoodsCharacteristic(models.Model):
     good = models.ForeignKey(to=Goods, on_delete=models.SET_NULL, null=True)
     name = models.CharField(max_length=100, verbose_name="Назва характеристики")
-    value = models.CharField(max_length=255, verbose_name="Опис")
+    description = models.CharField(max_length=255, verbose_name="Опис")
 
     def __str__(self):
         return self.name
@@ -97,3 +97,7 @@ class GoodsCharacteristic(models.Model):
         db_table = "goods_characteristics"
         verbose_name = "характеристика товару"
         verbose_name_plural = "Характеристики товару"
+
+    def save(self, *args, **kwargs):
+        translate_goods(self)
+        return super().save(*args, **kwargs)
