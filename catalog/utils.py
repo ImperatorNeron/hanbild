@@ -1,4 +1,3 @@
-from tkinter import NO
 import uuid
 from deep_translator import GoogleTranslator
 from django.core.paginator import Paginator

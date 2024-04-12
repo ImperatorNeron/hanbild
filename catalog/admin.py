@@ -1,5 +1,4 @@
 from django.contrib import admin
-from django.utils.safestring import mark_safe
 from modeltranslation.admin import TranslationAdmin
 from catalog.models import (
     Categories,
@@ -8,7 +7,8 @@ from catalog.models import (
     GoodsImage,
     GoodsVideo,
 )
-from embed_video.admin import AdminVideoMixin
+
+from product.models import Product
 
 
 class GoodsImagesTabulareAdmin(admin.TabularInline):
@@ -46,14 +46,24 @@ class GoodsTabulareAdmin(admin.TabularInline):
     extra = 0
 
 
+class ProductTabulareAdmin(admin.TabularInline):
+    model = Product
+    fields = (
+        "index_on_page",
+        "category",
+        "paragraph_uk",
+        "paragraph_en",
+        "paragraph_image",
+    )
+
+
 @admin.register(Categories)
 class CategoriesAdmin(TranslationAdmin):
     prepopulated_fields = {"slug": ("name",)}
     fields = (("name_uk", "name_en"), "slug")
     list_display = ("id", "name_uk", "name_en", "slug")
     list_editable = ("name_uk", "name_en", "slug")
-    inlines = (GoodsTabulareAdmin,)
-    list_filter = ("name_uk",)
+    inlines = (GoodsTabulareAdmin, ProductTabulareAdmin, )
 
 
 @admin.register(Goods)

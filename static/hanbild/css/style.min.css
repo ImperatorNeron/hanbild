@@ -460,7 +460,7 @@ main .breadcrumbs ul li {
 main .breadcrumbs ul li:before {
     margin-right: 5px;
     content: ">";
-    font-size: 13px;
+    font-size: 13px
 }
 
 main .breadcrumbs ul li:first-child:before {
@@ -1388,17 +1388,6 @@ select {
     width: 20px;
     -ms-flex-item-align: end;
     align-self: end
-}
-
-.feedback-form {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    gap: 12px
 }
 
 .form-container {
@@ -2413,6 +2402,32 @@ thead tr th:last-child svg {
     font-size: 11px
 }
 
+.order-box .cart-table thead tr th:first-child {
+    border-top-left-radius: 8px;
+    width: 18%
+}
+
+.order-box .cart-table thead tr th:nth-child(2) {
+    width: 32%
+}
+
+.order-box .cart-table thead tr th:nth-child(3) {
+    width: 11%
+}
+
+.order-box .cart-table thead tr th:nth-child(4) {
+    width: 13%
+}
+
+.order-box .cart-table thead tr th:last-child {
+    border-top-right-radius: 8px;
+    width: 6%
+}
+
+.order-box .cart-table thead tr th:last-child svg {
+    width: 90%
+}
+
 #order-placed {
     margin: 30px 0;
     width: 37%
@@ -2724,6 +2739,189 @@ thead tr th:last-child svg {
 .single-card-grid .form-buttons a:nth-child(2) {
     height: 45px;
     width: 45px
+}
+
+.product-page .photo-block {
+    background: url(../images/p-truck.png) no-repeat right/auto 93%
+}
+
+.services-page .photo-block {
+    background: url(../images/s-truck.png) no-repeat right/auto 93%
+}
+
+.photo-block {
+    width: 100%;
+    height: 74vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    border-radius: 5px;
+    color: #fff
+}
+
+.photo-block .left-container {
+    width: 55%;
+    -webkit-clip-path: polygon(0 0, 100% 0, 75% 100%, 0% 100%);
+    clip-path: polygon(0 0, 100% 0, 75% 100%, 0% 100%);
+    background-color: #131313;
+    padding: 70px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center
+}
+
+.photo-block .left-container .info {
+    width: 70%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    gap: 20px
+}
+
+.photo-block .left-container .info h2 {
+    font-size: 60px;
+    font-weight: 800;
+    color: #f0500a
+}
+
+.product-cards {
+    margin: 50px auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    gap: 80px
+}
+
+.service-card {
+    height: 70vh
+}
+
+.service-card .left-container {
+    height: 75vh
+}
+
+.product-card {
+    height: 60vh
+}
+
+.product-card .left-container {
+    height: 65vh
+}
+
+.product-card,
+.service-card {
+    width: 90%;
+    color: #fff;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    border-radius: 5px;
+    background-color: #131313
+}
+
+.product-card .right-container,
+.service-card .right-container {
+    height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 50%;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center
+}
+
+.product-card .right-container h2,
+.service-card .right-container h2 {
+    font-size: 30px;
+    font-weight: 800;
+    color: #f0500a
+}
+
+.product-card .right-container .info,
+.service-card .right-container .info {
+    width: 90%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    gap: 20px;
+    padding: 10px 20px
+}
+
+.product-card .right-container .form-buttons a,
+.service-card .right-container .form-buttons a {
+    margin: 0
+}
+
+.product-card .left-container,
+.service-card .left-container {
+    width: 50%;
+    background: url(../images/contacts-photo.jpg) no-repeat;
+    background-position: center;
+    background-size: cover
+}
+
+.product-card:nth-child(odd) .left-container,
+.service-card:nth-child(odd) .left-container {
+    -webkit-clip-path: polygon(0 0, 100% 0, 75% 100%, 0% 100%);
+    clip-path: polygon(0 0, 100% 0, 75% 100%, 0% 100%)
+}
+
+.product-card:nth-child(even) .right-container,
+.service-card:nth-child(even) .right-container {
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: end
+}
+
+.product-card:nth-child(even) .left-container,
+.service-card:nth-child(even) .left-container {
+    -webkit-box-ordinal-group: 3;
+    -ms-flex-order: 2;
+    order: 2;
+    -webkit-clip-path: polygon(25% 0, 100% 0%, 100% 100%, 0 100%);
+    clip-path: polygon(25% 0, 100% 0%, 100% 100%, 0 100%)
+}
+
+.add-inf {
+    width: 49%;
+    margin: 0 auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    gap: 8px
+}
+
+.add-inf p {
+    font-weight: 500
+}
+
+.add-inf .form-buttons a:first-child {
+    display: none
 }
 
 /*# sourceMappingURL=style.min.css.map */
@@ -3103,6 +3301,7 @@ main .breadcrumbs ul li:last-child {
 main .breadcrumbs ul li:before {
     font-weight: normal;
 }
+
 /* КІНЕЦЬ КРИХТ */
 
 
@@ -3110,6 +3309,7 @@ main .breadcrumbs ul li:before {
     border-top-left-radius: 8px;
     width: 5%
 }
+
 /* Це в замовлені товару */
 .order-box .cart-table thead tr th:nth-child(2) {
     width: 20%

@@ -4,6 +4,7 @@ from django.utils.translation import gettext_lazy as _
 from main.forms import OnlineApplicationForm
 from django.views.generic import FormView
 from main.utils import contact_form_errors, create_user_message
+from product.models import Service
 
 
 class BaseApplicationFormView(FormView):
@@ -39,6 +40,11 @@ class ServicesView(BaseApplicationFormView):
     template_name = "main/services.html"
     success_url = reverse_lazy("main:services")
     title = _("Ремонт, Trade in та Leasing | HanBild.com.ua")
+
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        context["services"] = Service.objects.all().order_by("index_on_page")
+        return context
 
 
 class PrivacyPolicyView(BaseApplicationFormView):
