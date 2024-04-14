@@ -1,6 +1,9 @@
 from django.http import JsonResponse
 
 from main.models import ClientMessages
+from main.sending_email_service import send_email
+from django.core.validators import validate_email
+from django.core.exceptions import ValidationError
 
 
 def create_user_message(form, **kwargs):
@@ -9,8 +12,13 @@ def create_user_message(form, **kwargs):
         number_or_email=form.cleaned_data["number_or_email"],
         message=form.cleaned_data["message"],
     )
-    # send_email(form.cleaned_data)
-    print(form.cleaned_data)
+    try:
+        validate_email(form.cleaned_data["number_or_email"])
+        print("her1")
+        send_email(form.cleaned_data, send_to=form.cleaned_data["number_or_email"])
+    except ValidationError:
+        print("Введено номер телефону")
+    send_email(form.cleaned_data)
     return JsonResponse({"success": True, "message": "Повідомлення надійшло успішно!"})
 
 def contact_form_errors(form, **kwargs):

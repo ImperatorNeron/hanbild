@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="x-apple-disable-message-reformatting" />
+    <title></title>
+    <!--       [if mso]>
+  <noscript>
+    <xml>
+      <o:OfficeDocumentSettings>
+        <o:PixelsPerInch>96</o:PixelsPerInch>
+      </o:OfficeDocumentSettings>
+    </xml>
+  </noscript>
+  <![endif]       -->
+    <style>
+      table,
+      td,
+      div,
+      h1,
+      p,
+      a {
+        font-family: Arial, sans-serif;
+      }
+      a {
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body style="margin:0;padding:0;">
+    <table role="presentation" style="width:100%;border-collapse:collapse;border:0;border-spacing:0;background:#ffffff;">
+      <tr>
+        <td align="center" style="padding:0;">
+          <table role="presentation" style="width:602px;border-collapse:collapse;border:1px solid #cccccc;border-spacing:0;text-align:left;background-color:#f5f5f5;">
+            <tr>
+              <td align="center" style="padding:0;">
+                <img src="https://lh3.googleusercontent.com/pw/AP1GczO3sAoyH26Hr_m9vRDp5PXnuhuMF_WXYkViJydpIVpXj-eduYzvu4k1LC5fGe944B8p7zSYIWR6vnN9kpCV-iegJvC2G_8QjVwGoHvAQRAnUhKAMfsRWnvtYdt_a_kSegIul_hMmqudbXdCEvoRu90=w1843-h938-s-no-gm?authuser=0" alt="" width="600" style="height:auto;display:block;" />
+              </td>
+            </tr>
+            <tr>
+              <td style="padding: 7px;">
+                <table role="presentation" style="width:100%;border-collapse:collapse;border:0;border-spacing:0;">
+                  <tr>
+                    <td style="width: 24%;background-color:#f0500a;border-radius:10px;">
+                      <a style="display:block;width:100%;padding: 7px 0;text-align:center;color: #000000;font-weight: bold;font-size: 14px;" href="">Наш сайт</a>
+                    </td>
+                    <td style="width: 1%;"></td>
+                    <td style="width: 24%;background-color:#f0500a;border-radius:10px;">
+                      <a style="display:block;width:100%;padding: 7px 0;text-align:center;color: #000000;font-weight: bold;font-size: 14px;" href="">Каталог</a>
+                    </td>
+                    <td style="width: 1%;"></td>
+                    <td style="width: 24%;background-color:#f0500a;border-radius:10px;">
+                      <a style="display:block;width:100%;padding: 7px 0;text-align:center;color: #000000;font-weight: bold;font-size: 14px;" href="">Продукція</a>
+                    </td>
+                    <td style="width: 1%;"></td>
+                    <td style="width: 24%;background-color:#f0500a;border-radius:10px;">
+                      <a style="display:block;width:100%;padding: 7px 0;text-align:center;color: #000000;font-weight: bold;font-size: 14px;" href="">Вакансії</a>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:36px 30px 42px 30px;">
+                <table role="presentation" style="width:100%;border-collapse:collapse;border:0;border-spacing:0;">
+                  <tr>
+                    <td style="padding:0 0 36px 0;color:#153643;">
+                      <h1 style="font-size:28px;margin:0 0 20px 0;font-family:Arial,sans-serif;">{{ successful_message_1 }}</h1>
+                      <p style="margin:0 0 12px 0;font-size:20px;line-height:24px;font-family:Arial,sans-serif;">{{ successful_message_2 }}</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="padding:0;">
+                      <table role="presentation" style="width:100%;border-collapse:collapse;border:0;border-spacing:0;">
+                        <tr>
+                          <td style="width:260px;padding:0;vertical-align:top;color:#153643;">
+                            <p style="margin:0 0 7px 0;font-size:16px;font-family:Arial,sans-serif;">
+                              <label style="font-size: 20px;color: #000000;">Ім'я відправника:</label>
+                            </p>
+                            <p style="margin:0;font-size:16px;font-family:Arial,sans-serif;width:100%;">
+                              <input readonly type="text" value="{{ name }}" style="width: 98.5%;padding: 10px 0 10px 10px;border-radius: 5px;border:1px solid #f0500a;font-size: 18px;" />
+                            </p>
+                            <p style="margin:15px 0 7px 0;font-size:16px;font-family:Arial,sans-serif;">
+                              <label style="font-size: 20px;color: #000000;">Пошта або номер:</label>
+                            </p>
+                            <p style="margin:0;font-size:16px;font-family:Arial,sans-serif;width:100%;">
+                              <input readonly type="text" value="{{ number_or_email }}" style="width: 98.5%;padding: 10px 0 10px 10px;border-radius: 5px;border:1px solid #f0500a;font-size: 18px;" />
+                            </p>
+                            <p style="margin:15px 0 7px 0;font-size:16px;font-family:Arial,sans-serif;">
+                              <label style="font-size: 20px;color: #000000;">Повідомлення:</label>
+                            </p>
+                            <p style="margin:0;font-size:16px;font-family:Arial,sans-serif;width:100%;">
+                              <textarea readonly type="text" style="width: 98.5%;padding: 10px 0 10px 10px;border-radius: 5px;border:1px solid #f0500a;resize: none;min-height: 200px;font-size: 18px;">{{ message }}</textarea>
+                            </p>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:30px;background:#f0500a;">
+                <table role="presentation" style="width:100%;border-collapse:collapse;border:0;border-spacing:0;font-size:9px;font-family:Arial,sans-serif;">
+                  <tr>
+                    <td style="padding:0;width:50%;" align="left">
+                      <p style="margin:0;font-size:14px;line-height:16px;font-family:Arial,sans-serif;color:#000000;font-weight:bold;">
+                        Copyright &reg; {% now 'Y' %} Hanbild.<br />Усі права захищені.
+                      </p>
+                    </td>
+                    <td style="padding:0;width:50%;" align="right">
+                      <table role="presentation" style="border-collapse:collapse;border:0;border-spacing:0;">
+                        <tr>
+                          <td style="padding:0 0 0 10px;width:38px;">
+                            <a href="http://www.instagram.com/" style=""><img src="https://lh3.googleusercontent.com/pw/AP1GczO3TggMlzRE7vyLD8224q40q0hmBwEIqcfcVucdKK9OWc2WUxUmASXbd0SHpycet3m8f1_XWwagWLofm1Y7ONyE7XAtaAtxStyuziGej1ZNP2PJRZMMyrg8MPu9ucqLU3Y0hoJfR3_TjswqyQnrR9g=w512-h512-s-no-gm?authuser=0" alt="Twitter" width="38" style="height:auto;display:block;border:0;border-radius:100px;" /></a>
+                          </td>
+                          <td style="padding:0 0 0 10px;width:38px;">
+                            <a href="http://www.facebook.com/" style="color:#ffffff;"><img src="https://lh3.googleusercontent.com/pw/AP1GczPLQ4mIJZil0qJUwO4GP4C9ouNh8QPK54beFlfdnr1jXJe1nDn83Najog5xsDIbNc_CgS42SEM4ba9xnYd8p_SbI4imC-qonYzYE8Kf5h7ybrrd4YOT6ywe4b3ulMMEIywKOROHTaXH0lhX95usUzg=w512-h512-s-no-gm?authuser=0" alt="Facebook" width="38" style="height:auto;display:block;border:0;border-radius:100px;" /></a>
+                          </td>
+                          <td style="padding:0 0 0 10px;width:38px;">
+                            <a href="http://www.telegram.com/" style="color:#ffffff;"><img src="https://lh3.googleusercontent.com/pw/AP1GczPrE7j3E-lKiJrJubhzR_5fKvBnZ1ejG393jveC0xJG2YbkkngxjiuCwT2GJLU0O3n7aufVW9aKvkCjemodpTOr-bh0fNoEWrJAYTO_Lzo0uWHCq_MvqCKwrVOLWCCtTeY5iZQCtU4seioSUGyDvlM=w512-h512-s-no-gm?authuser=0" alt="Facebook" width="38" style="height:auto;display:block;border:0;border-radius:100px;" /></a>
+                          </td>
+                          <td style="padding:0 0 0 10px;width:38px;">
+                            <a href="http://www.youtube.com/" style="color:#ffffff;"><img src="https://lh3.googleusercontent.com/pw/AP1GczNYm84igmI7A3h-rn3oiQc1Zj3fEJeRUiBSfOuQeK-OHTt-17i98ux-DJGrWO2yB79M_y_tOupQWPT3OMl95zzCq9rKY-caZeKGSQ5nSUMrxYM0xmH3Mad12r_VoIl-ifDB1Nywad2M428-x1UYMyg=w512-h512-s-no-gm?authuser=0" alt="Facebook" width="38" style="height:auto;display:block;border:0;border-radius:100px;" /></a>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
