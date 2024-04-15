@@ -3342,6 +3342,12 @@ main .breadcrumbs ul li:before {
 
 /* Кінець це в замовлені товару */
 
+/* MAP SHADOW */
+.map{
+    box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.1), 0px 0px 20px rgba(0, 0, 0, 0.1);
+}
+/* END MAP SHADOW */
+
 /*
 В .form-container .point, .order-box .point ТРЕБА ВИДАЛИТИ СПЕЙС БЕВІІН
 */

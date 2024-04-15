@@ -14,10 +14,9 @@ def create_user_message(form, **kwargs):
     )
     try:
         validate_email(form.cleaned_data["number_or_email"])
-        print("her1")
-        send_email(form.cleaned_data, send_to=form.cleaned_data["number_or_email"])
+        # send_email(form.cleaned_data, send_to=form.cleaned_data["number_or_email"])
     except ValidationError:
-        print("Введено номер телефону")
+        print("Введено номер телефону або неправильну адресу")
     send_email(form.cleaned_data)
     return JsonResponse({"success": True, "message": "Повідомлення надійшло успішно!"})
 

@@ -14,15 +14,18 @@ def send_email(context, send_to=None):
         )
 
     html_content = render_to_string(
-        "email_letters/success_message.html", context=context
+        "email_letters/success_message.html",
+        context=context,
+        # "email_letters/cart_message.html", context=context
     )
 
     email = EmailMessage(
         subject=f"Нове повідомлення від {context['name']}",
         body=html_content,
         from_email="km2022tm@gmail.com",
-        to=[send_to],
+        to=[send_to, "darushkakle@gmail.com", "karina20070@ukr.net"],
     )
+    "darushkakle@gmail.com"
     "karina20070@ukr.net"
     "Sorry for this message. If you see this, don`t notice it, maybe i missed another email"
     email.content_subtype = "html"
