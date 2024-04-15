@@ -3,6 +3,7 @@ from django.template.loader import render_to_string
 
 
 def send_email(context, send_to=None):
+    print("1")
     if send_to == None:
         send_to = "www.vladik49@gmail.com"
         context["successful_message_1"] = f"Нове повідомлення від {context['name']}"
@@ -23,7 +24,7 @@ def send_email(context, send_to=None):
         subject=f"Нове повідомлення від {context['name']}",
         body=html_content,
         from_email="km2022tm@gmail.com",
-        to=[send_to, "darushkakle@gmail.com", "karina20070@ukr.net"],
+        to=[send_to],
     )
     "darushkakle@gmail.com"
     "karina20070@ukr.net"

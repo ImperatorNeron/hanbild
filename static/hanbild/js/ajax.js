@@ -167,6 +167,9 @@ $(document).ready(function () {
 
     $('#contact-form').on('submit', function (e) {
         e.preventDefault();
+
+        document.querySelector('.feedback-submit-button').disabled = true;
+
         function success(data) {
             response = {
                 data: data,
@@ -179,10 +182,12 @@ $(document).ready(function () {
                 document.querySelector('.popup-contact-form').classList.remove('active');
                 document.querySelector('.additional-elements').style.display = ''
             }
+            document.querySelector('.feedback-submit-button').disabled = false;
         }
 
         function error(data) {
             console.log("Помилка при надсилані повідомлення!");
+            document.querySelector('.feedback-submit-button').disabled = false;
         }
 
         ajaxPostRequest(window.location.href, $(this).serialize(), success, error)
@@ -190,6 +195,8 @@ $(document).ready(function () {
 
     $('#page-contact-form').on('submit', function (e) {
         e.preventDefault();
+
+        document.querySelector('.contact-submit-button').disabled = true;
 
         function success(data) {
             response = {
@@ -200,10 +207,12 @@ $(document).ready(function () {
                 name_error_field_id: "#page_name"
             }
             validateForm(response);
+            document.querySelector('.contact-submit-button').disabled = false;
         }
 
         function error(data) {
             console.log("Помилка при надсилані повідомлення!");
+            document.querySelector('.contact-submit-button').disabled = false;
         }
 
         ajaxPostRequest(window.location.href, $(this).serialize(), success, error)
@@ -225,8 +234,6 @@ $(document).ready(function () {
                 });
                 var inputs = document.querySelectorAll('.order-box .point input');
                 document.querySelectorAll(".error-massage").forEach(function (element, index) {
-                    console.log(index)
-                    console.log(inputs[index])
                     if (element.textContent.trim().length > 0) {
                         element.style.display = "block";
                         inputs[index].classList.add("active-input")

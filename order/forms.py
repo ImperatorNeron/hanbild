@@ -34,7 +34,7 @@ class CreateOrderForm(forms.Form):
     delivery_address = forms.CharField(
         validators=[
             RegexValidator(
-                regex=r"^[a-zA-Z0-9а-яА-ЯіІїЇєЄґҐ.,\s`\'’-]+$",
+                regex=r"^[a-zA-Z0-9а-яА-ЯіІїЇєЄґҐ.,\s`'’\-/\\]+$",
                 message="Адреса не може містити заборонені знаки!",
                 code="invalid_address_characters",
             )
