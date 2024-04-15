@@ -26,6 +26,7 @@
             {% include 'cart/includes/_included_cart.html' %}
           </div>
           <div class="form-buttons">
+            <a href="{% url 'catalog:catalog' %}">До каталогу</a>
             <a href="{% url 'order:order' %}">Оформити замовлення</a>
             <a class="remove-all-carts" data-url="{% url "cart:carts_remove" %}">
               {% csrf_token %}

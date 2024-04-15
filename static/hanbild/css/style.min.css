@@ -384,6 +384,10 @@ header button:before {
     transition: .2s
 }
 
+.point {
+    position: relative
+}
+
 .product-added {
     position: absolute;
     z-index: 10;
@@ -1212,7 +1216,8 @@ select {
     color: #fff;
     margin: 10px auto;
     font-size: 24px;
-    text-transform: uppercase
+    text-transform: uppercase;
+    text-align: center
 }
 
 .contacts-info .contact-heading {
@@ -2080,11 +2085,23 @@ footer .contact-heading p::selection {
     align-self: end;
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
-    justify-content: space-between
+    justify-content: space-between;
+    text-transform: uppercase
 }
 
 .shopping_cart .form-buttons a:first-child {
-    width: 233px
+    width: 233px;
+    background: #707275
+}
+
+.shopping_cart .form-buttons a:nth-child(2) {
+    background: #f0500a;
+    width: 233px;
+    border-radius: 8px
+}
+
+.shopping_cart .form-buttons a:nth-child(3) {
+    background: #37cbf0
 }
 
 .additional-order-info {
@@ -2924,6 +2941,35 @@ thead tr th:last-child svg {
     display: none
 }
 
+.order-box .active-input{
+    -webkit-box-shadow: 0px 0px 12px 3px #cececeb0;
+    box-shadow: 0px 0px 12px 3px #cececeb0
+}
+
+.error-massage {
+    display: none;
+    font-size: 12px;
+    padding: 15px;
+    background: #3d3e40;
+    color: #fff;
+    border-radius: 5px;
+    font-weight: 600;
+    position: relative
+}
+
+.error-massage::after {
+    content: "";
+    position: absolute;
+    left: 10px;
+    top: -8px;
+    width: 0px;
+    height: 0px;
+    border-width: 20px 0 0 20px;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-bottom: 9px solid #3d3e40
+}
+
 /*# sourceMappingURL=style.min.css.map */
 
 /* buttons */
@@ -3136,21 +3182,6 @@ input[type=range]:active::-webkit-slider-thumb {
     font-weight: bold;
     height: auto;
 }
-
-.order-validation-error {
-    display: none;
-    font-family: "Raleway", Sans-serif;
-    font-size: 12px;
-    height: auto;
-
-    background-color: #f0500a;
-    color: #000000;
-    padding: 10px 15px;
-    border-radius: 5px;
-    font-size: 11px;
-    font-weight: bold;
-}
-
 
 /* Error in forms end */
 

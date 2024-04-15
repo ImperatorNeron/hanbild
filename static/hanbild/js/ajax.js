@@ -223,11 +223,16 @@ $(document).ready(function () {
                 data.form_errors.forEach(element => {
                     $(element[0]).text(element[1]);
                 });
-                document.querySelectorAll(".order-validation-error").forEach(function (element) {
+                var inputs = document.querySelectorAll('.order-box .point input');
+                document.querySelectorAll(".error-massage").forEach(function (element, index) {
+                    console.log(index)
+                    console.log(inputs[index])
                     if (element.textContent.trim().length > 0) {
                         element.style.display = "block";
+                        inputs[index].classList.add("active-input")
                     } else {
                         element.style.display = "none";
+                        inputs[index].classList.remove("active-input")
                     }
                 });
             }
