@@ -8,8 +8,6 @@ from catalog.models import (
     GoodsVideo,
 )
 
-from product.models import Product
-
 
 class GoodsImagesTabulareAdmin(admin.TabularInline):
     model = GoodsImage
@@ -46,24 +44,13 @@ class GoodsTabulareAdmin(admin.TabularInline):
     extra = 0
 
 
-class ProductTabulareAdmin(admin.TabularInline):
-    model = Product
-    fields = (
-        "index_on_page",
-        "category",
-        "paragraph_uk",
-        "paragraph_en",
-        "paragraph_image",
-    )
-
-
 @admin.register(Categories)
 class CategoriesAdmin(TranslationAdmin):
     prepopulated_fields = {"slug": ("name",)}
-    fields = (("name_uk", "name_en"), "slug")
-    list_display = ("id", "name_uk", "name_en", "slug")
-    list_editable = ("name_uk", "name_en", "slug")
-    inlines = (GoodsTabulareAdmin, ProductTabulareAdmin, )
+    fields = (("name_uk", "name_en"), ("index_on_page", "slug"))
+    list_display = ("id", "index_on_page", "name_uk", "name_en", "slug")
+    list_editable = ("index_on_page", "name_uk", "name_en", "slug")
+    inlines = (GoodsTabulareAdmin,)
 
 
 @admin.register(Goods)

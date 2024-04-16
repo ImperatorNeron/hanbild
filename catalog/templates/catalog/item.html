@@ -47,7 +47,7 @@
                   {% video item_video.video as vid %}
                   <div class="image-slider__slide swiper-slide">
                     <div class="image-slider__image">
-                      <iframe id="video-slide" src="{{ vid.url }}" title="Слайдер SWIPER. Подробный курс. Подключение настройка примеры." frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                      <iframe id="video-slide" src="{{ vid.url }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                     </div>
                   </div>
                   {% endvideo %}
@@ -135,7 +135,7 @@
         </div>
         <h3>Характеристики</h3>
         <div class="single-card-part">
-          <table>
+          <table class="s-p-t-g">
             <tbody>
               <tr>
                 <td>Назва</td>
@@ -157,7 +157,7 @@
               </tr>
               <tr>
                 <td>Категорія</td>
-                <td>{{ item.category.name }}</td>
+                <td><a style="text-decoration: underline; color: #f0500a;" href="{% url "catalog:catalog" %}?{{ item.category.slug }}=on">{{ item.category.name }}</a></td>
               </tr>
               {% for item_characteristic in item_characteristics %}
                 <tr>

@@ -22,6 +22,11 @@ def translate_categories(instance):
         instance.name_en = translate_to_en(instance.name_uk)
 
 
+def translate_paragraph(instance):
+    if not instance.paragraph_en:
+        instance.paragraph_en = translate_to_en(instance.paragraph_uk)
+
+
 def validate_slug(obj):
     from catalog.models import Goods
 

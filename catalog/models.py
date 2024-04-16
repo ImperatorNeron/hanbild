@@ -1,3 +1,4 @@
+from django.core.validators import MinValueValidator
 from django.db import models
 from django.urls import reverse
 
@@ -7,6 +8,9 @@ from embed_video.fields import EmbedVideoField
 
 class Categories(models.Model):
     name = models.CharField(max_length=150, unique=True, verbose_name="Назва")
+    index_on_page = models.IntegerField(
+        verbose_name="Порядковий номер", validators=[MinValueValidator(0)], default=0
+    )
     slug = models.SlugField(
         max_length=200,
         unique=True,

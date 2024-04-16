@@ -8,7 +8,7 @@ register = template.Library()
 
 @register.simple_tag()
 def tag_get_categories():
-    return Categories.objects.all()
+    return Categories.objects.all().order_by("index_on_page")
 
 
 @register.simple_tag(takes_context=True)

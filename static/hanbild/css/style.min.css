@@ -401,6 +401,70 @@ header button:before {
     font-weight: 600
 }
 
+.cookies {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    z-index: 120;
+    right: 0;
+    background: #131313c7;
+    color: #fff;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border-radius: 5px;
+    font-weight: 600;
+    width: 28%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    padding: 15px
+}
+
+.cookies a {
+    color: #fff;
+    text-decoration: underline
+}
+
+.cookies svg {
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    width: 20px;
+    fill: #fff
+}
+
+.cookies .point {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    gap: 10px
+}
+
+.cookies button {
+    background: #f0500a;
+    border-radius: 5px;
+    padding: 5px;
+    font-family: "Raleway", Sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin: 10px 0 0;
+    width: 20%
+}
+
+.fhfhf {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    gap: 10px
+}
+
 #cart {
     margin-left: 15px;
     height: 45px
@@ -2143,6 +2207,14 @@ footer .contact-heading p::selection {
     width: 44px
 }
 
+.s-p-t {
+    table-layout: fixed
+}
+
+.s-p-t-g td:first-child {
+    width: 20%
+}
+
 .quantity {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -2454,6 +2526,69 @@ thead tr th:last-child svg {
     width: 100%
 }
 
+.single-card-product {
+    width: 95%;
+    margin: 0 auto 30px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    gap: 10px
+}
+
+.product-info-card {
+    width: 95%;
+    margin: 20px auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    gap: 15px
+}
+
+.product-info-card .product-header {
+    width: 100%;
+    background-color: #fff;
+    border-radius: 8px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 0 20px
+}
+
+.product-info-card .product-header h2 {
+    text-align: center;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    font-size: 26px;
+    font-weight: 900;
+    text-transform: uppercase;
+    position: relative
+}
+
+.product-info-card .single-card-product {
+    width: 100%;
+    margin: 0
+}
+
+.product-info-card .single-card {
+    width: 100%
+}
+
+.product-info-card .single-card-right {
+    background: #fff;
+    padding: 20px
+}
+
 .single-card {
     width: 95%;
     margin: 0 auto 30px;
@@ -2467,6 +2602,14 @@ thead tr th:last-child svg {
     -webkit-box-align: start;
     -ms-flex-align: start;
     align-items: start
+}
+
+.single-card-product .swiper-container {
+    width: 700px
+}
+
+.single-card-product .swiper-container .image-slider__image {
+    height: 400px
 }
 
 .single-card-right,
@@ -2489,47 +2632,6 @@ thead tr th:last-child svg {
     -ms-flex-direction: column;
     flex-direction: column;
     gap: 25px
-}
-
-.single-card-part table {
-    width: 100%;
-    border-collapse: collapse;
-    background-color: #e4e4e4;
-    border-radius: 5px
-}
-
-.single-card-part td {
-    padding: 10px 15px;
-    border-right: 1px solid #929292;
-    font-weight: 500
-}
-
-.single-card-part td:first-child {
-    width: 20%
-}
-
-.single-card-part td:last-child {
-    border-right: none
-}
-
-.single-card-part tr {
-    border-top: 1px solid #929292
-}
-
-.single-card-part tr:first-child {
-    border-top: none
-}
-
-.single-card-part tr:nth-child(even) {
-    background-color: #c9c9c9
-}
-
-.single-card-part tr:last-child td:first-child {
-    border-bottom-left-radius: 5px
-}
-
-.single-card-part tr:last-child td:last-child {
-    border-bottom-right-radius: 5px
 }
 
 .single-card-left {
@@ -2560,6 +2662,43 @@ thead tr th:last-child svg {
 
 .single-card-right h3::before {
     content: "▶ "
+}
+
+.single-card-right table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #e4e4e4;
+    border-radius: 5px
+}
+
+.single-card-right table td {
+    padding: 10px 15px;
+    border-right: 1px solid #929292;
+    font-weight: 500
+}
+
+.single-card-right table td:last-child {
+    border-right: none
+}
+
+.single-card-right table tr {
+    border-top: 1px solid #929292
+}
+
+.single-card-right table tr:first-child {
+    border-top: none
+}
+
+.single-card-right table tr:nth-child(even) {
+    background-color: #c9c9c9
+}
+
+.single-card-right table tr:last-child td:first-child {
+    border-bottom-left-radius: 5px
+}
+
+.single-card-right table tr:last-child td:last-child {
+    border-bottom-right-radius: 5px
 }
 
 .image-slider__image {
@@ -2941,13 +3080,12 @@ thead tr th:last-child svg {
     display: none
 }
 
-.order-box .active-input{
+.order-box input:user-invalid {
     -webkit-box-shadow: 0px 0px 12px 3px #cececeb0;
     box-shadow: 0px 0px 12px 3px #cececeb0
 }
 
 .error-massage {
-    display: none;
     font-size: 12px;
     padding: 15px;
     background: #3d3e40;
