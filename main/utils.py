@@ -17,7 +17,7 @@ def create_user_message(form, **kwargs):
         # send_email(form.cleaned_data, send_to=form.cleaned_data["number_or_email"])
     except ValidationError:
         print("Введено номер телефону або неправильну адресу")
-    send_email(form.cleaned_data)
+    # send_email(form.cleaned_data)
     return JsonResponse({"success": True, "message": "Повідомлення надійшло успішно!"})
 
 def contact_form_errors(form, **kwargs):

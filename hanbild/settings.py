@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     "cart",
     "product",
     "order",
+    "vacancy",
     # additional apps
     "django.contrib.postgres",
     'embed_video',

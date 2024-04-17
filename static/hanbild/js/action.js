@@ -125,6 +125,28 @@ if (goodsQuantityInput) {
     });
 }
 
+var vacancies = document.querySelectorAll(".vacancy-block")
+var resumes = document.querySelectorAll(".vacancy-resume")
+var arrows = document.querySelectorAll(".click-arrow")
+
+if (vacancies) {
+    vacancies.forEach((vacancy, index) => {
+        vacancy.addEventListener('click', (e) => {
+            if (vacancy.classList.contains("vacancy-block-selected")) {
+                resumes[index].style.display = "none";
+                vacancy.classList.remove('vacancy-block-selected');
+                vacancy.classList.add('vacancy-block');
+                arrows[index].style.transform = 'rotate(0deg)';
+            } else {
+                resumes[index].style.display = "flex";
+                vacancy.classList.remove('vacancy-block');
+                vacancy.classList.add('vacancy-block-selected');
+                arrows[index].style.transform = 'rotate(180deg)';
+            }
+        });
+    });
+}
+
 (function () {
     window.onpageshow = function (event) {
         if (event.persisted) {

@@ -1,5 +1,7 @@
 from django import template
 
+from product.models import Service
+
 register = template.Library()
 
 
@@ -9,3 +11,7 @@ def get_item(lst, index):
         return lst[int(index)]
     except IndexError:
         return None
+
+@register.simple_tag()
+def get_services():
+    return Service.objects.order_by("index_on_page")

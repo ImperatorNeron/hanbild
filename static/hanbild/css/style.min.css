@@ -3512,10 +3512,122 @@ main .breadcrumbs ul li:before {
 /* Кінець це в замовлені товару */
 
 /* MAP SHADOW */
-.map{
+.map {
     box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.1), 0px 0px 20px rgba(0, 0, 0, 0.1);
 }
+
 /* END MAP SHADOW */
+
+/* Vacancies */
+.vacancies-list-title{
+    margin: auto;
+    font-size: 25px;
+    display: flex;
+    gap: 8px;
+}
+
+.vacancies-list-title svg {
+    width: 44px
+}
+
+.vacancy {
+    background-color: white;
+    width: 70%;
+    margin: auto;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    transition-duration: 0.3s;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-radius: 10px;
+}
+
+.vacancy-left-block h4 {
+    color: #f0500a;
+    font-weight: 600;
+    margin-top: 5px;
+}
+
+.vacancies-block {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.vacancy-block,
+.vacancy-block-selected {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 10px;
+    padding: 25px 50px;
+    transition-duration: 0.3s;
+    cursor: pointer;
+}
+
+.vacancy-block-selected {
+    border-radius: 10px 10px 0 0;
+}
+
+.vacancy-block:hover {
+    background-color: #f0500a;
+    color: white;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+    transition-duration: 0.3s;
+}
+
+.vacancy-block:hover img,
+.vacancy-block-selected:hover img {
+    filter: invert(1);
+    transition-duration: 0.3s;
+}
+
+.vacancy-block:hover .vacancy-left-block h4,
+.vacancy-block-selected:hover .vacancy-left-block h4 {
+    color: white;
+    transition-duration: 0.3s;
+}
+
+.vacancy-right-block {
+    height: 25px;
+}
+
+.vacancy-block-selected:hover {
+    background-color: #f0500a;
+    color: white;
+    transition-duration: 0.3s;
+}
+
+.vacancy-resume {
+    padding: 0 50px 25px 50px;
+    display: none;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.vacancy-resume h3 {
+    margin-top: 10px;
+}
+
+.requirements {
+    padding: 0 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.requirements p::before {
+    content: "-";
+    font-weight: bold;
+    color: #f0500a;
+    margin-right: 15px;
+}
+
+.feed-back-block{
+    margin-top: 15px;
+}
+
+/* end vacancies */
 
 /*
 В .form-container .point, .order-box .point ТРЕБА ВИДАЛИТИ СПЕЙС БЕВІІН

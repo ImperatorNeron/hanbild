@@ -21,6 +21,7 @@ urlpatterns += i18n_patterns(
     path("cart/", include("cart.urls", namespace="cart")),
     path("product/", include("product.urls", namespace="product")),
     path("order/", include("order.urls", namespace="order")),
+    path("vacancies/", include("vacancy.urls", namespace="vacancy")),
     prefix_default_language=False,
 )
 
