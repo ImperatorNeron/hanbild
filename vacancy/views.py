@@ -4,7 +4,6 @@ from django.utils.translation import gettext_lazy as _
 
 from vacancy.models import Vacancy, VacancyDescription
 
-
 class VacancyView(BaseApplicationFormView):
     template_name = "vacancy/vacancy_page.html"
     success_url = reverse_lazy("vacancy:vacancy")
@@ -14,4 +13,5 @@ class VacancyView(BaseApplicationFormView):
         context = super().get_context_data(*args, **kwargs)
         context["vacancies"] = Vacancy.objects.all()
         context["vacancies_description"] = VacancyDescription.objects.order_by("choice")
+        print(context["vacancies_description"][0] )
         return context

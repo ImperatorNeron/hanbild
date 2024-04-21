@@ -1,3 +1,14 @@
+function handleAcceptCookies() {
+    document.cookie = "allow-cookie-usage=true; path=/";
+    document.querySelector(".cookies").style.display = "none";
+}
+
+var acceptButton = document.getElementById("cookies-accept-button");
+
+if (acceptButton) {
+    acceptButton.addEventListener("click", handleAcceptCookies);
+}
+
 function setupLanguageSelection() {
     document.querySelectorAll('.language-link').forEach(function (link) {
         link.addEventListener('click', function (e) {

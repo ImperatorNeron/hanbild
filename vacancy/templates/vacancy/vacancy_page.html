@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load i18n %}
 {% load static %}
+{% load vacancy_tags %}
 
 {% block content %}
   <div class="main-wrapper">
@@ -55,50 +56,69 @@
 
               <div class="vacancy-resume">
                 {% if vacancies_description %}
-                  <h3>Вимоги</h3>
-                  <div class="requirements">
-                    {% for description in vacancies_description %}
-                      {% if description.vacancy == vacancy %}
-                        {% if description.choice == 1 %}
-                          <p>{{ description.text }}</p>
-                        {% endif %}
-                      {% endif %}
-                    {% endfor %}
-                  </div>
+                  {% change_flag 1 as flag %}
 
-                  <h3>Обов'язки</h3>
-                  <div class="requirements">
-                    {% for description in vacancies_description %}
-                      {% if description.vacancy == vacancy %}
-                        {% if description.choice == 2 %}
-                          <p>{{ description.text }}</p>
+                  {% for description in vacancies_description %}
+                    {% if description.vacancy == vacancy %}
+                      {% if description.choice == 1 %}
+                        {% if flag %}
+                          <h3>Вимоги</h3>
+                          {% change_flag 0 as flag %}
                         {% endif %}
-                      {% endif %}
-                    {% endfor %}
-                  </div>
-
-                  <h3>Умови</h3>
-                  <div class="requirements">
-                    {% for description in vacancies_description %}
-                      {% if description.vacancy == vacancy %}
-                        {% if description.choice == 3 %}
+                        <div class="requirements">
                           <p>{{ description.text }}</p>
-                        {% endif %}
+                        </div>
                       {% endif %}
-                    {% endfor %}
-                  </div>
+                    {% endif %}
+                  {% endfor %}
 
-                  <h3>Від нас</h3>
-                  <div class="requirements">
-                    {% for description in vacancies_description %}
-                      {% if description.vacancy == vacancy %}
-                        {% if description.choice == 4 %}
+                  {% change_flag 1 as flag %}
+
+                  {% for description in vacancies_description %}
+                    {% if description.vacancy == vacancy %}
+                      {% if description.choice == 2 %}
+                        {% if flag %}
+                          <h3>Обов'язки</h3>
+                          {% change_flag 0 as flag %}
+                        {% endif %}
+                        <div class="requirements">
+                          <p>{{ description.text }}</p>
+                        </div>
+                      {% endif %}
+                    {% endif %}
+                  {% endfor %}
+
+                  {% change_flag 1 as flag %}
+
+                  {% for description in vacancies_description %}
+                    {% if description.vacancy == vacancy %}
+                      {% if description.choice == 3 %}
+                        {% if flag %}
+                          <h3>Умови</h3>
+                          {% change_flag 0 as flag %}
+                        {% endif %}
+                        <div class="requirements">
+                          <p>{{ description.text }}</p>
+                        </div>
+                      {% endif %}
+                    {% endif %}
+                  {% endfor %}
+
+                  {% change_flag 1 as flag %}
+
+                  {% for description in vacancies_description %}
+                    {% if description.vacancy == vacancy %}
+                      {% if description.choice == 4 %}
+                        {% if flag %}
+                          <h3>Від нас</h3>
+                          {% change_flag 0 as flag %}
+                        {% endif %}
+                        <div class="requirements">
                           <div class="from-us-block">{{ description.text }}</div>
-                        {% endif %}
+                        </div>
                       {% endif %}
-                    {% endfor %}
-                  </div>
-
+                    {% endif %}
+                  {% endfor %}
                   <div class="feed-back-block">
                     <div class="form-buttons">
                       <a class="feedback-submit-button-wrapper">{% translate 'Написати нам' %}</a>
@@ -126,28 +146,6 @@
             </div>
           {% endfor %}
         </div>
-        {% comment %}
-
-        <h3>Обов'язки</h3>
-        <div class="requirements">
-          {% if description.choice == 2 %}
-            <p>{{ description.text }}</p>
-          {% endif %}
-        </div>
-        <h3>Умови</h3>
-        <div class="requirements">
-          {% if description.choice == 3 %}
-            <p>{{ description.text }}</p>
-          {% endif %}
-        </div>
-        <h3>Від нас</h3>
-        <div class="requirements">
-          {% if description.choice == 4 %}
-            <div class="from-us-block">{{ description.text }}</div>
-          {% endif %}
-        </div>
-
-        {% endcomment %}
         <form class="feedback-form" method="post" id="page-contact-form">
           {% csrf_token %}
           <h3>{% translate "Форма зворотнього зв'язку" %}</h3>
