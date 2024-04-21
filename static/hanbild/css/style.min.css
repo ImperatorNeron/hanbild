@@ -3080,19 +3080,15 @@ thead tr th:last-child svg {
     display: none
 }
 
-.order-box input:user-invalid {
-    -webkit-box-shadow: 0px 0px 12px 3px #cececeb0;
-    box-shadow: 0px 0px 12px 3px #cececeb0
-}
-
 .error-massage {
+    display: none;
     font-size: 12px;
     padding: 15px;
     background: #3d3e40;
     color: #fff;
     border-radius: 5px;
     font-weight: 600;
-    position: relative
+    position: relative;
 }
 
 .error-massage::after {
@@ -3519,7 +3515,7 @@ main .breadcrumbs ul li:before {
 /* END MAP SHADOW */
 
 /* Vacancies */
-.vacancies-list-title{
+.vacancies-list-title {
     margin: auto;
     font-size: 25px;
     display: flex;
@@ -3548,6 +3544,10 @@ main .breadcrumbs ul li:before {
     margin-top: 5px;
 }
 
+.vacancy-left-block h2 {
+    line-height: 20px;
+}
+
 .vacancies-block {
     display: flex;
     flex-direction: column;
@@ -3559,6 +3559,7 @@ main .breadcrumbs ul li:before {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 20px;
     border-radius: 10px;
     padding: 25px 50px;
     transition-duration: 0.3s;
@@ -3623,12 +3624,146 @@ main .breadcrumbs ul li:before {
     margin-right: 15px;
 }
 
-.feed-back-block{
+.feed-back-block {
     margin-top: 15px;
+}
+
+@media(max-width: 1070px) {
+    .vacancy {
+        width: 90%;
+    }
+}
+
+@media(max-width: 800px) {
+
+    .vacancy-block,
+    .vacancy-block-selected {
+        padding: 25px 30px;
+    }
+
+    .vacancy-left-block h4 {
+        font-size: 14px;
+    }
+
+    .vacancy-left-block h2 {
+        font-size: 20px;
+    }
+
+    .vacancy-resume {
+        padding: 0 35px 25px 35px;
+    }
+
+    .vacancy-resume h3 {
+        font-size: 17px;
+    }
+
+    .requirements {
+        font-size: 15px;
+    }
+
+}
+
+@media(max-width: 700px) {
+    .vacancies-list-title h2 {
+        font-size: 25px;
+        margin: auto;
+    }
+
+    .vacancies-list-title svg {
+        width: 35px;
+    }
+
+    .click-arrow {
+        width: 20px;
+    }
+
+    .vacancy-resume {
+        padding-bottom: 15px;
+    }
+
+    .requirements p::before {
+        margin-right: 10px;
+    }
+
+}
+
+@media(max-width: 450px) {
+
+    .vacancy-block,
+    .vacancy-block-selected {
+        padding: 20px;
+    }
+
+    .vacancies-block {
+        gap: 20px;
+    }
+
+    .vacancy-resume {
+        padding: 0 25px 15px 25px;
+    }
+
+    .vacancies-list-title h2 {
+        font-size: 20px;
+    }
+
+    .vacancies-list-title svg {
+        width: 30px;
+    }
+
+}
+
+@media(max-width: 350px) {
+    .vacancy-left-block h4 {
+        font-size: 13px;
+    }
+
+    .vacancy-left-block h2 {
+        font-size: 16px;
+    }
+
+    .click-arrow {
+        width: 15px;
+    }
+
+    .vacancy-resume h3 {
+        font-size: 14px;
+    }
+
+    .requirements {
+        padding: 0 7px;
+        gap: 4px;
+    }
+
+    .vacancy-resume {
+        padding: 0 20px 10px 20px;
+    }
+
+    .vacancies-list-title h2 {
+        font-size: 17px;
+    }
+
+    .vacancies-list-title svg {
+        width: 23px;
+    }
 }
 
 /* end vacancies */
 
 /*
 В .form-container .point, .order-box .point ТРЕБА ВИДАЛИТИ СПЕЙС БЕВІІН
+*/
+
+/* 
+оце видаляти повністю
+.order-box input:user-invalid {
+    -webkit-box-shadow: 0px 0px 12px 3px #cececeb0;
+    box-shadow: 0px 0px 12px 3px #cececeb0
+}
+
+
+додати до
+.error-massage {
+    display: none;
+}
+
 */
