@@ -9,7 +9,6 @@ import product
 from product.models import (
     Product,
     ProductCharacteristics,
-    ProductParagraphs,
     ProductPhotos,
     ProductVideos,
 )
@@ -34,9 +33,6 @@ class ProductDetailView(BaseApplicationFormView):
     def get(self, request, product_details_slug, *args, **kwargs):
         category = Categories.objects.get(slug=product_details_slug)
         product = Product.objects.get(category=category)
-        product_paragraphs = ProductParagraphs.objects.filter(
-            category=product
-        ).order_by("index_on_page")
         product_characteristics = ProductCharacteristics.objects.filter(
             category=product
         )
@@ -48,7 +44,7 @@ class ProductDetailView(BaseApplicationFormView):
             self.template_name,
             {
                 "product": product,
-                "product_paragraphs": product_paragraphs,
+                "product_paragraphs": {},
                 "product_characteristics": product_characteristics,
                 "product_photos": product_photos,
                 "product_videos": product_videos,

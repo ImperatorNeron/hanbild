@@ -1,10 +1,10 @@
 from modeltranslation.translator import register, TranslationOptions
-from .models import Product, ProductCharacteristics, ProductParagraphs, Service
+from .models import Product, ProductCharacteristics, Service
 
 
 @register(Product)
 class ProductTranslationOptions(TranslationOptions):
-    fields = ("paragraph",)
+    fields = ("paragraph", "addition_paragraph")
 
 
 @register(Service)
@@ -15,10 +15,4 @@ class ServiceTranslationOptions(TranslationOptions):
 @register(ProductCharacteristics)
 class ProductCharacteristicsTranslationOptions(TranslationOptions):
     fields = ("name", "description")
-
-
-@register(ProductParagraphs)
-class ProductParagraphsTranslationOptions(TranslationOptions):
-    fields = ("paragraph", )
-
 

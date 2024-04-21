@@ -1236,7 +1236,7 @@ select {
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column;
-    gap: 23px
+    gap: 40px
 }
 
 .contacts-info .all-info {
@@ -3754,7 +3754,7 @@ main .breadcrumbs ul li:before {
 */
 
 /* 
-оце видаляти повністю
+оце видаляти
 .order-box input:user-invalid {
     -webkit-box-shadow: 0px 0px 12px 3px #cececeb0;
     box-shadow: 0px 0px 12px 3px #cececeb0
@@ -3764,6 +3764,11 @@ main .breadcrumbs ul li:before {
 додати до
 .error-massage {
     display: none;
+}
+
+зробити такий геп
+.contacts-info .right-section {
+    gap: 40px
 }
 
 */

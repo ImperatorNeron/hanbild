@@ -35,7 +35,7 @@
               <div class="right-container">
                 <div class="info">
                   <h2>{{ service.service_name }}</h2>
-                  <p>{{ service.service_description }}</p>
+                  {{ service.service_description|linebreaks }}
                 </div>
               </div>
             </div>
@@ -45,7 +45,7 @@
               <div class="right-container">
                 <div class="info">
                   <h2>{{ service.service_name }}</h2>
-                  <p>{{ service.service_description }}</p>
+                  {{ service.service_description|linebreaks }}
                 </div>
               </div>
             </div>

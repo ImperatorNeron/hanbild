@@ -21,7 +21,7 @@
           <li>
             <a href="{% url 'catalog:catalog' %}">Каталог</a>
           </li>
-          <li>Назва товару</li>
+          <li>{{ item.name }}</li>
         </ul>
       </div>
     </div>
@@ -131,7 +131,7 @@
         </div>
         <h3>Опис</h3>
         <div class="single-card-part">
-          <p>{{ item.description }}</p>
+          {{ item.description|linebreaks }}
         </div>
         <h3>Характеристики</h3>
         <div class="single-card-part">

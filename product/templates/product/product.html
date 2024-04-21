@@ -35,7 +35,7 @@
               <div class="right-container">
                 <div class="info">
                   <h2>{{ prod.category.name }}</h2>
-                  <p>{{ prod.paragraph|slice:500 }}...</p>
+                  <p>{{ prod.paragraph|linebreaks|slice:500 }}...</p>
                   <div class="form-buttons">
                     <a href="{{ prod.category.slug }}">Детальніше</a>
                   </div>

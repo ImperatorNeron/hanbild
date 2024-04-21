@@ -8,7 +8,8 @@ def translate_to_en(to_field):
 def translate_product_paragraph(instance):
     if not instance.paragraph_en:
         instance.paragraph_en = translate_to_en(instance.paragraph_uk)
-
+    if not instance.addition_paragraph_en:
+        instance.addition_paragraph_en = translate_to_en(instance.addition_paragraph_uk)
 
 def translate_service(instance):
     if not instance.service_name_en:

@@ -2,7 +2,7 @@ from django.core.validators import MinValueValidator
 from django.db import models
 
 from catalog.models import Categories
-from catalog.utils import translate_goods, translate_paragraph
+from catalog.utils import translate_goods
 from product.utils import translate_product_paragraph, translate_service
 from embed_video.fields import EmbedVideoField
 
@@ -17,9 +17,12 @@ class Product(models.Model):
     index_on_page = models.IntegerField(
         verbose_name="Порядковий номер", validators=[MinValueValidator(0)], default=0
     )
-    paragraph = models.TextField(verbose_name="Абзац тексту")
+    paragraph = models.TextField(verbose_name="Основний текст")
     paragraph_image = models.ImageField(
-        upload_to="categories_images", verbose_name="Фото до абзацу"
+        upload_to="categories_images", verbose_name="Фото до основного тексту"
+    )
+    addition_paragraph = models.TextField(
+        blank=True, null=True, verbose_name="Додатковий текст"
     )
 
     class Meta:
@@ -69,31 +72,6 @@ class ProductVideos(models.Model):
         db_table = "product_videos"
         verbose_name = "відео продукції"
         verbose_name_plural = "Відео продукції"
-
-
-class ProductParagraphs(models.Model):
-    category = models.ForeignKey(
-        to=Product,
-        on_delete=models.CASCADE,
-        null=True,
-        verbose_name="Категорія",
-    )
-    index_on_page = models.IntegerField(
-        verbose_name="Порядковий номер", validators=[MinValueValidator(0)], default=0
-    )
-    paragraph = models.TextField(verbose_name="Абзац")
-
-    def __str__(self):
-        return f"{self.category} - Номер абзацу {self.index_on_page}"
-
-    class Meta:
-        db_table = "product_paragraphs"
-        verbose_name = "абзац продукції"
-        verbose_name_plural = "Абзаци продукції"
-
-    def save(self, *args, **kwargs):
-        translate_paragraph(self)
-        return super().save(*args, **kwargs)
 
 
 class ProductCharacteristics(models.Model):

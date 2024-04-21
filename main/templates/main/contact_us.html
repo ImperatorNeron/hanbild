@@ -18,6 +18,18 @@
 {% block content %}
   <div class="main-wrapper">
     <main class="background-off">
+      <div class="up-main-section">
+        <div class="breadcrumbs">
+          <ul>
+            <li>
+              <a href="{% url 'main:index' %}">{% translate 'Головна сторінка' %}</a>
+            </li>
+            <li>
+              {% translate 'Контакти' %}
+            </li>
+          </ul>
+        </div>
+      </div>
       <div class="photo-block">
         <div class="left-container">
           <div class="info">

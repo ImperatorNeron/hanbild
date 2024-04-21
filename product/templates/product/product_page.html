@@ -18,7 +18,7 @@
           <li>
             <a href="{% url 'product:product' %}">Продукція</a>
           </li>
-          <li>Категорія</li>
+          <li>{{ product.category.name }}</li>
         </ul>
       </div>
     </div>
@@ -117,10 +117,10 @@
 
         <div class="single-card-right">
           <h3>Опис</h3>
-          <p>{{ product.paragraph }}</p>
-          {% for paragraphs in product_paragraphs %}
-            <p>{{ paragraphs.paragraph }}</p>
-          {% endfor %}
+          {{ product.paragraph|linebreaks }}
+          {% if product.addition_paragraph %}
+            {{ product.addition_paragraph|linebreaks }}
+          {% endif %}
         </div>
       </div>
       <div class="single-card-right">
