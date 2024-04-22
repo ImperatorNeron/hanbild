@@ -3687,6 +3687,12 @@ main .breadcrumbs ul li:before {
 
 }
 
+@media(max-width: 600px) {
+    .vacancy {
+        width: 95%;
+    }
+}
+
 @media(max-width: 450px) {
 
     .vacancy-block,
@@ -3747,7 +3753,350 @@ main .breadcrumbs ul li:before {
     }
 }
 
+
 /* end vacancies */
+
+/* FORMS MEDIA */
+
+@media(max-width: 1070px) {
+    .contacts-info .feedback-form {
+        width: 90%;
+    }
+}
+
+@media(max-width: 600px) {
+    .contacts-info .feedback-form {
+        width: 95%;
+    }
+
+    .form-container {
+        grid-template-columns: 1fr;
+    }
+
+    .form-container .point:nth-child(3) {
+        grid-column: span 1
+    }
+
+    .contacts-info .feedback-form h3 {
+        font-size: 20px;
+        margin-bottom: 22px;
+    }
+
+    .form-end {
+        flex-direction: column;
+        gap: 20px;
+        margin-top: 20px;
+    }
+
+    .form-buttons a {
+        margin: 0;
+    }
+
+    .form-container .point textarea {
+        min-height: 100px;
+        height: 100px;
+    }
+}
+
+@media(max-width: 450px) {
+
+    .contacts-info .feedback-form {
+        padding: 22px 13px;
+    }
+
+    .contacts-info .feedback-form h3 {
+        font-size: 17px;
+    }
+
+    .form-container .point label {
+        font-size: 14px;
+    }
+
+    .form-container .point label::after {
+        font-size: 20px;
+    }
+
+    .form-container .point input,
+    .form-container .point textarea {
+        font-size: 14px;
+    }
+}
+
+@media(max-width: 320px) {
+    .contacts-info .feedback-form h3 {
+        font-size: 15px;
+    }
+}
+
+/* END FORMS MEDIA */
+
+/* Contacts blocks */
+
+@media(max-width: 1070px) {
+
+    .contacts-info .all-info {
+        gap: 20px;
+    }
+
+    .contacts-info .right-section,
+    .contacts-info .contact-block {
+        width: 390px;
+    }
+
+    #contact-mail {
+        width: 25px;
+    }
+
+    .contacts-info .contact-heading svg {
+        height: 23px;
+    }
+
+    .contacts-info .contact-heading h3 {
+        font-size: 23px;
+    }
+
+    .contacts-info .contact-heading {
+        padding: 0 50px;
+    }
+
+    .contacts-info .contact-heading:before {
+        width: 90%;
+    }
+
+    .contacts-info .contact-block a,
+    .contacts-info .contact-block p {
+        padding: 0;
+        margin-left: 50px;
+    }
+
+}
+
+@media(max-width: 850px) {
+    .contacts-info .all-info {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contacts-info .location,
+    .contacts-info .right-section {
+        width: 100%;
+    }
+
+    .contacts-info .contact-block {
+        width: 90%;
+        margin: auto;
+    }
+
+    .contacts-info .location .map{
+        height: 400px;
+    }
+
+    .contacts-info .contact-heading {
+        padding-left: 12%;
+    }
+
+    .contacts-info .contact-heading:before {
+        height: 43px;
+        top: -28%;
+        width: 98%;
+    }
+
+    .contacts-info .all-info {
+        gap: 40px;
+    }
+}
+
+@media(max-width: 600px) {
+    .contacts-info .contact-block {
+        width: 95%;
+        margin: auto;
+    }
+
+    .contacts-info .location .map {
+        height: 300px;
+    }
+}
+
+@media(max-width: 600px) {
+    .contacts-info .contact-heading svg {
+        height: 19px;
+    }
+
+    .contacts-info .contact-heading h3 {
+        font-size: 19px;
+    }
+
+    #contact-mail {
+        width: 21px;
+    }
+
+    .contacts-info .contact-heading:before {
+        height: 38px;
+        top: -30%;
+    }
+}
+
+@media(max-width: 370px) {
+    .contacts-info .contact-heading svg {
+        height: 16px;
+    }
+
+    .contacts-info .contact-heading h3 {
+        font-size: 16px;
+    }
+
+    #contact-mail {
+        width: 18px;
+    }
+
+    .contacts-info .contact-block a,
+    .contacts-info .contact-block p {
+        font-size: 15px;
+    }
+
+    .contacts-info .contact-heading:before {
+        height: 34px;
+        top: -32%;
+    }
+
+    .contacts-info .location .map {
+        height: 220px;
+    }
+
+    .contacts-info .all-info, .contacts-info .right-section {
+        gap: 30px;
+    }
+}
+
+@media(max-width: 320px) {
+
+    .contacts-info .contact-block a,
+    .contacts-info .contact-block p {
+        font-size: 13px;
+    }
+    
+}
+
+@media(max-width: 280px) {
+    .contacts-info .contact-heading svg {
+        height: 14px;
+    }
+
+    .contacts-info .contact-heading h3 {
+        font-size: 14px;
+    }
+
+    #contact-mail {
+        width: 16px;
+    }
+
+    .contacts-info .contact-heading:before {
+        height: 30px;
+        top: -38%;
+    }
+
+    .contacts-info .contact-block a,
+    .contacts-info .contact-block p {
+        margin-left: 30px;
+    }
+}
+
+/*
+
+.contacts-info .contact-heading svg {
+    height: 32px;
+    z-index: 2
+}
+
+.contacts-info .contact-heading h3 {
+    font-size: 32px;
+    font-weight: 800;
+    z-index: 2
+}
+
+.contacts-info .contact-heading:before {
+    position: absolute;
+    content: "";
+    z-index: 1;
+    top: 20%;
+    left: 1%;
+    -webkit-clip-path: polygon(10% 0, 100% 0%, 90% 100%, 0% 100%);
+    clip-path: polygon(10% 0, 100% 0%, 90% 100%, 0% 100%);
+    background-color: #f0500a;
+    width: 95%;
+    height: 110%
+}
+
+*/
+
+
+
+/* 
+
+.contacts-info .right-section {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        gap: 40px
+    }
+
+.contacts-info .contact-heading {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    gap: 6px;
+    position: relative;
+    padding: 0 70px
+}
+
+.contacts-info .contact-heading svg {
+    height: 32px;
+    z-index: 2
+}
+
+.contacts-info .contact-heading h3 {
+    font-size: 32px;
+    font-weight: 800;
+    z-index: 2
+}
+
+.contacts-info .contact-heading:before {
+    position: absolute;
+    content: "";
+    z-index: 1;
+    top: 20%;
+    left: 1%;
+    -webkit-clip-path: polygon(10% 0, 100% 0%, 90% 100%, 0% 100%);
+    clip-path: polygon(10% 0, 100% 0%, 90% 100%, 0% 100%);
+    background-color: #f0500a;
+    width: 95%;
+    height: 110%
+}
+
+.contacts-info .location {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex
+}
+
+.contacts-info .location .map {
+    -ms-flex-preferred-size: 100%;
+    flex-basis: 100%;
+    height: 100%;
+    width: 100%;
+    background-color: #fff;
+    border-radius: 8px
+} */
+
+/* end Contacts blocks */
+
 
 /*
 В .form-container .point, .order-box .point ТРЕБА ВИДАЛИТИ СПЕЙС БЕВІІН
