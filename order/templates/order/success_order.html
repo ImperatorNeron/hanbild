@@ -2,16 +2,14 @@
 {% load static %}
 
 {% block content %}
-  <div class="main-wrapper">
-    <main>
-      <div class="empty-cart">
-        <h4><span>Замовлення</span> оформлене!</h4>
-        <img id="order-placed" src="{% static 'hanbild/icons/order-placed.svg' %}" alt="" />
-        <p>
-          Дякуємо за покупку! Ваше замовлення успішно оформлене і прийняте до обробки. Найближчим часом з вами зв'яжеться менеджер. Бажаємо гарного дня!
-          <a href="{% url "catalog:catalog" %}" class="special-link">Переглянути інші товари.</a>
-        </p>
-      </div>
-    </main>
-  </div>
+  <main class="main">
+    <div class="empty-cart">
+      <h4><span>Замовлення</span> оформлене!</h4>
+      <img id="order-placed" src="{% static 'hanbild/icons/order-placed.svg' %}" alt="" />
+      <p>
+        Дякуємо за покупку! Ваше замовлення успішно оформлене і прийняте до обробки. Найближчим часом з вами зв'яжеться менеджер. Бажаємо гарного дня!
+        <a href="{% url 'catalog:catalog' %}" class="special-link">Переглянути інші товари.</a>
+      </p>
+    </div>
+  </main>
 {% endblock %}
