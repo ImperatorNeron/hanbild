@@ -2,12 +2,12 @@
 
 {% if messages %}
   {% for message in messages %}
-    <div id="jq-notification" class="product-added">
+    <div id="jq-notification" class="product-added" style="margin-top: 10px;">
       <p>{{ message }}</p>
     </div>
   {% endfor %}
 {% else %}
-<div id="jq-notification" class="product-added" style="display: none;">
+  <div id="jq-notification" class="product-added" style="display: none; margin-top: 10px;">
     <p>{{ message }}</p>
   </div>
 {% endif %}
