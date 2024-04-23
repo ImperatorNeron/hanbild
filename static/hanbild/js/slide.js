@@ -1,3 +1,4 @@
+// Function to check if SVG animation elements are in viewport
 function checkSVGAnimation() {
     var svgContainer = document.querySelector('.road-svg');
     var svgElement = document.getElementById('svg1');
@@ -13,6 +14,7 @@ function checkSVGAnimation() {
     }
 }
 
+// Function to check if an element is in viewport with a specified offset
 function isElementInViewportPlus(el, offset) {
     var rect = el.getBoundingClientRect();
     var windowHeight = window.innerHeight || document.documentElement.clientHeight;
@@ -24,6 +26,7 @@ function isElementInViewportPlus(el, offset) {
 
 window.addEventListener('scroll', checkSVGAnimation);
 
+// Function to check if an element is in viewport
 function isElementInViewport(el) {
     var rect = el.getBoundingClientRect();
     return (
@@ -34,6 +37,7 @@ function isElementInViewport(el) {
     );
 }
 
+// Function to handle visibility of elements with 'point' class
 function handleVisibility() {
     var points = document.querySelectorAll('.point');
     points.forEach(function (point) {

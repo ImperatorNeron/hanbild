@@ -1,3 +1,4 @@
+// Initialize Swiper for image slider
 new Swiper('.image-slider', {
     navigation: {
         nextEl: '.button-next',
@@ -15,12 +16,14 @@ new Swiper('.image-slider', {
     },
 });
 
+// Event listener for DOMContentLoaded event
 document.addEventListener('DOMContentLoaded', function () {
     const images = document.querySelectorAll('.image-slider__image img');
     const overlay = document.createElement('div');
     overlay.classList.add('overlay');
     document.body.appendChild(overlay);
 
+    // Adding click event listener to each image
     images.forEach(img => {
         img.addEventListener('click', function () {
             const enlargedImg = img.cloneNode(true);
@@ -39,6 +42,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
+    // Adding click event listener to overlay to close it
     overlay.addEventListener('click', function () {
         overlay.style.display = 'none';
         overlay.innerHTML = '';

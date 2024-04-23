@@ -1,6 +1,5 @@
 from pathlib import Path
 import os
-from django.conf.urls import handler404
 from dotenv import load_dotenv 
 
 from django.utils.translation import gettext_lazy as _
@@ -127,6 +126,7 @@ MEDIA_ROOT = BASE_DIR / "media"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
+# Email sender
 EMAIL_HOST = os.getenv("EMAIL_HOST")
 EMAIL_PORT = os.getenv("EMAIL_PORT")
 EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER")

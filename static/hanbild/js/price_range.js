@@ -1,3 +1,4 @@
+// Selecting slider elements and other necessary DOM elements
 let sliders = document.querySelectorAll(".my-slider");
 let displayValOne = document.getElementById("range1");
 let displayValTwo = document.getElementById("range2");
@@ -5,14 +6,16 @@ let minGap = 254000;
 let sliderTrack = document.querySelector(".my-slider-track");
 let sliderMaxValue = sliders[0].max;
 
+// Event listeners for slider inputs
 sliders[0].addEventListener("input", slideOne);
 sliders[1].addEventListener("input", slideTwo);
 
+// Event listener for input changes in displayValOne
 displayValOne.addEventListener("input", function () {
-    if (this.value == ""){
+    if (this.value == "") {
         sliders[0].value = 0;
     }
-    else if (this.value > parseInt(sliders[1].value) - minGap){
+    else if (this.value > parseInt(sliders[1].value) - minGap) {
         sliders[0].value = parseInt(sliders[1].value) - minGap;
     } else {
         sliders[0].value = this.value;
@@ -20,11 +23,12 @@ displayValOne.addEventListener("input", function () {
     fillColor();
 });
 
+// Event listener for input changes in displayValTwo
 displayValTwo.addEventListener("input", function () {
-    if (this.value == ""){
+    if (this.value == "") {
         sliders[1].value = 2000000;
     }
-    else if (this.value < parseInt(sliders[0].value) + minGap){
+    else if (this.value < parseInt(sliders[0].value) + minGap) {
         sliders[1].value = parseInt(sliders[0].value) + minGap;
     } else {
         sliders[1].value = this.value;
@@ -32,6 +36,7 @@ displayValTwo.addEventListener("input", function () {
     fillColor();
 });
 
+// Function to handle input on first slider
 function slideOne() {
     if (parseInt(sliders[1].value) - parseInt(sliders[0].value) <= minGap) {
         sliders[0].value = parseInt(sliders[1].value) - minGap;
@@ -40,6 +45,7 @@ function slideOne() {
     fillColor();
 }
 
+// Function to handle input on second slider
 function slideTwo() {
     if (parseInt(sliders[1].value) - parseInt(sliders[0].value) <= minGap) {
         sliders[1].value = parseInt(sliders[0].value) + minGap;
@@ -48,6 +54,7 @@ function slideTwo() {
     fillColor();
 }
 
+// Function to set gradient background color of slider track based on slider values
 function fillColor() {
     percent1 = (sliders[0].value / sliderMaxValue) * 100;
     percent2 = (sliders[1].value / sliderMaxValue) * 100;

@@ -1,6 +1,5 @@
 import time
 from django.db import transaction
-from django.forms import ValidationError
 from django.http import JsonResponse
 
 from cart.models import Cart
@@ -9,8 +8,12 @@ from order.models import OrderDetails, OrderItem
 
 
 def create_order_transaction(form, **kwargs):
+    """
+    Function to do orders in one transaction
+    """
     try:
         with transaction.atomic():
+            # get cart from user by session key
             cart_items = Cart.objects.filter(session_key=kwargs["session_key"])
             if cart_items.exists():
                 order = OrderDetails.objects.create(
@@ -34,7 +37,7 @@ def create_order_transaction(form, **kwargs):
                 form.cleaned_data["cart_items"] = cart_items
                 form.cleaned_data["total_price"] = cart_items.total_price()
 
-
+                # add titles to email template context for user
                 form.cleaned_data["title_1"] = "Дякуємо за Ваше замовлення!"
                 form.cleaned_data["title_2"] = (
                     "Найближчим часом з вами зв'яжеться наш менеджер."
@@ -44,6 +47,8 @@ def create_order_transaction(form, **kwargs):
                     "email_letters/cart_message.html",
                     send_to=form.cleaned_data["email"],
                 )
+
+                # add titles to email template context for company
                 form.cleaned_data["title_1"] = "У вас нове замовлення!"
                 form.cleaned_data["title_2"] = (
                     "Зв'яжіться із клієнтом для подальшої співпраці."
@@ -54,11 +59,15 @@ def create_order_transaction(form, **kwargs):
                 )
                 cart_items.delete()
             return JsonResponse({"success": True, "url": kwargs["success_url"]})
-    except ValidationError as e:
-        print("Problem")
+    except Exception as e:
+        print(f"An error occurred while transaction: {e}")
 
 
 def order_fields_errors(form, **kwargs):
+    """
+    Forms errors in json format
+    """
+    # For pretty preload view
     time.sleep(0.5)
     form_errors = (
         ("#user_city", form.errors.get("city")),

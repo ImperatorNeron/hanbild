@@ -2939,6 +2939,10 @@ thead tr th:last-child svg {
     background: url(../images/p-truck.png) no-repeat right/auto 93%
 }
 
+.product-page{
+    overflow: hidden;
+}
+
 .services-page {
     overflow: hidden
 }

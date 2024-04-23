@@ -10,9 +10,13 @@ from order.utils import create_order_transaction, order_fields_errors
 
 
 class OrderView(TemplateView):
+    """
+    View class for displaying order information and interact with it
+    """
 
     template_name = "order/order.html"
     title = _("Оформлення замовлення | HanBild.com.ua")
+    # Two forms for correct applying post request
     contact_form = OnlineApplicationForm
     order_form = CreateOrderForm
     success_url = reverse_lazy("order:success-order")
@@ -28,6 +32,9 @@ class OrderView(TemplateView):
         return error_function(form, **kwargs)
 
     def post(self, request):
+        """
+        Check which form was activated
+        """
         if request.POST["form-class"] == "order-form":
             return self.form_validation(
                 create_order_transaction,
@@ -45,5 +52,9 @@ class OrderView(TemplateView):
 
 
 class SuccessOrderView(BaseApplicationFormView):
+    """
+    View class for displaying successful order message
+    """
+
     template_name = "order/success_order.html"
     success_url = reverse_lazy("order:success-order")

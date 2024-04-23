@@ -3,7 +3,7 @@ const dropdown = document.getElementById('cityDropdown')
 const dropdownButton = document.getElementById('cityDropdownButton')
 
 if (input) {
-
+    // Function to create a list of cities based on the provided array
     function createCityList(cityArray) {
         dropdown.innerHTML = ''
         cityArray.slice(0, 6).forEach((city) => {
@@ -17,6 +17,7 @@ if (input) {
         })
     }
 
+    // Function to show cities matching the input value
     function showMatchingCities() {
         const searchTerm = input.value.toLowerCase()
         const matchingCities = cities.filter((city) => city.toLowerCase().includes(searchTerm))
@@ -24,6 +25,7 @@ if (input) {
         dropdown.classList.add('show')
     }
 
+    // Function to show the full city list when the input is clicked
     function makeClickToInput() {
         if (input.value === '') {
             createCityList(cities)
@@ -31,6 +33,7 @@ if (input) {
         }
     }
 
+    // Event listener for dropdown button click
     dropdownButton.addEventListener('click', function (event) {
         event.preventDefault()
         input.value = '';
@@ -39,14 +42,17 @@ if (input) {
         dropdown.classList.toggle('show')
     })
 
+    // Event listener to hide dropdown when clicking outside of it
     document.addEventListener('click', function (event) {
         if (!dropdown.contains(event.target) && event.target !== input && event.target !== dropdownButton) {
             dropdown.classList.remove('show')
         }
     })
 
+    // Variable to keep track of the selected city option index
     var city_option_index = -1;
 
+    // Event listener for keyboard inputs in the input field
     input.addEventListener('keydown', function (event) {
         if (dropdown.classList.contains('show')) {
             const dropdownOptions = dropdown.querySelectorAll('a')

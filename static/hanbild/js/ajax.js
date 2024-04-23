@@ -1,10 +1,14 @@
+// Handle initial setup when the document is ready
 $(document).ready(function () {
+    // Selecting necessary elements
     var successMessage = $("#jq-notification");
     var goodsInCartCount = $("#cartCount");
     var cartCount = parseInt(goodsInCartCount.text() || 0);
 
+    // Checking cart quantity initially
     check_carts_quantity();
 
+    // Function to display a message on the screen
     function sendMessageToScreen(message) {
         successMessage.html(message);
         successMessage.fadeIn(400);
@@ -13,11 +17,13 @@ $(document).ready(function () {
         }, 4000);
     }
 
+    // Function to update HTML content
     function updateHTML(cart_items_html) {
         var cartItemsContainer = $("#cartContainer");
         cartItemsContainer.html(cart_items_html);
     }
 
+    // Function to make AJAX POST request
     function ajaxPostRequest(url, data, success, error) {
         $.ajax({
             type: "POST",
@@ -28,6 +34,7 @@ $(document).ready(function () {
         });
     }
 
+    // Function to get cart item details
     function getCartItem(e, element) {
         e.preventDefault();
         var url = $(element).attr("href");
@@ -37,6 +44,7 @@ $(document).ready(function () {
         return { cartID, quantity_displayer, currentValue, url }
     }
 
+    // Function to validate form response
     function validateForm(response) {
         document.querySelectorAll(response.error_class).forEach(function (element) {
             element.textContent = "";
@@ -52,11 +60,13 @@ $(document).ready(function () {
         document.querySelectorAll(response.error_class).forEach(function (element) {
             element.style.display = "block";
         });
+        // Setting error messages for specific fields
         $(response.number_or_email_error_field_id).text(response.data.form_errors.number_or_email);
         $(response.name_error_field_id).text(response.data.form_errors.name);
         return false
     }
 
+    // Function to update cart quantity
     function updateCart(cartID, quantity, url) {
         data = {
             cart_id: cartID,
@@ -76,6 +86,7 @@ $(document).ready(function () {
         ajaxPostRequest(url, data, success, error)
     }
 
+    // Function to check cart quantity and display/hide accordingly
     function check_carts_quantity() {
         if (cartCount > 0) {
             goodsInCartCount.css("display", "flex");
@@ -84,6 +95,7 @@ $(document).ready(function () {
         }
     }
 
+    // Event listener for adding an item to cart
     $(document).on("click", ".add-to-cart", function (e) {
         e.preventDefault();
         var url = $(this).attr("href");
@@ -108,6 +120,7 @@ $(document).ready(function () {
         ajaxPostRequest(url, data, success, error);
     });
 
+    // Event listener for removing an item from cart
     $(document).on("click", ".remove-btn", function (e) {
         e.preventDefault();
 
@@ -136,6 +149,7 @@ $(document).ready(function () {
         ajaxPostRequest($(this).attr("href"), data, success, error);
     });
 
+    // Event listener for decreasing quantity of cart item
     $(document).on("click", ".minus-btn", function (e) {
         item = getCartItem(e, this);
         if (item.currentValue > 1) {
@@ -144,12 +158,14 @@ $(document).ready(function () {
         }
     });
 
+    // Event listener for increasing quantity of cart item
     $(document).on("click", ".plus-btn", function (e) {
         item = getCartItem(e, this);
         item.quantity_displayer.val(item.currentValue + 1);
         updateCart(item.cartID, item.currentValue + 1, item.url);
     });
 
+    // Event listener for removing all items from cart
     $(document).on("click", ".remove-all-carts", function (e) {
         e.preventDefault();
 
@@ -168,6 +184,7 @@ $(document).ready(function () {
         ajaxPostRequest($(this).data("url"), data, success, error);
     })
 
+    // Event listener for submitting feedback form
     $('#contact-form').on('submit', function (e) {
         e.preventDefault();
 
@@ -195,6 +212,7 @@ $(document).ready(function () {
         ajaxPostRequest(window.location.href, $(this).serialize(), success, error)
     });
 
+    // Event listener for submitting page contact form
     $('#page-contact-form').on('submit', function (e) {
         e.preventDefault();
 
@@ -218,10 +236,12 @@ $(document).ready(function () {
         ajaxPostRequest(window.location.href, $(this).serialize(), success, error)
     });
 
+    // Event listener for clicking confirm order button
     $("#id-confirm-order-button").on("click", function () {
         $("#id-order-form").submit();
     });
 
+    // Event listener for submitting order form
     $("#id-order-form").on("submit", function (e) {
         e.preventDefault();
 

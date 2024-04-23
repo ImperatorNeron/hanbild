@@ -1,14 +1,15 @@
+// Function to handle accepting cookies by setting a cookie and hiding the cookie notice
 function handleAcceptCookies() {
     document.cookie = "allow-cookie-usage=true; path=/";
     document.querySelector(".cookies").style.display = "none";
 }
 
 var acceptButton = document.getElementById("cookies-accept-button");
-
 if (acceptButton) {
     acceptButton.addEventListener("click", handleAcceptCookies);
 }
 
+// Function to set up language 
 function setupLanguageSelection() {
     document.querySelectorAll('.language-link').forEach(function (link) {
         link.addEventListener('click', function (e) {
@@ -21,11 +22,11 @@ function setupLanguageSelection() {
 }
 
 window.addEventListener('DOMContentLoaded', setupLanguageSelection);
-
 document.getElementById('languageSelect').onchange = function () {
     document.getElementById('languageFormFooter').submit();
 };
 
+// Function to start animation for pulsating element
 function startAnimation() {
     var pulseButton = document.querySelector('.pulsating-element');
     pulseButton.style.animation = 'pulse linear 1s infinite';
@@ -37,6 +38,7 @@ function startAnimation() {
 
 startAnimation();
 
+// Function to toggle submenu visibility and store state in local storage
 function toggleSubmenu(id) {
     var submenu = document.getElementById(id);
     if (submenu.style.display === "none") {
@@ -62,6 +64,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
+// Function to handle scroll behavior and display scroll-to-top button
 window.onscroll = function () { scrollFunction() };
 
 function scrollFunction() {
@@ -76,6 +79,7 @@ document.getElementById("scrollToTopBtn").onclick = function () {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
+// Function to handle opening and closing pop-up contact form
 const catalogMessageButtons = document.querySelectorAll('.catalog-message');
 const openPopUp = document.querySelector('.pulsating-element');
 const closePopUp = document.querySelector('.close-button');
@@ -99,6 +103,7 @@ closePopUp.addEventListener('click', () => {
     additionalElements.style.display = '';
 })
 
+// Function to toggle submit button based on agreement checkbox state
 function setupSubmitButton(agreementCheckboxId, submitButtonClass, submitButtonWrapperClass) {
     var agreementCheckbox = document.getElementById(agreementCheckboxId);
     var submitButton = document.querySelector(submitButtonClass);
@@ -126,6 +131,7 @@ document.addEventListener('DOMContentLoaded', function () {
     setupSubmitButton('contact-agreement', '.contact-submit-button', '.contact-submit-button-wrapper');
 });
 
+// Update URL with goods quantity parameter on input change
 var goodsQuantityInput = document.getElementById("id_goods_quantity");
 
 if (goodsQuantityInput) {
@@ -136,6 +142,7 @@ if (goodsQuantityInput) {
     });
 }
 
+// Toggle visibility of vacancy details and associated resume
 var vacancies = document.querySelectorAll(".vacancy-block")
 var resumes = document.querySelectorAll(".vacancy-resume")
 var arrows = document.querySelectorAll(".click-arrow")
@@ -158,6 +165,7 @@ if (vacancies) {
     });
 }
 
+// Function to reload the page if it's being loaded from the cache
 (function () {
     window.onpageshow = function (event) {
         if (event.persisted) {

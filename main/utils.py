@@ -8,6 +8,10 @@ from django.core.exceptions import ValidationError
 
 
 def create_user_message(form, **kwargs):
+    """
+    Function needs to send user messages and write it in database.
+    Return json response for interaction with ajax
+    """
     ClientMessages.objects.create(
         name=form.cleaned_data["name"],
         number_or_email=form.cleaned_data["number_or_email"],
@@ -15,6 +19,7 @@ def create_user_message(form, **kwargs):
     )
     try:
         validate_email(form.cleaned_data["number_or_email"])
+        # Messages for user
         form.cleaned_data["successful_message_1"] = f"Дякуємо за Ваше повідомлення!"
         form.cleaned_data["successful_message_2"] = (
             f"Найближчим часом з вами зв'яжеться наш менеджер."
@@ -26,7 +31,8 @@ def create_user_message(form, **kwargs):
         )
     except ValidationError:
         print("Введено номер телефону або неправильну адресу")
-    
+
+    # Messages for company
     form.cleaned_data["successful_message_1"] = (
         f"Нове повідомлення від '{form.cleaned_data['name']}'"
     )
@@ -38,5 +44,9 @@ def create_user_message(form, **kwargs):
 
 
 def contact_form_errors(form, **kwargs):
+    """
+    Forms errors in json format
+    """
+    # For pretty preload view
     time.sleep(0.5)
     return JsonResponse({"success": False, "form_errors": form.errors})

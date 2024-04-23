@@ -8,6 +8,9 @@ from product.models import Service
 
 
 class BaseApplicationFormView(FormView):
+    """
+    Base view for applying feedback form in every page
+    """
 
     form_class = OnlineApplicationForm
     title = "HanBild.com.ua"
@@ -25,18 +28,30 @@ class BaseApplicationFormView(FormView):
 
 
 class IndexView(BaseApplicationFormView):
+    """
+    Main page view
+    """
+
     template_name = "main/index.html"
     success_url = reverse_lazy("main:index")
     title = _("HanBild - виробник самоскидних та бортових кузовів")
 
 
 class ContactsView(BaseApplicationFormView):
+    """
+    Contact page view
+    """
+
     template_name = "main/contact_us.html"
     success_url = reverse_lazy("main:contacts")
     title = _("Контакти компанії | HanBild.com.ua")
 
 
 class ServicesView(BaseApplicationFormView):
+    """
+    Services page view
+    """
+
     template_name = "main/services.html"
     success_url = reverse_lazy("main:services")
     title = _("Ремонт, Trade in та Leasing | HanBild.com.ua")
@@ -48,14 +63,20 @@ class ServicesView(BaseApplicationFormView):
 
 
 class PrivacyPolicyView(BaseApplicationFormView):
+    """
+    Privacy page view
+    """
+
     template_name = "main/privacy_policy.html"
     success_url = reverse_lazy("main:privacy_policy")
     title = _("Політика конфіденційності | HanBild.com.ua")
 
 
 def page404exception(request, exception):
+    """404 exeption handler"""
     return render(request, "main/page404.html", status=404)
 
 
 def page500exception(request):
+    """500 exeption handler"""
     return render(request, "main/page404.html", status=500)
