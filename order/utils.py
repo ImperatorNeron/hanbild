@@ -1,8 +1,10 @@
+import time
 from django.db import transaction
 from django.forms import ValidationError
 from django.http import JsonResponse
 
 from cart.models import Cart
+from main.sending_email_service import send_email
 from order.models import OrderDetails, OrderItem
 
 
@@ -28,6 +30,28 @@ def create_order_transaction(form, **kwargs):
                         price=item.goods_price(),
                         quantity=item.quantity,
                     )
+                form.cleaned_data["order_id"] = order.id
+                form.cleaned_data["cart_items"] = cart_items
+                form.cleaned_data["total_price"] = cart_items.total_price()
+
+
+                form.cleaned_data["title_1"] = "Дякуємо за Ваше замовлення!"
+                form.cleaned_data["title_2"] = (
+                    "Найближчим часом з вами зв'яжеться наш менеджер."
+                )
+                send_email(
+                    form.cleaned_data,
+                    "email_letters/cart_message.html",
+                    send_to=form.cleaned_data["email"],
+                )
+                form.cleaned_data["title_1"] = "У вас нове замовлення!"
+                form.cleaned_data["title_2"] = (
+                    "Зв'яжіться із клієнтом для подальшої співпраці."
+                )
+                send_email(
+                    form.cleaned_data,
+                    "email_letters/cart_message.html",
+                )
                 cart_items.delete()
             return JsonResponse({"success": True, "url": kwargs["success_url"]})
     except ValidationError as e:
@@ -35,6 +59,7 @@ def create_order_transaction(form, **kwargs):
 
 
 def order_fields_errors(form, **kwargs):
+    time.sleep(0.5)
     form_errors = (
         ("#user_city", form.errors.get("city")),
         ("#user_address", form.errors.get("delivery_address")),

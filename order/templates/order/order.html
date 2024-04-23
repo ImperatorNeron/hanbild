@@ -47,7 +47,7 @@
                     </div>
                   </div>
                   <div class="point">
-                    <label for="id_email">Електронная пошта:</label>
+                    <label for="id_email">Електронна пошта:</label>
                     <input type="email" name="email" id="id_email" required placeholder="handbild@gmail.com" />
                     <div class="error-massage" id="user_email">
                       <p>Поле не може містити цифри і заборонені знаки!</p>
@@ -73,7 +73,7 @@
                   </div>
                   <div class="point">
                     <label for="id_delivery_address">Адреса:</label>
-                    <input type="twxt" name="delivery_address" id="id_delivery_address" required placeholder="вул. Дніпрянська 7" />
+                    <input type="text" name="delivery_address" id="id_delivery_address" required placeholder="вул. Дніпрянська 7" />
                     <div class="error-massage" id="user_address">
                       <p>Поле не може містити цифри і заборонені знаки!</p>
                     </div>
@@ -106,7 +106,7 @@
                 {% include 'cart/includes/_included_cart.html' %}
               </div>
               <div class="form-buttons">
-                <a id="id-confirm-order-button">Підтвердити замовлення</a>
+                <a id="id-confirm-order-button" class="confirm-order-button">Підтвердити замовлення</a>
               </div>
             </div>
           </div>

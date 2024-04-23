@@ -10,7 +10,7 @@ $(document).ready(function () {
         successMessage.fadeIn(400);
         setTimeout(function () {
             successMessage.fadeOut(400);
-        }, 7000);
+        }, 4000);
     }
 
     function updateHTML(cart_items_html) {
@@ -38,6 +38,9 @@ $(document).ready(function () {
     }
 
     function validateForm(response) {
+        document.querySelectorAll(response.error_class).forEach(function (element) {
+            element.textContent = "";
+        });
         if (response.data.success == true) {
             $(response.form_id).trigger('reset');
             sendMessageToScreen(response.data.message);
@@ -168,8 +171,6 @@ $(document).ready(function () {
     $('#contact-form').on('submit', function (e) {
         e.preventDefault();
 
-        document.querySelector('.feedback-submit-button').disabled = true;
-
         function success(data) {
             response = {
                 data: data,
@@ -182,21 +183,20 @@ $(document).ready(function () {
                 document.querySelector('.popup-contact-form').classList.remove('active');
                 document.querySelector('.additional-elements').style.display = ''
             }
-            document.querySelector('.feedback-submit-button').disabled = false;
+
+            $('#loading-overlay').hide();
         }
 
         function error(data) {
             console.log("Помилка при надсилані повідомлення!");
-            document.querySelector('.feedback-submit-button').disabled = false;
+            $('#loading-overlay').hide();
         }
-
+        $('#loading-overlay').show();
         ajaxPostRequest(window.location.href, $(this).serialize(), success, error)
     });
 
     $('#page-contact-form').on('submit', function (e) {
         e.preventDefault();
-
-        document.querySelector('.contact-submit-button').disabled = true;
 
         function success(data) {
             response = {
@@ -207,14 +207,14 @@ $(document).ready(function () {
                 name_error_field_id: "#page_name"
             }
             validateForm(response);
-            document.querySelector('.contact-submit-button').disabled = false;
+            $('#loading-overlay').hide();
         }
 
         function error(data) {
+            $('#loading-overlay').hide();
             console.log("Помилка при надсилані повідомлення!");
-            document.querySelector('.contact-submit-button').disabled = false;
         }
-
+        $('#loading-overlay').show();
         ajaxPostRequest(window.location.href, $(this).serialize(), success, error)
     });
 
@@ -229,6 +229,7 @@ $(document).ready(function () {
             if (data.success) {
                 window.location.href = data.url
             } else {
+                sendMessageToScreen("Похибка у формі. Спробуйте ще раз.")
                 data.form_errors.forEach(element => {
                     $(element[0]).text(element[1]);
                 });
@@ -243,12 +244,14 @@ $(document).ready(function () {
                     }
                 });
             }
-
+            $('#loading-overlay').hide();
         }
 
         function error(data) {
             console.log("Помилка при створенні замовлення!");
+            $('#loading-overlay').hide();
         }
+        $('#loading-overlay').show();
         ajaxPostRequest(window.location.href, $(this).serialize(), success, error)
     })
 });

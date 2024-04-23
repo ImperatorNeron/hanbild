@@ -1,3 +1,4 @@
+import time
 from django.http import JsonResponse
 
 from main.models import ClientMessages
@@ -14,11 +15,28 @@ def create_user_message(form, **kwargs):
     )
     try:
         validate_email(form.cleaned_data["number_or_email"])
-        # send_email(form.cleaned_data, send_to=form.cleaned_data["number_or_email"])
+        form.cleaned_data["successful_message_1"] = f"Дякуємо за Ваше повідомлення!"
+        form.cleaned_data["successful_message_2"] = (
+            f"Найближчим часом з вами зв'яжеться наш менеджер."
+        )
+        send_email(
+            form.cleaned_data,
+            "email_letters/success_message.html",
+            send_to=form.cleaned_data["number_or_email"],
+        )
     except ValidationError:
         print("Введено номер телефону або неправильну адресу")
-    # send_email(form.cleaned_data)
+    
+    form.cleaned_data["successful_message_1"] = (
+        f"Нове повідомлення від '{form.cleaned_data['name']}'"
+    )
+    form.cleaned_data["successful_message_2"] = (
+        f"Зв'яжіться з клієнтом за даними, які наведені нижче."
+    )
+    send_email(form.cleaned_data, "email_letters/success_message.html")
     return JsonResponse({"success": True, "message": "Повідомлення надійшло успішно!"})
 
+
 def contact_form_errors(form, **kwargs):
+    time.sleep(0.5)
     return JsonResponse({"success": False, "form_errors": form.errors})
