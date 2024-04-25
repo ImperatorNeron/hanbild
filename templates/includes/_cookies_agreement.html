@@ -1,8 +1,9 @@
 {% load main_tags %}
+{% load i18n %}
 
 {% get_cookies request 'allow-cookie-usage' as cookies %}
 
-{% if cookies == "false" or cookies == None %}
+{% if cookies == 'false' or cookies == None %}
   <div class="cookies">
     <div class="point">
       <div class="info">
@@ -14,13 +15,16 @@
               </g>
             </svg>
           </div>
-          <p>Наш сайт використовує cookies!</p>
+          <p>
+            {% translate 'Наш сайт використовує cookies!' %}
+          </p>
         </div>
         <p>
-          Вони допомагають та полегшують користування сайтом. Продовжуючи, ви погоджуєтеся з <a href="{% url 'main:privacy_policy' %}">Політикою конфіденційності.</a>
+          {% translate 'Вони допомагають та полегшують користування сайтом. Продовжуючи, ви погоджуєтеся з ' %}
+          <a href="{% url 'main:privacy_policy' %}">{% translate 'Політикою конфіденційності.' %}</a>
         </p>
       </div>
     </div>
-    <button id="cookies-accept-button">Ок</button>
+    <button id="cookies-accept-button">{% translate 'Ок' %}</button>
   </div>
 {% endif %}

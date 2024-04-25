@@ -18,7 +18,7 @@
       </div>
       <div class="search-line">
         {% if request.GET.q %}
-          <p>Результати за запитом "
+          <p>{% translate "Результати за запитом" %} "
             <span>
               {{ request.GET.q|truncatechars:20 }}
             </span>"
@@ -60,8 +60,6 @@
               </div>
 
               <ul id="categories" class="filtermenu">
-                {% comment %}Тут требе нормальна назва класу чи щось таке{% endcomment %}
-                {% comment %}Також подумати як краще зробити{% endcomment %}
                 {% if request.GET.q %}
                   <input type="hidden" name="q" value="{{ request.GET.q }}" />
                 {% endif %}
@@ -254,8 +252,7 @@
         {% else %}
         <div class="no-results">
           <img id="no-results-img" src="{% static 'hanbild/icons/no-results.svg' %}" alt="">
-          <p>На жаль, за вашим запитом нічого не знайдено. <a href="{% url "catalog:catalog" %}" class="special-link"> Повернутися до
-                  каталогу.</a></p>
+          <p>{% translate "На жаль, за вашим запитом нічого не знайдено." %} <a href="{% url "catalog:catalog" %}" class="special-link">{% translate "Повернутися до каталогу." %} </a></p>
         </div>
         {% endif %}
         {% comment %}PAGINATION{% endcomment %}

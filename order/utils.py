@@ -5,6 +5,7 @@ from django.http import JsonResponse
 from cart.models import Cart
 from main.sending_email_service import send_email
 from order.models import OrderDetails, OrderItem
+from django.utils.translation import gettext_lazy as _
 
 
 def create_order_transaction(form, **kwargs):
@@ -38,8 +39,8 @@ def create_order_transaction(form, **kwargs):
                 form.cleaned_data["total_price"] = cart_items.total_price()
 
                 # add titles to email template context for user
-                form.cleaned_data["title_1"] = "Дякуємо за Ваше замовлення!"
-                form.cleaned_data["title_2"] = (
+                form.cleaned_data["title_1"] = _("Дякуємо за Ваше замовлення!")
+                form.cleaned_data["title_2"] = _(
                     "Найближчим часом з вами зв'яжеться наш менеджер."
                 )
                 send_email(

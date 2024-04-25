@@ -5,13 +5,13 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta name="x-apple-disable-message-reformatting" />
-    <title>Complete your purchase</title>
+    <title>Message</title>
 
     <!-- [if !mso]><! -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" />
     <!-- <![endif] -->
 
-    <!--               [if mso]>
+    <!--                [if mso]>
   <xml>
     <o:OfficeDocumentSettings>
       <o:PixelsPerInch>96</o:PixelsPerInch>
@@ -21,7 +21,7 @@
     table {border-collapse: collapse;}
     td,th,div,p,a,h1,h2,h3,h4,h5,h6 {font-family: "Segoe UI", sans-serif; mso-line-height-rule: exactly;}
   </style>
-  <![endif]               -->
+  <![endif]                -->
     <style>
       .hover-bg-dealshop-blue-dark:hover {
         background-color: #f0600a !important;
@@ -93,9 +93,9 @@
           <table cellpadding="0" cellspacing="0" role="presentation" style="margin: 0; padding-left: 20px; padding-right: 20px;">
             <tr>
               <td align="center">
-                <a class="all-font-montserrat hover-opacity-75" style="text-decoration: none;color:#f0500a;font-weight: bold;padding-right: 15px;font-size: 16px; text-align: center;width: 70px;" href="">Сайт</a>
-                <a class="all-font-montserrat hover-opacity-75" style="text-decoration: none;color:#f0500a;font-weight: bold;padding-right: 15px;padding-left:15px;font-size: 16px;text-align: center;width: 70px;" href="">Продукція</a>
-                <a class="all-font-montserrat hover-opacity-75" style="text-decoration: none;color:#f0500a;font-weight: bold;padding-left: 15px;font-size: 16px;text-align: center;width: 70px;" href="">Вакансії</a>
+                <a class="all-font-montserrat hover-opacity-75" style="text-decoration: none;color:#f0500a;font-weight: bold;padding-right: 15px;font-size: 16px; text-align: center;width: 70px;" href="https://www.hanbild.com.ua">{% translate 'Сайт' %}</a>
+                <a class="all-font-montserrat hover-opacity-75" style="text-decoration: none;color:#f0500a;font-weight: bold;padding-right: 15px;padding-left:15px;font-size: 16px;text-align: center;width: 70px;" href="https://www.hanbild.com.ua/product">{% translate 'Продукція' %}</a>
+                <a class="all-font-montserrat hover-opacity-75" style="text-decoration: none;color:#f0500a;font-weight: bold;padding-left: 15px;font-size: 16px;text-align: center;width: 70px;" href="https://www.hanbild.com.ua/vacancies">{% translate 'Вакансії' %}</a>
               </td>
             </tr>
           </table>
@@ -122,7 +122,7 @@
           <table class="sm-w-full" width="600" cellpadding="0" cellspacing="0" role="presentation">
             <tr>
               <td align="center" class="sm-px-12">
-                <h3 class="all-font-montserrat" style="font-weight: 600; color: #2d3748; font-size: 16px;">Контактні дані</h3>
+                <h3 class="all-font-montserrat" style="font-weight: 600; color: #2d3748; font-size: 16px;">{% translate 'Контактні дані' %}</h3>
                 <table width="1" cellpadding="0" cellspacing="0" role="presentation">
                   <tr>
                     <td>
@@ -149,18 +149,18 @@
                       <table width="100%" cellpadding="0" cellspacing="0" role="presentation">
                         <tr>
                           <td align="center" class="all-font-montserrat" style="padding: 32px;" width="50%">
-                            <h4 style="margin: 0; margin-bottom: 2px; color: #2d3748; font-size: 20px;">Вміст повідомлення</h4>
+                            <h4 style="margin: 0; margin-bottom: 2px; color: #2d3748; font-size: 20px;">{% translate 'Вміст повідомлення' %}</h4>
                             <p align="left" style="margin: 0; margin-top: 15px; margin-bottom: 7px; color: #000000; font-size: 15px; font-weight: bold;">
-                              Дата повідомлення: <span style="font-weight: normal;">{% now 'd/m/Y H:i' %}</span>
+                              {% translate 'Дата повідомлення:' %} <span style="font-weight: normal;">{% now 'd/m/Y H:i' %}</span>
                             </p>
                             <p align="left" style="margin: 0; margin-bottom: 7px; color: #000000; font-size: 15px; font-weight: bold;">
-                              Ім'я: <span style="font-weight: normal;">{{ name }}</span>
+                              {% translate 'Ім`я:' %} <span style="font-weight: normal;">{{ name }}</span>
                             </p>
                             <p align="left" style="margin: 0; margin-bottom: 7px; color: #000000; font-size: 15px; font-weight: bold;">
-                              Контакт: <span style="font-weight: normal;">{{ number_or_email }}</span>
+                              {% translate 'Контакт:' %} <span style="font-weight: normal;">{{ number_or_email }}</span>
                             </p>
                             <p align="left" style="margin: 0; margin-bottom: 7px; color: #000000; font-size: 15px; font-weight: bold;">
-                              Коментар: <span style="font-weight: normal;line-height: 25px;">{{ message }}</span>
+                              {% translate 'Коментар:' %} <span style="font-weight: normal;line-height: 25px;">{{ message }}</span>
                             </p>
                           </td>
                         </tr>
@@ -185,7 +185,7 @@
                 <table cellpadding="0" cellspacing="0" role="presentation">
                   <tr>
                     <th class="hover-bg-dealshop-blue-dark" style="mso-padding-alt: 16px 40px; border-radius: 9999px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, .1), 0 2px 4px -1px rgba(0, 0, 0, .06);" bgcolor="#f0500a">
-                      <a href="https://maizzle.com" class="all-font-montserrat" style="display: block; font-weight: 600; line-height: 100%; padding-top: 16px; padding-bottom: 16px; padding-left: 40px; padding-right: 40px; color: #ffffff; font-size: 14px; text-decoration: none;">Перейти на сайт</a>
+                      <a href="https://maizzle.com" class="all-font-montserrat" style="display: block; font-weight: 600; line-height: 100%; padding-top: 16px; padding-bottom: 16px; padding-left: 40px; padding-right: 40px; color: #ffffff; font-size: 14px; text-decoration: none;">{% translate 'Перейти на сайт' %}</a>
                     </th>
                   </tr>
                 </table>

@@ -29,7 +29,7 @@ class CardAddView(View):
 
         return JsonResponse(
             {
-                "message": "Товар доданий в корзину",
+                "message": _("Товар доданий в корзину"),
             }
         )
 
@@ -48,7 +48,6 @@ class CartChangeView(View):
         )
         return JsonResponse(
             {
-                "message": "Змінено кількість",
                 "cart_items_html": string_html,
                 "total_quantity": user_carts.total_quantity(),
             }
@@ -71,7 +70,7 @@ class CartRemoveView(View):
         )
         return JsonResponse(
             {
-                "message": "Товар видалено з корзини",
+                "message": _("Товар видалено з корзини"),
                 "cart_items_html": string_html,
                 "total_quantity": user_carts.total_quantity(),
             }

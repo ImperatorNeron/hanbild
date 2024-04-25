@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load embed_video_tags %}
+{% load i18n %}
 
 {% block title %}
   {{ item.name }} | Hanbild.com.ua
@@ -16,10 +17,10 @@
       <div class="breadcrumbs" id="single-card">
         <ul>
           <li>
-            <a href="{% url 'main:index' %}">Головна сторінка</a>
+            <a href="{% url 'main:index' %}">{% translate 'Головна сторінка' %}</a>
           </li>
           <li>
-            <a href="{% url 'catalog:catalog' %}">Каталог</a>
+            <a href="{% url 'catalog:catalog' %}">{% translate 'Каталог' %}</a>
           </li>
           <li>{{ item.name }}</li>
         </ul>
@@ -110,15 +111,17 @@
           <div class="single-card-grid">
             <p class="price">
               {% if item.price %}
-                {{ item.price }} грн.
+                {{ item.price }} {% translate 'грн.' %}
               {% else %}
-                Ціна договірна
+                {% translate 'Ціна договірна' %}
               {% endif %}
             </p>
-            <p class="art">арт. {{ item.pk|stringformat:'05d' }}</p>
+            <p class="art">
+              {% translate 'арт.' %} {{ item.pk|stringformat:'05d' }}
+            </p>
 
             <div class="form-buttons">
-              <a href="{% url 'cart:cart_add' %}" class="add-to-cart" data-product-id="{{ item.id }}">Додати у кошик</a>
+              <a href="{% url 'cart:cart_add' %}" class="add-to-cart" data-product-id="{{ item.id }}">{% translate 'Додати у кошик' %}</a>
               <a class="catalog-message">
                 <?xml version="1.0" encoding="UTF-8"?><svg id="_Слой_2" data-name="Слой 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 42.15 30.95">
                   <g id="_Слой_1-2" data-name="Слой 1">
@@ -129,35 +132,43 @@
             </div>
           </div>
         </div>
-        <h3>Опис</h3>
-        <div class="single-card-part">
-          {{ item.description|linebreaks }}
-        </div>
-        <h3>Характеристики</h3>
+        <h3>{% translate 'Опис' %}</h3>
+        <div class="single-card-part">{{ item.description|linebreaks }}</div>
+        <h3>{% translate 'Характеристики' %}</h3>
         <div class="single-card-part">
           <table class="s-p-t-g">
             <tbody>
               <tr>
-                <td>Назва</td>
+                <td>
+                  {% translate 'Назва' %}
+                </td>
                 <td>{{ item.name }}</td>
               </tr>
               <tr>
-                <td>Ціна</td>
+                <td>
+                  {% translate 'Ціна' %}
+                </td>
                 <td>
                   {% if item.price %}
-                    {{ item.price }} грн.
+                    {{ item.price }} {% translate 'грн.' %}
                   {% else %}
-                    Ціна договірна
+                    {% translate 'Ціна договірна' %}
                   {% endif %}
                 </td>
               </tr>
               <tr>
-                <td>Артикул</td>
+                <td>
+                  {% translate 'Артикул' %}
+                </td>
                 <td>{{ item.pk|stringformat:'05d' }}</td>
               </tr>
               <tr>
-                <td>Категорія</td>
-                <td><a style="text-decoration: underline; color: #f0500a;" href="{% url "catalog:catalog" %}?{{ item.category.slug }}=on">{{ item.category.name }}</a></td>
+                <td>
+                  {% translate 'Категорія' %}
+                </td>
+                <td>
+                  <a style="text-decoration: underline; color: #f0500a;" href="{% url 'catalog:catalog' %}?{{ item.category.slug }}=on">{{ item.category.name }}</a>
+                </td>
               </tr>
               {% for item_characteristic in item_characteristics %}
                 <tr>

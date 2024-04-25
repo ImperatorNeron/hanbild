@@ -5,11 +5,11 @@
   <thead>
     <tr>
       <th>№</th>
-      <th>Фото</th>
-      <th>Назва</th>
-      <th>Арт.</th>
-      <th>К-сть</th>
-      <th>Ціна</th>
+      <th>{% translate 'Фото' %}</th>
+      <th>{% translate 'Назва' %}</th>
+      <th>{% translate 'Арт.' %}</th>
+      <th>{% translate 'К-сть' %}</th>
+      <th>{% translate 'Ціна' %}</th>
       <th>
         <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" viewBox="0 0 32 32" style="enable-background:new 0 0 512 512" xml:space="preserve" class="">
           <g>
@@ -47,7 +47,7 @@
           {% if cart.goods_price == 0 %}
             {% translate 'Договірна' %}
           {% else %}
-            {{ cart.goods_price|floatformat:'0' }} грн.
+            {{ cart.goods_price|floatformat:'0' }} {% translate 'грн.' %}
           {% endif %}
         </td>
         <td>
@@ -64,9 +64,9 @@
     <tr>
       <td colspan="7">
         <div class="final-price">
-          <p>Всього:</p>
+          <p>{% translate 'Всього:' %}</p>
           <p>
-            <span>{{ carts.total_price }} грн.</span>
+            <span>{{ carts.total_price }} {% translate 'грн.' %}</span>
           </p>
         </div>
       </td>

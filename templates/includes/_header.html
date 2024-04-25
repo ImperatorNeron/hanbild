@@ -10,10 +10,12 @@
   <div class="up-section">
     <div class="logo-tagline">
       <div class="logo-wrap">
-        <div class="logo">
-          <img class="logotype" src="{% static 'hanbild/icons/logo_dv.svg' %}" alt="logo" />
-          <img src="{% static 'hanbild/icons/logobg_dv.svg' %}" alt="" />
-        </div>
+        <a href="{% url "main:index" %}">
+          <div class="logo">
+            <img class="logotype" src="{% static 'hanbild/icons/logo_dv.svg' %}" alt="logo" />
+            <img src="{% static 'hanbild/icons/logobg_dv.svg' %}" alt="" />
+          </div>
+        </a>
       </div>
       <div class="tagline">
         <p>
@@ -86,7 +88,7 @@
             {% get_services as services %}
             {% for service in services %}
               <li>
-                <a href="#">{{ service.service_name }}</a>
+                <a href="#{{ service.index_on_page }}">{{ service.service_name }}</a>
               </li>
             {% endfor %}
           </ul>
@@ -101,7 +103,7 @@
           <ul id="submenu-special" class="submenu">
             {% for category in categories %}
               <li>
-                <a href="#">{{ category.name }}</a>
+                <a href="{{ category.slug }}">{{ category.name }}</a>
               </li>
             {% endfor %}
           </ul>

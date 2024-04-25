@@ -58,3 +58,4 @@ class SuccessOrderView(BaseApplicationFormView):
 
     template_name = "order/success_order.html"
     success_url = reverse_lazy("order:success-order")
+    title = _("Замовлення пройшло успішно!")

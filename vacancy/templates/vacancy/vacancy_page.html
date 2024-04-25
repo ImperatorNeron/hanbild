@@ -9,9 +9,9 @@
       <div class="breadcrumbs">
         <ul>
           <li>
-            <a href="{% url 'main:index' %}">Головна сторінка</a>
+            <a href="{% url 'main:index' %}">{% translate 'Головна сторінка' %}</a>
           </li>
-          <li>Вакансії</li>
+          <li>{% translate 'Вакансії' %}</li>
         </ul>
       </div>
     </div>
@@ -34,7 +34,7 @@
             <path d="m418.919 205.005-29.388-65.723H298.69v123.641H34.511v28.108h29.391c-.235 1.598-.397 3.219-.397 4.881 0 18.219 14.65 32.988 32.723 32.988s32.723-14.77 32.723-32.988c0-1.662-.162-3.283-.397-4.881H161.6c-.235 1.598-.397 3.219-.397 4.881 0 18.219 14.65 32.988 32.723 32.988 18.071 0 32.722-14.77 32.722-32.988 0-1.662-.161-3.283-.396-4.881h78.869c-.235 1.598-.397 3.219-.397 4.881 0 18.219 14.65 32.988 32.723 32.988 18.071 0 32.722-14.77 32.722-32.988 0-1.662-.161-3.283-.396-4.881h49.146v-86.026zM96.227 308.824c-7.074 0-12.809-5.781-12.809-12.912 0-1.729.343-3.374.953-4.881 1.91-4.711 6.495-8.033 11.855-8.033s9.945 3.322 11.855 8.033c.61 1.507.953 3.152.953 4.881.001 7.131-5.733 12.912-12.807 12.912zm97.696 0c-7.074 0-12.809-5.781-12.809-12.912 0-1.729.343-3.374.953-4.881 1.91-4.711 6.495-8.033 11.855-8.033s9.945 3.322 11.854 8.033c.611 1.507.954 3.152.954 4.881.001 7.131-5.733 12.912-12.807 12.912zm143.519 0c-7.074 0-12.809-5.781-12.809-12.912 0-1.729.343-3.374.953-4.881 1.91-4.711 6.495-8.033 11.855-8.033s9.945 3.322 11.854 8.033c.611 1.507.954 3.152.954 4.881.002 7.131-5.732 12.912-12.807 12.912zm-17.123-105.056a.889.889 0 0 1-.889-.889v-44.402c0-.491.397-.889.889-.889h55.921c1.179 0 2.246.698 2.718 1.779l19.4 44.401h-78.039z" fill="#000000" opacity="1" data-original="#000000" class=""></path>
           </g>
         </svg>
-        <h2>Список наявних вакансій</h2>
+        <h2>{% translate 'Список наявних вакансій' %}</h2>
       </div>
       <div class="vacancies-block">
         {% for vacancy in vacancies %}
@@ -43,9 +43,9 @@
               <div class="vacancy-left-block">
                 <h2>{{ vacancy.position }}</h2>
                 {% if vacancy.min_salary == vacancy.max_salary %}
-                  <h4>{{ vacancy.min_salary }} грн</h4>
+                  <h4>{{ vacancy.min_salary }} {% translate 'грн' %}</h4>
                 {% else %}
-                  <h4>{{ vacancy.min_salary }} - {{ vacancy.max_salary }} грн</h4>
+                  <h4>{{ vacancy.min_salary }} - {{ vacancy.max_salary }} {% translate 'грн' %}</h4>
                 {% endif %}
               </div>
               <div class="vacancy-right-block">
@@ -61,7 +61,7 @@
                   {% if description.vacancy == vacancy %}
                     {% if description.choice == 1 %}
                       {% if flag %}
-                        <h3>Вимоги</h3>
+                        <h3>{% translate 'Вимоги' %}</h3>
                         {% change_flag 0 as flag %}
                       {% endif %}
                       <div class="requirements">
@@ -77,7 +77,7 @@
                   {% if description.vacancy == vacancy %}
                     {% if description.choice == 2 %}
                       {% if flag %}
-                        <h3>Обов'язки</h3>
+                        <h3>{% translate 'Обов`язки' %}</h3>
                         {% change_flag 0 as flag %}
                       {% endif %}
                       <div class="requirements">
@@ -93,7 +93,7 @@
                   {% if description.vacancy == vacancy %}
                     {% if description.choice == 3 %}
                       {% if flag %}
-                        <h3>Умови</h3>
+                        <h3>{% translate 'Умови' %}</h3>
                         {% change_flag 0 as flag %}
                       {% endif %}
                       <div class="requirements">
@@ -109,7 +109,7 @@
                   {% if description.vacancy == vacancy %}
                     {% if description.choice == 4 %}
                       {% if flag %}
-                        <h3>Від нас</h3>
+                        <h3>{% translate 'Від нас' %}</h3>
                         {% change_flag 0 as flag %}
                       {% endif %}
                       <div class="requirements">
@@ -120,7 +120,7 @@
                 {% endfor %}
                 <div class="feed-back-block">
                   <div class="form-buttons">
-                    <a class="feedback-submit-button-wrapper">{% translate 'Написати нам' %}</a>
+                    <a class="feedback-submit-button-wrapper" href="#iform">{% translate 'Написати нам' %}</a>
                     <a href="mailto:handbild@gmail.com">
                       <?xml version="1.0" encoding="UTF-8"?><svg id="_Слой_2" data-name="Слой 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 42.15 30.95">
                         <g id="_Слой_1-2" data-name="Слой 1">
@@ -139,7 +139,7 @@
                   </div>
                 </div>
               {% else %}
-                <h3>Інфомація відсутня</h3>
+                <h3>{% translate 'Інфомація відсутня' %}</h3>
               {% endif %}
             </div>
           </div>
