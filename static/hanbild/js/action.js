@@ -1,12 +1,68 @@
+document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("burger").addEventListener("click", function () {
+        document.querySelector(".wrapper").classList.toggle("open")
+    })
+})
+
+window.addEventListener('keydown', (e) => {
+    if (e.key === "Escape") {
+        document.querySelector(".wrapper").classList.remove("open")
+    }
+});
+
+
+document.getElementById("menu").addEventListener('click', event => {
+    event._isClickWithInMenu = true;
+});
+document.getElementById("burger").addEventListener('click', event => {
+    event._isClickWithInMenu = true;
+});
+document.body.addEventListener('click', event => {
+    if (event._isClickWithInMenu) return;
+    document.querySelector(".wrapper").classList.remove("open")
+});
+
+
+function toggleSubmenu(id) {
+    var submenu = document.getElementById(id);
+    if (submenu.style.display === "none") {
+        submenu.style.display = "flex";
+        localStorage.setItem(id, "open");
+    } else {
+        submenu.style.display = "none";
+        localStorage.setItem(id, "closed");
+    }
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    var submenus = document.querySelectorAll('.burgermenu');
+    submenus.forEach(function (submenu) {
+        var id = submenu.id;
+        var state = localStorage.getItem(id) || "closed";
+        if (state === "open") {
+            submenu.style.display = "flex";
+        } else {
+            submenu.style.display = "none";
+        }
+    });
+});
+
 // Function to handle accepting cookies by setting a cookie and hiding the cookie notice
 function handleAcceptCookies() {
     document.cookie = "allow-cookie-usage=true; path=/";
     document.querySelector(".cookies").style.display = "none";
+    var button = document.querySelector('.additional-elements');
+    button.style.bottom = '40px';
 }
 
 var acceptButton = document.getElementById("cookies-accept-button");
 if (acceptButton) {
     acceptButton.addEventListener("click", handleAcceptCookies);
+}
+
+if (!document.querySelector(".cookies")) {
+    var button = document.querySelector('.additional-elements');
+    button.style.bottom = '40px';
 }
 
 // Function to set up language 
@@ -24,6 +80,10 @@ function setupLanguageSelection() {
 window.addEventListener('DOMContentLoaded', setupLanguageSelection);
 document.getElementById('languageSelect').onchange = function () {
     document.getElementById('languageFormFooter').submit();
+};
+
+document.getElementById('languageSelectFooter').onchange = function () {
+    document.getElementById('languageFormFooter2').submit();
 };
 
 // Function to start animation for pulsating element

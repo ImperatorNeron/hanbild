@@ -32,12 +32,14 @@
               {% translate 'Наша компанія надає широкий спектр послуг. На цій сторінці ви знайдете детальну інформацію про кожну з них. Наша команда гарантує якісне виконання усіх завдань, враховуючи індивідуальні потреби та вимоги кожного клієнта.' %}
             </p>
           </div>
-          <div id="0"></div>
+          <div></div>
         </div>
         <div class="right-container"></div>
       </div>
-      <div class="product-cards">
+      <div class="product-cards services-cards">
         {% for service in services %}
+        <div id="{{ service.index_on_page }}" style="margin-top: -155px; padding-top: 155px;"></div>
+
           {% if forloop.counter0|divisibleby:2 %}
             <div class="service-card" data-aos="fade-right" data-aos-duration="500" data-aos-easing="easy-in-sine">
               <div class="left-container" style="background: url({{ service.service_image.url }}) no-repeat center/cover"></div>
@@ -47,7 +49,6 @@
                   {{ service.service_description|linebreaks }}
                 </div>
               </div>
-              <div id="{{ service.index_on_page|add:1 }}"></div>
             </div>
           {% else %}
             <div class="service-card" data-aos="fade-left" data-aos-duration="500" data-aos-easing="easy-in-sine">
@@ -58,9 +59,9 @@
                   {{ service.service_description|linebreaks }}
                 </div>
               </div>
-              <div id="{{ service.index_on_page|add:1 }}"></div>
             </div>
           {% endif %}
+          <div id="{{ service.index_on_page }}" style="margin-top: -155px; padding-top: 155px;"></div>
         {% endfor %}
       </div>
       <div class="add-inf">

@@ -11,7 +11,9 @@
           <li>
             <a href="{% url 'main:index' %}">{% translate 'Головна сторінка' %}</a>
           </li>
-          <li>{% translate 'Вакансії' %}</li>
+          <li>
+            {% translate 'Вакансії' %}
+          </li>
         </ul>
       </div>
     </div>
@@ -145,6 +147,7 @@
           </div>
         {% endfor %}
       </div>
+      <div id="iform" style="margin-top: -155px; padding-top: 155px; z-index: -1;"></div>
       <form class="feedback-form" method="post" id="page-contact-form">
         {% csrf_token %}
         <h3>{% translate "Форма зворотнього зв'язку" %}</h3>

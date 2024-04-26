@@ -208,7 +208,7 @@
               {% endif %}
 
               <div class="card-info-block">
-                <a class="card-title" href="">{{ item.name }}</a>
+                <a class="card-title" href="{% url "catalog:item" item.slug %}">{{ item.name }}</a>
                 <div class="price-art">
                   {% if item.price %}
                     <p>
