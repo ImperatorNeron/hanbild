@@ -41,8 +41,11 @@
         <div id="{{ service.index_on_page }}" style="margin-top: -155px; padding-top: 155px;"></div>
 
           {% if forloop.counter0|divisibleby:2 %}
-            <div class="service-card" data-aos="fade-right" data-aos-duration="500" data-aos-easing="easy-in-sine">
+            <div class="service-card" data-aos="fade-right" data-aos-duration="500" data-aos-easing="easy-in-sine" style="background: url({{ service.service_image.url }}) no-repeat center/cover">
               <div class="left-container" style="background: url({{ service.service_image.url }}) no-repeat center/cover"></div>
+              <div class="img-cont">
+                <img src="{{ service.service_image.url }}" alt="" />
+              </div>
               <div class="right-container">
                 <div class="info">
                   <h2>{{ service.service_name }}</h2>
@@ -51,8 +54,11 @@
               </div>
             </div>
           {% else %}
-            <div class="service-card" data-aos="fade-left" data-aos-duration="500" data-aos-easing="easy-in-sine">
+            <div class="service-card" data-aos="fade-left" data-aos-duration="500" data-aos-easing="easy-in-sine" style="background: url({{ service.service_image.url }}) no-repeat center/cover">
               <div class="left-container" style="background: url({{ service.service_image.url }}) no-repeat center/cover"></div>
+              <div class="img-cont">
+                <img src="{{ service.service_image.url }}" alt="" />
+              </div>
               <div class="right-container">
                 <div class="info">
                   <h2>{{ service.service_name }}</h2>

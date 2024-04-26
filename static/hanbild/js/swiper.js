@@ -10,8 +10,13 @@ new Swiper('.image-slider', {
     thumbs: {
         swiper: {
             el: '.image-mini-slider',
-            slidesPerView: 5,
+            slidesPerView: 3,
             spaceBetween: 5,
+            breakpoints: {
+                520: {
+                    slidesPerView: 5
+                },
+            },
         }
     },
 });
