@@ -145,9 +145,12 @@ const openPopUp = document.querySelector('.pulsating-element');
 const closePopUp = document.querySelector('.close-button');
 const popUp = document.querySelector('.popup-contact-form');
 const additionalElements = document.querySelector('.additional-elements');
+const scroll_body = document.getElementById("scroll-body")
 
 function handlePopUpFormClick(event) {
     event.preventDefault();
+    document.body.setAttribute('scroll', 'no');
+    document.body.style.overflow = 'hidden';
     popUp.classList.add('active');
     additionalElements.style.display = 'none';
 }
@@ -160,6 +163,8 @@ openPopUp.addEventListener('click', handlePopUpFormClick);
 
 closePopUp.addEventListener('click', () => {
     popUp.classList.remove('active');
+    document.body.removeAttribute('scroll');
+    document.body.style.overflow = '';
     additionalElements.style.display = '';
 })
 

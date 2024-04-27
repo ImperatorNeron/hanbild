@@ -3,7 +3,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
     <link rel="stylesheet" type="text/css" href="{% static 'hanbild/css/style.min.css' %}" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -18,7 +18,7 @@
 
     {% endblock %}
   </head>
-  <body>
+  <body id="scroll-body">
     {% include 'includes/_feedback_button.html' %}
     {% include 'includes/_feedback_form.html' %}
     {% include 'includes/_cookies_agreement.html' %}

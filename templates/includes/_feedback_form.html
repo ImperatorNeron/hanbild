@@ -1,7 +1,7 @@
 {% load static %}
 {% load i18n %}
 
-<div class="popup-contact-form">
+<div class="popup-contact-form" id="popup-contact-form">
   <div class="left-container"></div>
   <div class="close-button">
     <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" viewBox="0 0 348.333 348.334" style="enable-background:new 0 0 512 512" xml:space="preserve" class="">
@@ -10,7 +10,7 @@
       </g>
     </svg>
   </div>
-  <div class="right-container">
+  <div class="right-container" id="right-container">
     <img class="logotype" src="{% static 'hanbild/icons/logo_dv.svg' %}" alt="logo" />
     <form class="feedback-form" id="contact-form" method="post">
       {% csrf_token %}

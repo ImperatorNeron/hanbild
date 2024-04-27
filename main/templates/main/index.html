@@ -18,7 +18,7 @@
           <div class="info">
             <img class="logotype" src="{% static 'hanbild/icons/logo_dv.svg' %}" alt="logo" />
             <p>
-              {% translate 'Hanbild - ваш надійний партнер у сфері виробництва спеціалізованих напівпричепів, причепів та переобладнані вантажних автомобілів. Наша компанія має значний досвід у виконанні різноманітних проєктів, гарантуючи найвищу якість та індивідуальний підхід до кожного клієнта.' %}
+              {% translate 'Hanbild - ваш надійний партнер у сфері виробництва причепів та напівпричепів. Наша компанія спеціалізується на створенні надійних, безпечних і функціональних рішень для перевезення вантажів будь-якого типу і розміру. Завдяки нашому досвіду та професіоналізму ми забезпечуємо високу якість продукції та індивідуальний підхід до кожного клієнта.' %}
             </p>
           </div>
         </div>
@@ -26,41 +26,39 @@
       </div>
       <div class="first-block">
         <img src="{% static 'hanbild/icons/man1-1.svg' %}" alt="" />
-        <div class="g-p-c-c">
-          <div class="greatings">
-            <h2>{% translate 'Вас вітає,' %}</h2>
-            <h2>Hanbild!</h2>
+        <div class="greatings">
+          <h2>{% translate 'Вас вітає,' %}</h2>
+          <h2>Hanbild!</h2>
+        </div>
+        <div class="point-container">
+          <div class="point">
+            <div class="circle"></div>
+            <p>
+              {% translate 'Якість, швидкість, надійність – саме ці слова асоціюються у наших клієнтів з компанією Hanbild. Ми спеціалізуємося на створенні спеціалізованих причепів та напівпричепів, що відповідають найвищим стандартам якості.' %}
+            </p>
           </div>
-          <div class="point-container">
-            <div class="point">
-              <div class="circle"></div>
-              <p>
-                {% translate 'Якість, швидкість, надійність – саме ці слова асоціюються у наших клієнтів з компанією Hanbild. Ми спеціалізуємося на створенні спеціалізованих причепів та напівпричепів, що відповідають найвищим стандартам якості.' %}
-              </p>
-            </div>
-            <div class="point">
-              <div class="circle"></div>
-              <p>
-                {% translate 'У нашій роботі ми використовуємо тільки високоякісні матеріали та комплектуючі, що гарантує довговічність і надійність виготовленого продукту.' %}
-              </p>
-            </div>
-            <div class="point">
-              <div class="circle"></div>
-              <p>
-                {% translate 'Наша компанія працює на ринку понад 10 років, і за цей час ми зарекомендували себе як професіонали, що здатні вирішувати завдання будь-якої складності в стислі терміни.' %}
-              </p>
-            </div>
-            <div class="point">
-              <div class="circle"></div>
-              <p>
-                {% translate 'Ми пишаємося тим, що наші клієнти довіряють нам, оцінюючи нашу гнучкість, якість та індивідуальний підхід до кожного проєкту.' %}
-              </p>
-            </div>
+          <div class="point">
+            <div class="circle"></div>
+            <p>
+              {% translate 'У нашій роботі ми використовуємо тільки високоякісні матеріали та комплектуючі, що гарантує довговічність і надійність виготовленого продукту.' %}
+            </p>
+          </div>
+          <div class="point">
+            <div class="circle"></div>
+            <p>
+              {% translate 'Наша компанія працює на ринку понад 10 років, і за цей час ми зарекомендували себе як професіонали, що здатні вирішувати завдання будь-якої складності в стислі терміни.' %}
+            </p>
+          </div>
+          <div class="point">
+            <div class="circle"></div>
+            <p>
+              {% translate 'Ми пишаємося тим, що наші клієнти довіряють нам, оцінюючи нашу гнучкість, якість та індивідуальний підхід до кожного проєкту.' %}
+            </p>
           </div>
         </div>
       </div>
       <div class="home-page-wrapper">
-        <h3>{% translate 'Переваги роботи з нами' %}</h3>
+        <h3 id="adv-w">{% translate 'Переваги роботи з нами' %}</h3>
         <div class="adv-cont">
           <div class="adv">
             <p class="adv-header">
@@ -142,7 +140,7 @@
                 {% translate 'Продукція' %}
               </p>
               <div class="arr">
-                <p>▶</p>
+                <img src="{% static 'hanbild/icons/point-trig.svg' %}" alt="" width="15" height="15">
               </div>
             </a>
             <a href="{% url 'main:services' %}">
@@ -150,7 +148,7 @@
                 {% translate 'Послуги' %}
               </p>
               <div class="arr">
-                <p>▶</p>
+                <img src="{% static 'hanbild/icons/point-trig.svg' %}" alt="" width="15" height="15">
               </div>
             </a>
             <a href="{% url 'main:contacts' %}">
@@ -158,13 +156,13 @@
                 {% translate 'Контакти' %}
               </p>
               <div class="arr">
-                <p>▶</p>
+                <img src="{% static 'hanbild/icons/point-trig.svg' %}" alt="" width="15" height="15">
               </div>
             </a>
           </div>
           <img src="{% static 'hanbild/icons/man3.svg' %}" alt="" />
         </div>
-        <h3>{% translate 'Чому нас обирають' %}</h3>
+        <h3 id="why">{% translate 'Чому нас обирають' %}</h3>
       </div>
       <div class="numbers-block">
         <div class="numbers">

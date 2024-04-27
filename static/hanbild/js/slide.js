@@ -26,48 +26,76 @@ function isElementInViewportPlus(el, offset) {
 
 window.addEventListener('scroll', checkSVGAnimation);
 
-// Function to check if an element is in viewport
-function isElementInViewport(el) {
-    var rect = el.getBoundingClientRect();
-    return (
-        rect.top >= 0 &&
-        rect.left >= 0 &&
-        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-    );
-}
-
 // Function to handle visibility of elements with 'point' class
 function handleVisibility() {
     var points = document.querySelectorAll('.point');
     points.forEach(function (point) {
-        if (isElementInViewport(point)) {
+        if (isElementInViewportPlus(point, -75)) {
             point.classList.add('active');
         }
     });
 }
-
 window.addEventListener('scroll', handleVisibility);
 window.addEventListener('load', handleVisibility);
 
 
-new Swiper('.reviews-swiper-container', {
-    slidesPerView: 3,
-    centeredSlides: true,
-    spaceBetween: 30,
-    slidesPerGroup: 1,
-    loop: true,
-    loopFillGroupWithBlank: false,
+const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
 
-    pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-    },
-    navigation: {
-        nextEl: '.button-next',
-        prevEl: '.button-prev',
-    },
-    autoplay: {
-        delay: 7000
-    },
-});
+if (isIOS) {
+    new Swiper('.reviews-swiper-container', {
+        slidesPerView: 1,
+        centeredSlides: true,
+        spaceBetween: 100,
+
+        slidesPerGroup: 1,
+        loop: true,
+        loopFillGroupWithBlank: false,
+
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: '.button-next',
+            prevEl: '.button-prev',
+        },
+
+        autoplay: {
+            delay: 7000
+        },
+    });
+} else {
+    new Swiper('.reviews-swiper-container', {
+        slidesPerView: 1,
+        centeredSlides: true,
+        spaceBetween: 100,
+
+        slidesPerGroup: 1,
+        loop: true,
+        loopFillGroupWithBlank: false,
+
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: '.button-next',
+            prevEl: '.button-prev',
+        },
+
+        breakpoints: {
+            720: {
+                slidesPerView: 1,
+                spaceBetween: 1000
+            },
+            972: {
+                slidesPerView: 3,
+                spaceBetween: 0
+
+            },
+        },
+        autoplay: {
+            delay: 7000
+        },
+    });
+}
