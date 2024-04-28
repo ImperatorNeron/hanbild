@@ -2,7 +2,7 @@
 let sliders = document.querySelectorAll(".my-slider");
 let displayValOne = document.getElementById("range1");
 let displayValTwo = document.getElementById("range2");
-let minGap = 254000;
+let minGap = 326000;
 let sliderTrack = document.querySelector(".my-slider-track");
 let sliderMaxValue = sliders[0].max;
 

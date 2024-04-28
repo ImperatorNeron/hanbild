@@ -486,18 +486,6 @@ header button svg {
     width: 20%
 }
 
-.fhfhf {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    gap: 10px;
-    height: 25px;
-    margin-bottom: 10px;
-}
-
 #cart {
     margin-left: 15px;
     height: 45px;
@@ -549,11 +537,16 @@ main {
     background-size: 100% auto
 }
 
+main #breadcrumbs-main {
+    width: 22%
+}
+
 main .breadcrumbs ul {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     text-align: center;
+    width: 90vw;
     font-size: 15px;
     gap: 5px;
     -webkit-box-align: stretch;
@@ -593,9 +586,10 @@ main .content {
 
 main aside {
     background-color: #fff;
-    width: 23vw;
+    width: 22%;
     border-radius: 8px;
     padding: 20px;
+    padding-right: 0;
     height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content
@@ -640,21 +634,22 @@ main aside .filtermenu-button {
     display: flex;
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
-    justify-content: space-between
+    justify-content: space-between;
+    padding-right: 20px
 }
 
 main aside .filtermenu-button button {
     font-family: "Raleway", Sans-serif;
-    width: 80%;
+    width: calc(100% - 55px);
     padding: 10px 0;
     text-transform: uppercase;
     font-weight: 800;
-    border-radius: 5px;
+    border-radius: 8px;
     font-size: 14px;
     background-color: #f0500a;
     -webkit-transition: .2s;
     transition: .2s;
-    cursor: pointer
+    cursor: pointer;
 }
 
 main aside .filtermenu-button button:hover {
@@ -665,8 +660,8 @@ main aside .filtermenu-button button:hover {
 }
 
 main aside .filtermenu-button button:nth-child(2) {
-    height: 40px;
-    width: 40px;
+    height: 45px;
+    width: 45px;
     background-color: #37cbf0;
     border-radius: 100%;
     padding: 10px;
@@ -703,7 +698,7 @@ main aside ul {
 }
 
 main .catalog-bar {
-    width: 100%
+    width: 78%
 }
 
 main .placing {
@@ -780,7 +775,7 @@ main .placing .menu-buttons svg:hover {
     -ms-flex-direction: column;
     flex-direction: column;
     gap: 6px;
-    margin: 0 15px 0 17px
+    margin: 0 22px 0 17px
 }
 
 .filtermenu li,
@@ -1012,8 +1007,7 @@ select {
 .cards .card a {
     font-weight: bold;
     font-size: 18px;
-    height: 55px;
-    margin: 8px 0
+    height: 50px
 }
 
 .cards .card .card-buttons {
@@ -1021,7 +1015,6 @@ select {
     display: -ms-flexbox;
     display: flex;
     width: 100%;
-    gap: 6px;
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
     justify-content: space-between
@@ -1030,7 +1023,6 @@ select {
 .cards .card .card-buttons a {
     border-radius: 100%;
     padding: 10px;
-    margin: 12px 0;
     height: 45px;
     width: 45px;
     display: -webkit-box;
@@ -1054,7 +1046,7 @@ select {
 
 .cards .card .card-buttons a:first-child {
     background-color: #f0500a;
-    width: 70%;
+    width: calc(100% - 105px);
     border-radius: 8px;
     text-transform: uppercase
 }
@@ -1092,7 +1084,7 @@ select {
     -ms-flex-direction: column;
     flex-direction: column;
     width: 100%;
-    gap: 6px;
+    gap: 12px;
     padding: 0
 }
 
@@ -1142,6 +1134,14 @@ select {
 
 .price-art #specify-price::selection {
     color: #fff
+}
+
+.button-filter {
+    display: none;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding-right: 5px
 }
 
 .pagination {
@@ -1481,7 +1481,7 @@ select {
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column;
-    gap: 38px;
+    gap: 8px;
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
     justify-content: space-between
@@ -1498,7 +1498,7 @@ select {
     font-family: "Raleway", Sans-serif;
     font-size: 18px;
     text-align: center;
-    padding: 20px 40px;
+    padding: 20px 0;
     font-weight: normal
 }
 
@@ -1506,6 +1506,10 @@ select {
     width: 20px;
     -ms-flex-item-align: end;
     align-self: end
+}
+
+.no-results p {
+    padding: 0 10px
 }
 
 .form-container {
@@ -1578,7 +1582,7 @@ input {
 
 textarea {
     resize: none;
-    height: 26vh;
+    height: 160px;
     width: 100%;
     border-radius: 5px;
     padding: 10px 8px;
@@ -3178,9 +3182,7 @@ thead tr th:last-child svg {
 }
 
 .reviews-swiper-container {
-    padding: 45px 0;
-    -webkit-transform: translateZ(0);
-    -webkit-backface-visibility: hidden;
+    padding: 45px 0
 }
 
 .reviews-card.swiper-slide:not(.swiper-slide-active) {
@@ -3322,7 +3324,7 @@ thead tr th:last-child svg {
 }
 
 .home-page .photo-block {
-    background: url(../images/red-truck.jpg) no-repeat right/auto 93%
+    background: url(../images/h-p-truck.png) no-repeat right/auto 93%
 }
 
 .home-page .home-page-wrapper {
@@ -3590,8 +3592,8 @@ thead tr th:last-child svg {
     color: #000
 }
 
-.button-block a .arr a {
-    font-size: 14px
+.button-block a .arr img {
+    height: 55%
 }
 
 .button-block a:hover {
@@ -3692,6 +3694,160 @@ thead tr th:last-child svg {
     height: 25px
 }
 
+.filter-menu {
+    position: relative;
+    font-family: "Raleway", Sans-serif;
+    height: 100%;
+    position: fixed;
+    left: -350px;
+    top: 0;
+    width: 350px;
+    visibility: hidden;
+    padding: 70px 0 40px 24px;
+    -webkit-transition: visibility .5s, -webkit-transform .5s;
+    transition: visibility .5s, -webkit-transform .5s;
+    transition: transform .5s, visibility .5s;
+    transition: transform .5s, visibility .5s, -webkit-transform .5s;
+    will-change: transform;
+    z-index: 4000;
+    overflow-y: scroll;
+    background-color: #fff
+}
+
+.filter-menu::-webkit-scrollbar {
+    display: none
+}
+
+.filter-menu h2 {
+    text-transform: uppercase;
+    color: #f0500a;
+    font-weight: 900;
+    font-size: 20px
+}
+
+.filter-menu h2::-moz-selection {
+    color: #fff
+}
+
+.filter-menu h2::selection {
+    color: #fff
+}
+
+.filter-menu h3 {
+    text-transform: uppercase;
+    font-weight: 800;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    font-size: 16px
+}
+
+.filter-menu .head-line svg {
+    margin-top: 4px;
+    width: 10px;
+    -webkit-transition: .25s;
+    transition: .25s;
+    cursor: pointer
+}
+
+.filter-menu .filtermenu-button {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding-right: 20px
+}
+
+.filter-menu .filtermenu-button button {
+    font-family: "Raleway", Sans-serif;
+    width: calc(100% - 50px);
+    padding: 10px 0;
+    text-transform: uppercase;
+    font-weight: 800;
+    border-radius: 8px;
+    font-size: 14px;
+    background-color: #f0500a;
+    -webkit-transition: .2s;
+    transition: .2s;
+    cursor: pointer;
+    color: black;
+}
+
+.filter-menu .filtermenu-button button:hover {
+    background-color: #4341c4;
+    color: #d8d8d8;
+    -webkit-transition: .2s;
+    transition: .2s
+}
+
+.filter-menu .filtermenu-button a {
+    height: 40px;
+    width: 40px;
+    background-color: #37cbf0;
+    border-radius: 100%;
+    padding: 10px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center
+}
+
+.filter-menu .filtermenu-button a:hover {
+    background-color: #4341c4;
+    color: #d8d8d8;
+    -webkit-transition: .2s;
+    transition: .2s
+}
+
+.filter-menu .filtermenu-button a:hover svg {
+    -webkit-transition: .2s;
+    transition: .2s;
+    fill: #fff
+}
+
+.filter-menu .filtermenu-button a svg {
+    height: 22px
+}
+
+.filter-menu .filtermenu-button button {
+    width: 84%
+}
+
+.wrapper.open-filter .filter-menu {
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+    visibility: visible
+}
+
+.wrapper.open-filter .body-overlay2 {
+    opacity: 1;
+    visibility: visible
+}
+
+.body-overlay2 {
+    opacity: 0;
+    visibility: hidden;
+    background-color: rgba(0, 0, 0, .5);
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2000;
+    -webkit-transition: all .3s ease-out;
+    transition: all .3s ease-out
+}
+
 .header__burger-btn {
     display: none;
     position: relative;
@@ -3702,23 +3858,8 @@ thead tr th:last-child svg {
     outline: none;
     z-index: 5000;
     cursor: pointer;
-    overflow: hidden
-}
-
-.header__burger-btn::after {
-    content: "";
-    position: absolute;
-    top: -14px;
-    height: 63px;
-    z-index: -1;
-    background-color: #131313;
-    right: -385px;
-    width: 350px;
-    visibility: hidden;
-    -webkit-transition: visibility .5s, -webkit-transform .5s;
-    transition: visibility .5s, -webkit-transform .5s;
-    transition: transform .5s, visibility .5s;
-    transition: transform .5s, visibility .5s, -webkit-transform .5s
+    overflow: hidden;
+    border-radius: 5px
 }
 
 .header__burger-btn span {
@@ -3737,6 +3878,37 @@ thead tr th:last-child svg {
 
 .header__burger-btn:hover span {
     background-color: #fff
+}
+
+.filter-menu-btn {
+    background-color: #fff;
+    outline: none;
+    overflow: hidden;
+    position: fixed;
+    z-index: 5000;
+    width: 40px;
+    height: 40px;
+    right: 30px;
+    top: 12px;
+    border-radius: 5px
+}
+
+.filter-menu-btn span {
+    position: absolute;
+    width: 30px;
+    height: 3px;
+    left: 5px;
+    background-color: #000
+}
+
+.filter-menu-btn span:nth-child(1) {
+    -webkit-transform: translateY(0) rotate(45deg);
+    transform: translateY(0) rotate(45deg)
+}
+
+.filter-menu-btn span:nth-child(2) {
+    -webkit-transform: translateY(0) rotate(-45deg);
+    transform: translateY(0) rotate(-45deg)
 }
 
 .header__burger-btn span:nth-child(1) {
@@ -3760,6 +3932,7 @@ thead tr th:last-child svg {
 }
 
 .wrapper.open .header__burger-btn {
+    background-color: #131313;
     position: fixed;
     top: 14px;
     right: 23px
@@ -3816,7 +3989,8 @@ thead tr th:last-child svg {
     flex-direction: column;
     gap: 20px;
     height: 100%;
-    overflow-y: scroll
+    overflow-y: scroll;
+    height: 100%
 }
 
 .menu::-webkit-scrollbar {
@@ -3966,12 +4140,12 @@ thead tr th:last-child svg {
 }
 
 @media(max-width: 1415px) {
-    main aside .filtermenu-button button {
-        width: 78%
-    }
-
     #cart {
         margin-left: 9px
+    }
+
+    .pagination {
+        font-size: 17px
     }
 }
 
@@ -3981,15 +4155,11 @@ thead tr th:last-child svg {
     }
 
     .cards .card {
-        gap: 5px
+        gap: 7px
     }
 
     .cards .card a {
         font-size: 17px
-    }
-
-    .cards .card .card-buttons a {
-        margin: 10px 0
     }
 
     .cards .price-art p {
@@ -4048,16 +4218,23 @@ thead tr th:last-child svg {
         width: 160px
     }
 
-    main aside .filtermenu-button button {
-        width: 77%
-    }
-
     .first-block {
         width: 95%
     }
 }
 
 @media(max-width: 1254px) {
+
+    .pagination a:first-child,
+    .pagination a:last-child {
+        height: 28px;
+        width: 28px
+    }
+
+    .pagination {
+        font-size: 16px
+    }
+
     .add-inf p {
         font-size: 13px
     }
@@ -4118,6 +4295,24 @@ thead tr th:last-child svg {
 }
 
 @media(max-width: 1200px) {
+    .cards .card .card-buttons a {
+        height: 40px;
+        width: 40px
+    }
+
+    main aside .filtermenu-button button:nth-child(2) {
+        height: 40px;
+        width: 40px
+    }
+
+    .cards .card .card-buttons a:first-child {
+        width: calc(100% - 95px)
+    }
+
+    main aside .filtermenu-button button {
+        width: calc(100% - 50px)
+    }
+
     .popup-contact-form .right-container {
         padding: 68px 57px
     }
@@ -4136,6 +4331,10 @@ thead tr th:last-child svg {
         -webkit-column-gap: 34px;
         -moz-column-gap: 34px;
         column-gap: 34px
+    }
+
+    .cards {
+        grid-template-columns: repeat(auto-fill, minmax(285px, 1fr))
     }
 
     .up-section .logo-tagline .tagline {
@@ -4181,9 +4380,25 @@ thead tr th:last-child svg {
     .reviews-block {
         width: 98%
     }
+
+    main .content {
+        gap: 10px
+    }
 }
 
 @media(max-width: 1125px) {
+    main #breadcrumbs-main {
+        width: 27%
+    }
+
+    .up-main-section {
+        gap: 10px
+    }
+
+    main aside {
+        width: 27%
+    }
+
     .our-product {
         gap: 19px
     }
@@ -4194,6 +4409,57 @@ thead tr th:last-child svg {
 }
 
 @media(max-width: 1100px) {
+    .up-main-section .search-line {
+        font-size: 16px
+    }
+
+    .cards .price-art p {
+        font-size: 17px
+    }
+
+    .catalog-bar label {
+        font-size: 14px
+    }
+
+    select {
+        line-height: 28px;
+        width: 48px
+    }
+
+    .filtermenu,
+    .burgermenu {
+        margin: 0 20px 0 17px
+    }
+
+    main aside {
+        padding: 17px;
+        padding-right: 0
+    }
+
+    main aside .filtermenu-button {
+        padding-right: 17px
+    }
+
+    input[type=checkbox]+label {
+        font-size: 14px
+    }
+
+    input[type=radio]+label {
+        font-size: 14px
+    }
+
+    main aside h2 {
+        font-size: 21px
+    }
+
+    .filter-heading svg {
+        width: 17px
+    }
+
+    main aside h3 {
+        font-size: 17px
+    }
+
     .popup-contact-form .right-container img {
         width: 32%
     }
@@ -4300,6 +4566,10 @@ thead tr th:last-child svg {
 }
 
 @media(max-width: 1050px) {
+    .pagination {
+        margin: 25px auto
+    }
+
     .first-block img {
         width: 440px
     }
@@ -4341,6 +4611,34 @@ thead tr th:last-child svg {
 }
 
 @media(max-width: 972px) {
+    .no-results img {
+        width: 50%
+    }
+
+    .up-main-section .search-line {
+        text-align: left
+    }
+
+    main #breadcrumbs-main {
+        width: 202px
+    }
+
+    .up-main-section {
+        gap: 22px
+    }
+
+    .button-filter {
+        display: block
+    }
+
+    main .catalog-bar {
+        width: 100%
+    }
+
+    main aside {
+        display: none
+    }
+
     .reviews-block {
         width: 57%
     }
@@ -4456,6 +4754,12 @@ thead tr th:last-child svg {
 }
 
 @media(max-width: 899px) {
+    .button-filter {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex
+    }
+
     .form-contact-block .connection-block {
         gap: 6px
     }
@@ -4663,6 +4967,10 @@ thead tr th:last-child svg {
 }
 
 @media(max-width: 850px) {
+    .no-results img {
+        width: 55%
+    }
+
     footer {
         background-size: 38%
     }
@@ -4880,10 +5188,29 @@ thead tr th:last-child svg {
 }
 
 @media(max-width: 680px) {
+    .up-main-section {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column
+    }
+
     .first-block {
         width: 95%;
         margin: 28px auto;
         row-gap: 17px
+    }
+
+    .up-main-section .search-line {
+        text-align: center
+    }
+
+    .up-main-section {
+        gap: 9px
+    }
+
+    main #breadcrumbs-main {
+        width: 100%
     }
 
     .home-page .home-page-wrapper {
@@ -4916,7 +5243,6 @@ thead tr th:last-child svg {
         font-weight: 600;
         color: #ffffff
     }
-
 
     footer {
         display: -webkit-box;
@@ -4961,18 +5287,18 @@ thead tr th:last-child svg {
 @media(max-width: 660px) {
     .product-cards {
         gap: 30px;
-        margin: 30px auto;
+        margin: 30px auto
     }
 
     .product-card:nth-child(n) .right-container .info,
     .service-card:nth-child(n) .right-container .info {
         width: 100%;
-        padding: 0 30px;
+        padding: 0 30px
     }
 
     .product-card:nth-child(n) .right-container,
     .service-card:nth-child(n) .right-container {
-        background: rgba(0, 0, 0, .747);
+        background: rgba(0, 0, 0, .747)
     }
 }
 
@@ -5008,6 +5334,15 @@ thead tr th:last-child svg {
 }
 
 @media(max-width: 620px) {
+    .no-results {
+        font-size: 15px;
+        text-align: center
+    }
+
+    .no-results img {
+        width: 66%
+    }
+
     .home-page .home-page-wrapper h3::after {
         width: 60px;
         right: -73px
@@ -5380,6 +5715,15 @@ thead tr th:last-child svg {
 }
 
 @media(max-width: 349px) {
+    .filter-menu {
+        left: -320px;
+        width: 320px
+    }
+
+    .filter-menu .filtermenu-button button {
+        width: 83%
+    }
+
     .first-block img {
         width: 280px
     }
@@ -5404,6 +5748,15 @@ thead tr th:last-child svg {
 }
 
 @media(max-width: 330px) {
+    .filter-menu {
+        left: -280px;
+        width: 280px
+    }
+
+    .filter-menu .filtermenu-button button {
+        width: 80%
+    }
+
     .numbers {
         gap: 35px
     }
@@ -5526,9 +5879,8 @@ main aside .filtermenu-button a svg {
 /* range */
 .my-slider-wrapper {
     position: relative;
-    width: 200px;
+    width: 170px;
     padding: 10px 0;
-    margin: 0 auto;
 }
 
 .my-slider-container {
@@ -5551,7 +5903,7 @@ main aside .filtermenu-button a svg {
     outline: none;
 }
 
-.my-slider-track {
+.my-slider-track, .my-slider-track1 {
     width: 100%;
     height: 2px;
     position: absolute;
@@ -5601,11 +5953,11 @@ input[type=range]::-ms-track {
 
 input[type=range]::-webkit-slider-thumb {
     -webkit-appearance: none;
-    height: 1.7em;
-    width: 1.7em;
+    height: 24px;
+    width: 24px;
     background-color: #f0500a;
     cursor: pointer;
-    margin-top: -10.8px;
+    margin-top: -11.7px;
     pointer-events: auto;
     border-radius: 50%;
     z-index: 1;
@@ -6520,6 +6872,18 @@ main .breadcrumbs ul li:before {
 /* END EMPTY CART */
 
 /* COOKIES MEDIA */
+
+.fhfhf {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    gap: 10px;
+    height: 25px;
+    margin-bottom: 10px;
+}
 
 #cookies-accept-button {
     color: black;

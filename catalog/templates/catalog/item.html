@@ -14,7 +14,7 @@
 {% block content %}
   <main class="main">
     <div class="up-main-section">
-      <div class="breadcrumbs" id="single-card">
+      <div class="breadcrumbs" id="breadcrumbs-main">
         <ul>
           <li>
             <a href="{% url 'main:index' %}">{% translate 'Головна сторінка' %}</a>
@@ -22,7 +22,7 @@
           <li>
             <a href="{% url 'catalog:catalog' %}">{% translate 'Каталог' %}</a>
           </li>
-          <li>{{ item.name }}</li>
+          <li>{{ item.name|truncatechars:10 }}</li>
         </ul>
       </div>
     </div>

@@ -22,6 +22,48 @@ document.body.addEventListener('click', event => {
     document.querySelector(".wrapper").classList.remove("open")
 });
 
+const filter_menu_btn = document.getElementById("filter-menu-btn")
+
+if (filter_menu_btn) {
+    filter_menu_btn.addEventListener('click', function () {
+        document.querySelector(".wrapper").classList.remove("open-filter");
+    });
+}
+
+window.addEventListener('keydown', (e) => {
+    if (e.key === "Escape") {
+        document.querySelector(".wrapper").classList.remove("open-filter")
+    }
+});
+
+document.body.addEventListener('click', event => {
+    if (event._isClickWithInMenu) return;
+    document.querySelector(".wrapper").classList.remove("open-filter")
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const button_filter = document.getElementById("button-filter")
+    if (button_filter) {
+        document.getElementById("button-filter").addEventListener("click", function () {
+            document.querySelector(".wrapper").classList.toggle("open-filter")
+        })
+    }
+})
+
+const filter_menu = document.getElementById("filter-menu")
+const button_filter = document.getElementById("button-filter")
+
+if (filter_menu) {
+    filter_menu.addEventListener('click', event => {
+        event._isClickWithInMenu = true;
+    });
+}
+
+if (button_filter) {
+    button_filter.addEventListener('click', event => {
+        event._isClickWithInMenu = true;
+    });
+}
 
 function toggleSubmenu(id) {
     var submenu = document.getElementById(id);

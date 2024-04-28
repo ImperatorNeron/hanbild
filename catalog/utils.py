@@ -66,6 +66,7 @@ def filter_categories(request, result):
     if keys := keys_list:
         qeary = Q()
         for key in keys:
+            print(key)
             qeary |= Q(category__slug=key)
         return result.filter(qeary)
     return result
